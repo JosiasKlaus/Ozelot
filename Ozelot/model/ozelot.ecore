@@ -1,3 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="ozelot" nsURI="http://www.thm.de/ozelot" nsPrefix="ozelot"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ozelot" nsURI="http://www.thm.de/ozelot" nsPrefix="ozelot">
+  <eClassifiers xsi:type="ecore:EClass" name="Mod">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
+        eType="#//Block"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toolProperty" eType="#//ToolProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onTick" upperBound="-1"
+        eType="#//OnTickEffect"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onAttack" upperBound="-1"
+        eType="#//SelfOtherEffect"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UsableItem" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foodProperty" eType="#//FoodProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onUse" upperBound="-1"
+        eType="#//Effect"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FoodProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ToolProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Block">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onStepOn" upperBound="-1"
+        eType="#//Effect"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onDestroyed" upperBound="-1"
+        eType="#//Effect"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onPlaced" upperBound="-1"
+        eType="#//Effect"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Effect"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SelfOtherEffect" eSuperTypes="#//Effect"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OnTickEffect" eSuperTypes="#//Effect"/>
+</ecore:EPackage>
