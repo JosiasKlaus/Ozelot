@@ -6,6 +6,7 @@
         eType="#//Item"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
         eType="#//Block"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="toolProperty" eType="#//ToolProperty"/>
@@ -13,13 +14,28 @@
         eType="#//OnTickEffect"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onAttack" upperBound="-1"
         eType="#//SelfOtherEffect"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glows" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxStackSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="64"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isImmuneToFire" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ItemId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UsableItem" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="foodProperty" eType="#//FoodProperty"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onUse" upperBound="-1"
         eType="#//Effect"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FoodProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FoodProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nutrition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="4"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="saturation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="0.3"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMeat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAlwaysEdible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ToolProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="onStepOn" upperBound="-1"
@@ -28,6 +44,7 @@
         eType="#//Effect"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onPlaced" upperBound="-1"
         eType="#//Effect"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Effect"/>
   <eClassifiers xsi:type="ecore:EClass" name="SelfOtherEffect" eSuperTypes="#//Effect"/>
