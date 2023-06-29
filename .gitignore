@@ -1,2 +1,9 @@
 # User-specific stuff
 .metadata/
+
+# ReferenceMod 
+ReferenceMod/.gradle/
+ReferenceMod/.settings/
+ReferenceMod/bin/
+ReferenceMod/build/
+ReferenceMod/run/

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ozelot -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ozelot.presentation.OzelotModelWizardID"
+            name="%_UI_OzelotModelWizard_label"
+            class="ozelot.presentation.OzelotModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/OzelotModelFile.gif">
+         <description>%_UI_OzelotModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ozelot -->
+      <editor
+            id="ozelot.presentation.OzelotEditorID"
+            name="%_UI_OzelotEditor_label"
+            icon="icons/full/obj16/OzelotModelFile.gif"
+            extensions="ozelot"
+            class="ozelot.presentation.OzelotEditor"
+            contributorClass="ozelot.presentation.OzelotActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

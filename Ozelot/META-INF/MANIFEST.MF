@@ -1,7 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Ozelot
-Bundle-SymbolicName: Ozelot; singleton:=true
+Bundle-Name: %pluginName
+Bundle-SymbolicName: Ozelot;singleton:=true
+Automatic-Module-Name: Ozelot
 Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: ozelot,
+ ozelot.impl,
+ ozelot.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy
