@@ -20,10 +20,9 @@
         defaultValueLiteral="64"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isImmuneToFire" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ItemId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UsableItem" eSuperTypes="#//Item">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="foodProperty" eType="#//FoodItem"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onUse" upperBound="-1"
         eType="#//Effect"/>
   </eClassifiers>
