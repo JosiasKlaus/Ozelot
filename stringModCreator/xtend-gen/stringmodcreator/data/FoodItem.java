@@ -1,17 +1,18 @@
 package stringmodcreator.data;
 
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 
 @Accessors
 @SuppressWarnings("all")
 public class FoodItem extends UsableItem {
-  public FoodItem(final ToolProperty toolProperty, final String iconPath, final boolean glows, final int maxStackSize, final boolean isImmuneToFire, final String itemId) {
-    super(toolProperty, iconPath, glows, maxStackSize, isImmuneToFire, itemId);
-    this.nutrition = this.nutrition;
-    this.saturation = this.saturation;
-    this.isMeat = this.isMeat;
-    this.isAlwaysEdible = this.isAlwaysEdible;
+  public FoodItem(final ToolProperty toolProperty, final String iconPath, final boolean glows, final int maxStackSize, final boolean isImmuneToFire, final String itemId, final List<Translation> translations, final int nutrition, final float saturation, final boolean isMeat, final boolean isAlwaysEdible) {
+    super(toolProperty, iconPath, glows, maxStackSize, isImmuneToFire, itemId, translations);
+    this.nutrition = nutrition;
+    this.saturation = saturation;
+    this.isMeat = isMeat;
+    this.isAlwaysEdible = isAlwaysEdible;
   }
 
   private int nutrition;

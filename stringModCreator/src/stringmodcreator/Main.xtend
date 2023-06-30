@@ -5,7 +5,8 @@ import stringmodcreator.data.Item
 import stringmodcreator.data.Mod
 import stringmodcreator.generator.FolderGenerator
 import stringmodcreator.generator.ForgeSetup
-import stringmodcreator.generator.content.MainContent
+import stringmodcreator.data.Translation
+import stringmodcreator.generator.content.MainGenerator
 
 class Main {
 	public static final String SOURCE_FOLDER_PATH = 'src-gen/';
@@ -15,19 +16,28 @@ class Main {
 		
 		FolderGenerator.generateFolderStructure(mod)
 		ForgeSetup.run(mod)
-		MainContent.run(mod)
+		MainGenerator.run(mod)
 	} 
 
 	def static Mod getData(){
-		return new Mod('mtm'
+		return new Mod('examplemod'
 			, 'My Test Mod'
 			, 'this is my test mod'
 			, 'Author'
 			, 'C:/Users/johfr/Desktop/my_mod.png'
 			, '0.0.1'
 			, <Item>newArrayList(
-					new Item(null, 'C:/Users/johfr/Desktop/my_item.png', false, 64, false, 'my_1_item'),
-					new Item(null, 'C:/Users/johfr/Desktop/my_item.png', false, 16, false, 'my_2_item')
+					new Item(null, 'C:/Users/johfr/Desktop/my_item.png', true, 64, false, 'my_1_item',
+						<Translation>newArrayList(
+							new Translation("en_us", "My 1 Item", "This is my 1st Item!")
+						)
+					),
+					new Item(null, 'C:/Users/johfr/Desktop/my_item.png', false, 16, true, 'my_2_item',
+						<Translation>newArrayList(
+							new Translation("en_us", "My 1 Item", "This is my 2nd Item!"),
+							new Translation("de_de", "Item 2", "Das ist mein 2. Item")
+						)
+					)
 			), <Block>newArrayList(
 					new Block(),
 					new Block(),

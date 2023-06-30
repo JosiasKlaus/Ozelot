@@ -21,6 +21,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isImmuneToFire" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="translations" upperBound="-1"
+        eType="#//Translation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UsableItem" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="onUse" upperBound="-1"
@@ -48,4 +50,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Effect"/>
   <eClassifiers xsi:type="ecore:EClass" name="SelfOtherEffect" eSuperTypes="#//Effect"/>
   <eClassifiers xsi:type="ecore:EClass" name="OnTickEffect" eSuperTypes="#//Effect"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Translation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="en_us"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

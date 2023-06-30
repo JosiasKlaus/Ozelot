@@ -16,7 +16,7 @@ class FileGenerator {
 		)
 	}
 	
-	def static void generateJavaClass(String className, String packageExtension, String extensions, String imports, String content, Mod mod, boolean isMain){
+	def static void generateJavaClass(String className, String packageExtension, String extensions, String imports, String content, Mod mod, boolean isMain, boolean onlyGen){
 		generateFile(
 			className + "Gen.java",
 			(FolderGenerator.getBaseCodeFolder(mod) + (packageExtension.length > 0 ? "." + packageExtension : "")).replace(".", "/"),
@@ -27,8 +27,10 @@ class FileGenerator {
 			
 			/**
 			 * This class is automatically generated. Any manual overwriting of this code will be overwritten upon generation.
+			«IF !onlyGen»
 			 * <br>If you want to overwrite the contents of the file, use the file "«className + ".java"»" instead.
 			 * @see «className»
+			«ENDIF»
 			 */
 			class «className + 'Gen'» «extensions» {
 				«FOR i : content.split("\n")»«i+"\n"»«ENDFOR»
@@ -37,28 +39,31 @@ class FileGenerator {
 			true
 		)
 		
-		generateFile(
-			className + ".java",
-			(FolderGenerator.getBaseCodeFolder(mod) + (packageExtension.length > 0 ? "." + packageExtension : "")).replace(".", "/"),
-			'''
-			package «FolderGenerator.getBasePackage(mod) + (packageExtension.length > 0 ? "." + packageExtension : "")»
-			
-			«isMain ? "import net.minecraftforge.fml.common.Mod;" : ""»
-			
-			/**
-			 * This file is only initially generated. Manual changes to the file are retained after generation.
-			 * @see «className + "Gen"»
-			 */
-			«isMain ? "@Mod(" + className + ".MOD_ID)" : ""»
-			class «className» extends «className + 'Gen'»{
+		if(!onlyGen){
+			generateFile(
+				className + ".java",
+				(FolderGenerator.getBaseCodeFolder(mod) + (packageExtension.length > 0 ? "." + packageExtension : "")).replace(".", "/"),
+				'''
+				package «FolderGenerator.getBasePackage(mod) + (packageExtension.length > 0 ? "." + packageExtension : "")»
 				
-			}
-			''',
-			false
-		)
+				«isMain ? "import net.minecraftforge.fml.common.Mod;" : ""»
+				
+				/**
+				 * This file is only initially generated. Manual changes to the file are retained after generation.
+				 * @see «className + "Gen"»
+				 */
+				«isMain ? "@Mod(" + className + ".MOD_ID)" : ""»
+				class «className» extends «className + 'Gen'» {
+					
+				}
+				''',
+				false
+			)
+		}
+		
 	}
 	
 	def static void generateJavaClass(String className, String packageExtension, String extensions, String imports, String content, Mod mod){
-		generateJavaClass(className, packageExtension, extensions, imports, content, mod, false);
+		generateJavaClass(className, packageExtension, extensions, imports, content, mod, false, false);
 	}
 }

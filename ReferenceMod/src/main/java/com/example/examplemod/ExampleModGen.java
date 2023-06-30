@@ -1,6 +1,8 @@
 package com.example.examplemod;
 
 import org.slf4j.Logger;
+
+import com.example.examplemod.item.ItemInit;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,7 +15,7 @@ public class ExampleModGen {
     public ExampleModGen() {
 
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        // ItemInit.register(eventBus);
+        ItemInit.register(eventBus);
         // BlockInit.register(eventBus);
         // EffectInit.register(eventBus);
 

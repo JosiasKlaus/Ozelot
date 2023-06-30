@@ -1,18 +1,20 @@
 package stringmodcreator.data;
 
+import java.util.List;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtext.xbase.lib.Pure;
 
 @Accessors
 @SuppressWarnings("all")
 public class Item {
-  public Item(final ToolProperty toolProperty, final String iconPath, final boolean glows, final int maxStackSize, final boolean isImmuneToFire, final String itemId) {
+  public Item(final ToolProperty toolProperty, final String iconPath, final boolean glows, final int maxStackSize, final boolean isImmuneToFire, final String itemId, final List<Translation> translations) {
     this.toolProperty = toolProperty;
     this.iconPath = iconPath;
     this.glows = glows;
     this.maxStackSize = maxStackSize;
     this.isImmuneToFire = isImmuneToFire;
     this.itemId = itemId;
+    this.translations = translations;
   }
 
   private ToolProperty toolProperty;
@@ -26,6 +28,8 @@ public class Item {
   private boolean isImmuneToFire;
 
   private String itemId;
+
+  private List<Translation> translations;
 
   @Pure
   public ToolProperty getToolProperty() {
@@ -79,5 +83,14 @@ public class Item {
 
   public void setItemId(final String itemId) {
     this.itemId = itemId;
+  }
+
+  @Pure
+  public List<Translation> getTranslations() {
+    return this.translations;
+  }
+
+  public void setTranslations(final List<Translation> translations) {
+    this.translations = translations;
   }
 }
