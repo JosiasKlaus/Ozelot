@@ -5,6 +5,7 @@ import stringmodcreator.data.Item
 import stringmodcreator.data.Mod
 import stringmodcreator.generator.FolderGenerator
 import stringmodcreator.generator.ForgeSetup
+import stringmodcreator.generator.content.MainContent
 
 class Main {
 	public static final String SOURCE_FOLDER_PATH = 'src-gen/';
@@ -14,6 +15,7 @@ class Main {
 		
 		FolderGenerator.generateFolderStructure(mod)
 		ForgeSetup.run(mod)
+		MainContent.run(mod)
 	} 
 
 	def static Mod getData(){

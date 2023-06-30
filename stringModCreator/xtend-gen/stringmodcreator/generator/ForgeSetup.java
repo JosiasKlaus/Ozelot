@@ -14,11 +14,11 @@ public class ForgeSetup {
     InputOutput.<String>println(_plus_1);
     String _baseFolder_1 = FolderGenerator.getBaseFolder(mod);
     String _plus_2 = (_baseFolder_1 + "/gradle/wrapper/");
-    FileGenerator.generateFile("gradle-wrapper.properties", _plus_2, ForgeSetup.getGradleWrapper());
-    FileGenerator.generateFile("build.gradle", FolderGenerator.getBaseFolder(mod), ForgeSetup.getBuildGradle(mod));
-    FileGenerator.generateFile("gradle.properties", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradleProperties());
-    FileGenerator.generateFile("gradlew", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradlew());
-    FileGenerator.generateFile("gradlew.bat", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradlewBat());
+    FileGenerator.generateFile("gradle-wrapper.properties", _plus_2, ForgeSetup.getGradleWrapper(), true);
+    FileGenerator.generateFile("build.gradle", FolderGenerator.getBaseFolder(mod), ForgeSetup.getBuildGradle(mod), true);
+    FileGenerator.generateFile("gradle.properties", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradleProperties(), true);
+    FileGenerator.generateFile("gradlew", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradlew(), true);
+    FileGenerator.generateFile("gradlew.bat", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradlewBat(), true);
   }
 
   private static String getGradleWrapper() {
@@ -79,8 +79,11 @@ public class ForgeSetup {
     _builder.newLine();
     _builder.newLine();
     _builder.newLine();
-    _builder.append("group = \'de.thm.ozelot\'");
-    _builder.newLine();
+    _builder.append("group = \'");
+    String _ozelotPackage = FolderGenerator.getOzelotPackage();
+    _builder.append(_ozelotPackage);
+    _builder.append("\'");
+    _builder.newLineIfNotEmpty();
     _builder.append("version = \'");
     String _version = mod.getVersion();
     _builder.append(_version);

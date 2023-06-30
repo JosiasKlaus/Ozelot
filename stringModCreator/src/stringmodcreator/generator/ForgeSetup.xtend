@@ -6,11 +6,11 @@ class ForgeSetup {
 	def static void run(Mod mod){
 		println("\n\nForgeSetup:")
 		println('Coping "gradle-wrapper.jar" to "' + FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper/"')
-		FileGenerator.generateFile("gradle-wrapper.properties", FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper/', getGradleWrapper)
-		FileGenerator.generateFile("build.gradle", FolderGenerator.getBaseFolder(mod), getBuildGradle(mod))
-		FileGenerator.generateFile("gradle.properties", FolderGenerator.getBaseFolder(mod), gradleProperties)		
-		FileGenerator.generateFile("gradlew", FolderGenerator.getBaseFolder(mod), gradlew)		
-		FileGenerator.generateFile("gradlew.bat", FolderGenerator.getBaseFolder(mod), gradlewBat)						
+		FileGenerator.generateFile("gradle-wrapper.properties", FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper/', getGradleWrapper, true)
+		FileGenerator.generateFile("build.gradle", FolderGenerator.getBaseFolder(mod), getBuildGradle(mod), true)
+		FileGenerator.generateFile("gradle.properties", FolderGenerator.getBaseFolder(mod), gradleProperties, true)		
+		FileGenerator.generateFile("gradlew", FolderGenerator.getBaseFolder(mod), gradlew, true)		
+		FileGenerator.generateFile("gradlew.bat", FolderGenerator.getBaseFolder(mod), gradlewBat, true)						
 	}
 	
 	def private static String getGradleWrapper(){
@@ -43,7 +43,7 @@ class ForgeSetup {
 		apply plugin: 'net.minecraftforge.gradle'
 		
 		
-		group = 'de.thm.ozelot'
+		group = '«FolderGenerator.getOzelotPackage()»'
 		version = '«mod.version»'
 		
 		java {

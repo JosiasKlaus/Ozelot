@@ -7,6 +7,7 @@ import stringmodcreator.data.Item;
 import stringmodcreator.data.Mod;
 import stringmodcreator.generator.FolderGenerator;
 import stringmodcreator.generator.ForgeSetup;
+import stringmodcreator.generator.content.MainContent;
 
 @SuppressWarnings("all")
 public class Main {
@@ -16,6 +17,7 @@ public class Main {
     Mod mod = Main.getData();
     FolderGenerator.generateFolderStructure(mod);
     ForgeSetup.run(mod);
+    MainContent.run(mod);
   }
 
   public static Mod getData() {

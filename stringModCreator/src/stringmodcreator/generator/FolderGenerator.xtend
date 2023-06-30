@@ -8,12 +8,16 @@ class FolderGenerator {
 		return Main.SOURCE_FOLDER_PATH + mod.name.replace(' ', '')
 	}
 	
+	def static String getOzelotPackage(){
+		return 'de.thm.ozelot'
+	}
+	
 	def static String getBaseCodeFolder(Mod mod){
-		return mod.baseFolder + '/src/main/java/de/thm/ozelot/' + mod.modId
+		return mod.baseFolder + '/src/main/java/' + getOzelotPackage.replace('.', '/') + '/' + mod.modId
 	}
 	
 	def static String getBasePackage(Mod mod){
-		return 'de.thm.ozelot.' + mod.modId
+		return getOzelotPackage() + '.' + mod.modId
 	}
 	
 	def static void generateFolderStructure(Mod mod){
