@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Ozp -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.thm.zdh.mdd.olt.Ozp.presentation.OzpModelWizardID"
+            name="%_UI_OzpModelWizard_label"
+            class="de.thm.zdh.mdd.olt.Ozp.presentation.OzpModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/OzpModelFile.gif">
+         <description>%_UI_OzpModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Ozp -->
+      <editor
+            id="de.thm.zdh.mdd.olt.Ozp.presentation.OzpEditorID"
+            name="%_UI_OzpEditor_label"
+            icon="icons/full/obj16/OzpModelFile.gif"
+            extensions="ozp"
+            class="de.thm.zdh.mdd.olt.Ozp.presentation.OzpEditor"
+            contributorClass="de.thm.zdh.mdd.olt.Ozp.presentation.OzpActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="de.thm.zdh.mdd.olt.Ozp.editor.command1"
+            name="StartGenerator">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:de.thm.zdh.mdd.olt.Ozp.presentation.OzpEditorID?before=additions">
+         <command
+               commandId="de.thm.zdh.mdd.olt.Ozp.editor.command1"
+               label="Start my Generator"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.thm.zdh.mdd.olt.Ozp.editor.MyGenerator"
+            commandId="de.thm.zdh.mdd.olt.Ozp.editor.command1">
+         <enabledWhen>
+            <iterate
+                  ifEmpty="false">
+               <instanceof
+                     value="de.thm.zdh.mdd.olt.Ozp.Mod">
+               </instanceof>
+            </iterate>
+         </enabledWhen>
+      </handler>
+   </extension>
+
+</plugin>
