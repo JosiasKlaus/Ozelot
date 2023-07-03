@@ -2,6 +2,8 @@
  */
 package ozelot;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -16,13 +18,14 @@ package ozelot;
  *   <li>{@link ozelot.FoodItem#getSaturation <em>Saturation</em>}</li>
  *   <li>{@link ozelot.FoodItem#isIsMeat <em>Is Meat</em>}</li>
  *   <li>{@link ozelot.FoodItem#isIsAlwaysEdible <em>Is Always Edible</em>}</li>
+ *   <li>{@link ozelot.FoodItem#getAfterEating <em>After Eating</em>}</li>
  * </ul>
  *
  * @see ozelot.OzelotPackage#getFoodItem()
  * @model
  * @generated
  */
-public interface FoodItem extends UsableItem {
+public interface FoodItem extends Item {
 	/**
 	 * Returns the value of the '<em><b>Nutrition</b></em>' attribute.
 	 * The default value is <code>"4"</code>.
@@ -31,7 +34,7 @@ public interface FoodItem extends UsableItem {
 	 * @return the value of the '<em>Nutrition</em>' attribute.
 	 * @see #setNutrition(int)
 	 * @see ozelot.OzelotPackage#getFoodItem_Nutrition()
-	 * @model default="4"
+	 * @model default="4" required="true"
 	 * @generated
 	 */
 	int getNutrition();
@@ -54,7 +57,7 @@ public interface FoodItem extends UsableItem {
 	 * @return the value of the '<em>Saturation</em>' attribute.
 	 * @see #setSaturation(float)
 	 * @see ozelot.OzelotPackage#getFoodItem_Saturation()
-	 * @model default="0.3"
+	 * @model default="0.3" required="true"
 	 * @generated
 	 */
 	float getSaturation();
@@ -76,7 +79,7 @@ public interface FoodItem extends UsableItem {
 	 * @return the value of the '<em>Is Meat</em>' attribute.
 	 * @see #setIsMeat(boolean)
 	 * @see ozelot.OzelotPackage#getFoodItem_IsMeat()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean isIsMeat();
@@ -99,7 +102,7 @@ public interface FoodItem extends UsableItem {
 	 * @return the value of the '<em>Is Always Edible</em>' attribute.
 	 * @see #setIsAlwaysEdible(boolean)
 	 * @see ozelot.OzelotPackage#getFoodItem_IsAlwaysEdible()
-	 * @model default="false"
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isIsAlwaysEdible();
@@ -113,5 +116,17 @@ public interface FoodItem extends UsableItem {
 	 * @generated
 	 */
 	void setIsAlwaysEdible(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>After Eating</b></em>' reference list.
+	 * The list contents are of type {@link ozelot.Effect}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>After Eating</em>' reference list.
+	 * @see ozelot.OzelotPackage#getFoodItem_AfterEating()
+	 * @model
+	 * @generated
+	 */
+	EList<Effect> getAfterEating();
 
 } // FoodItem

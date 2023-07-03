@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -14,13 +15,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import ozelot.Effect;
 import ozelot.Item;
 import ozelot.OnTickEffect;
 import ozelot.OzelotPackage;
 import ozelot.SelfOtherEffect;
 import ozelot.ToolProperty;
+import ozelot.Translation;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,13 +34,17 @@ import ozelot.ToolProperty;
  * </p>
  * <ul>
  *   <li>{@link ozelot.impl.ItemImpl#getToolProperty <em>Tool Property</em>}</li>
- *   <li>{@link ozelot.impl.ItemImpl#getOnTick <em>On Tick</em>}</li>
- *   <li>{@link ozelot.impl.ItemImpl#getOnAttack <em>On Attack</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getIconPath <em>Icon Path</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#isGlows <em>Glows</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getMaxStackSize <em>Max Stack Size</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#isIsImmuneToFire <em>Is Immune To Fire</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getItemId <em>Item Id</em>}</li>
+ *   <li>{@link ozelot.impl.ItemImpl#getRarity <em>Rarity</em>}</li>
+ *   <li>{@link ozelot.impl.ItemImpl#getCreativeModeTab <em>Creative Mode Tab</em>}</li>
+ *   <li>{@link ozelot.impl.ItemImpl#getTranslations <em>Translations</em>}</li>
+ *   <li>{@link ozelot.impl.ItemImpl#getOnAttack <em>On Attack</em>}</li>
+ *   <li>{@link ozelot.impl.ItemImpl#getOnTick <em>On Tick</em>}</li>
+ *   <li>{@link ozelot.impl.ItemImpl#getOnUse <em>On Use</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,26 +59,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * @ordered
 	 */
 	protected ToolProperty toolProperty;
-
-	/**
-	 * The cached value of the '{@link #getOnTick() <em>On Tick</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnTick()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<OnTickEffect> onTick;
-
-	/**
-	 * The cached value of the '{@link #getOnAttack() <em>On Attack</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnAttack()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SelfOtherEffect> onAttack;
 
 	/**
 	 * The default value of the '{@link #getIconPath() <em>Icon Path</em>}' attribute.
@@ -174,6 +161,86 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	protected String itemId = ITEM_ID_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getRarity() <em>Rarity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRarity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RARITY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRarity() <em>Rarity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRarity()
+	 * @generated
+	 * @ordered
+	 */
+	protected String rarity = RARITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCreativeModeTab() <em>Creative Mode Tab</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreativeModeTab()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CREATIVE_MODE_TAB_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCreativeModeTab() <em>Creative Mode Tab</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreativeModeTab()
+	 * @generated
+	 * @ordered
+	 */
+	protected String creativeModeTab = CREATIVE_MODE_TAB_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTranslations() <em>Translations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTranslations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Translation> translations;
+
+	/**
+	 * The cached value of the '{@link #getOnAttack() <em>On Attack</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAttack()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SelfOtherEffect> onAttack;
+
+	/**
+	 * The cached value of the '{@link #getOnTick() <em>On Tick</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnTick()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OnTickEffect> onTick;
+
+	/**
+	 * The cached value of the '{@link #getOnUse() <em>On Use</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnUse()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Effect> onUse;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -237,7 +304,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 */
 	public EList<OnTickEffect> getOnTick() {
 		if (onTick == null) {
-			onTick = new EObjectResolvingEList<OnTickEffect>(OnTickEffect.class, this, OzelotPackage.ITEM__ON_TICK);
+			onTick = new EObjectContainmentEList<OnTickEffect>(OnTickEffect.class, this, OzelotPackage.ITEM__ON_TICK);
 		}
 		return onTick;
 	}
@@ -247,9 +314,21 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Effect> getOnUse() {
+		if (onUse == null) {
+			onUse = new EObjectContainmentEList<Effect>(Effect.class, this, OzelotPackage.ITEM__ON_USE);
+		}
+		return onUse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<SelfOtherEffect> getOnAttack() {
 		if (onAttack == null) {
-			onAttack = new EObjectResolvingEList<SelfOtherEffect>(SelfOtherEffect.class, this, OzelotPackage.ITEM__ON_ATTACK);
+			onAttack = new EObjectContainmentEList<SelfOtherEffect>(SelfOtherEffect.class, this, OzelotPackage.ITEM__ON_ATTACK);
 		}
 		return onAttack;
 	}
@@ -364,16 +443,86 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRarity() {
+		return rarity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRarity(String newRarity) {
+		String oldRarity = rarity;
+		rarity = newRarity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.ITEM__RARITY, oldRarity, rarity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCreativeModeTab() {
+		return creativeModeTab;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCreativeModeTab(String newCreativeModeTab) {
+		String oldCreativeModeTab = creativeModeTab;
+		creativeModeTab = newCreativeModeTab;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.ITEM__CREATIVE_MODE_TAB, oldCreativeModeTab, creativeModeTab));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Translation> getTranslations() {
+		if (translations == null) {
+			translations = new EObjectContainmentEList<Translation>(Translation.class, this, OzelotPackage.ITEM__TRANSLATIONS);
+		}
+		return translations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case OzelotPackage.ITEM__TRANSLATIONS:
+				return ((InternalEList<?>)getTranslations()).basicRemove(otherEnd, msgs);
+			case OzelotPackage.ITEM__ON_ATTACK:
+				return ((InternalEList<?>)getOnAttack()).basicRemove(otherEnd, msgs);
+			case OzelotPackage.ITEM__ON_TICK:
+				return ((InternalEList<?>)getOnTick()).basicRemove(otherEnd, msgs);
+			case OzelotPackage.ITEM__ON_USE:
+				return ((InternalEList<?>)getOnUse()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case OzelotPackage.ITEM__TOOL_PROPERTY:
 				if (resolve) return getToolProperty();
 				return basicGetToolProperty();
-			case OzelotPackage.ITEM__ON_TICK:
-				return getOnTick();
-			case OzelotPackage.ITEM__ON_ATTACK:
-				return getOnAttack();
 			case OzelotPackage.ITEM__ICON_PATH:
 				return getIconPath();
 			case OzelotPackage.ITEM__GLOWS:
@@ -384,6 +533,18 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 				return isIsImmuneToFire();
 			case OzelotPackage.ITEM__ITEM_ID:
 				return getItemId();
+			case OzelotPackage.ITEM__RARITY:
+				return getRarity();
+			case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
+				return getCreativeModeTab();
+			case OzelotPackage.ITEM__TRANSLATIONS:
+				return getTranslations();
+			case OzelotPackage.ITEM__ON_ATTACK:
+				return getOnAttack();
+			case OzelotPackage.ITEM__ON_TICK:
+				return getOnTick();
+			case OzelotPackage.ITEM__ON_USE:
+				return getOnUse();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -400,14 +561,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			case OzelotPackage.ITEM__TOOL_PROPERTY:
 				setToolProperty((ToolProperty)newValue);
 				return;
-			case OzelotPackage.ITEM__ON_TICK:
-				getOnTick().clear();
-				getOnTick().addAll((Collection<? extends OnTickEffect>)newValue);
-				return;
-			case OzelotPackage.ITEM__ON_ATTACK:
-				getOnAttack().clear();
-				getOnAttack().addAll((Collection<? extends SelfOtherEffect>)newValue);
-				return;
 			case OzelotPackage.ITEM__ICON_PATH:
 				setIconPath((String)newValue);
 				return;
@@ -422,6 +575,28 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 				return;
 			case OzelotPackage.ITEM__ITEM_ID:
 				setItemId((String)newValue);
+				return;
+			case OzelotPackage.ITEM__RARITY:
+				setRarity((String)newValue);
+				return;
+			case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
+				setCreativeModeTab((String)newValue);
+				return;
+			case OzelotPackage.ITEM__TRANSLATIONS:
+				getTranslations().clear();
+				getTranslations().addAll((Collection<? extends Translation>)newValue);
+				return;
+			case OzelotPackage.ITEM__ON_ATTACK:
+				getOnAttack().clear();
+				getOnAttack().addAll((Collection<? extends SelfOtherEffect>)newValue);
+				return;
+			case OzelotPackage.ITEM__ON_TICK:
+				getOnTick().clear();
+				getOnTick().addAll((Collection<? extends OnTickEffect>)newValue);
+				return;
+			case OzelotPackage.ITEM__ON_USE:
+				getOnUse().clear();
+				getOnUse().addAll((Collection<? extends Effect>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -438,12 +613,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			case OzelotPackage.ITEM__TOOL_PROPERTY:
 				setToolProperty((ToolProperty)null);
 				return;
-			case OzelotPackage.ITEM__ON_TICK:
-				getOnTick().clear();
-				return;
-			case OzelotPackage.ITEM__ON_ATTACK:
-				getOnAttack().clear();
-				return;
 			case OzelotPackage.ITEM__ICON_PATH:
 				setIconPath(ICON_PATH_EDEFAULT);
 				return;
@@ -459,6 +628,24 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			case OzelotPackage.ITEM__ITEM_ID:
 				setItemId(ITEM_ID_EDEFAULT);
 				return;
+			case OzelotPackage.ITEM__RARITY:
+				setRarity(RARITY_EDEFAULT);
+				return;
+			case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
+				setCreativeModeTab(CREATIVE_MODE_TAB_EDEFAULT);
+				return;
+			case OzelotPackage.ITEM__TRANSLATIONS:
+				getTranslations().clear();
+				return;
+			case OzelotPackage.ITEM__ON_ATTACK:
+				getOnAttack().clear();
+				return;
+			case OzelotPackage.ITEM__ON_TICK:
+				getOnTick().clear();
+				return;
+			case OzelotPackage.ITEM__ON_USE:
+				getOnUse().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -473,10 +660,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 		switch (featureID) {
 			case OzelotPackage.ITEM__TOOL_PROPERTY:
 				return toolProperty != null;
-			case OzelotPackage.ITEM__ON_TICK:
-				return onTick != null && !onTick.isEmpty();
-			case OzelotPackage.ITEM__ON_ATTACK:
-				return onAttack != null && !onAttack.isEmpty();
 			case OzelotPackage.ITEM__ICON_PATH:
 				return ICON_PATH_EDEFAULT == null ? iconPath != null : !ICON_PATH_EDEFAULT.equals(iconPath);
 			case OzelotPackage.ITEM__GLOWS:
@@ -487,6 +670,18 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 				return isImmuneToFire != IS_IMMUNE_TO_FIRE_EDEFAULT;
 			case OzelotPackage.ITEM__ITEM_ID:
 				return ITEM_ID_EDEFAULT == null ? itemId != null : !ITEM_ID_EDEFAULT.equals(itemId);
+			case OzelotPackage.ITEM__RARITY:
+				return RARITY_EDEFAULT == null ? rarity != null : !RARITY_EDEFAULT.equals(rarity);
+			case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
+				return CREATIVE_MODE_TAB_EDEFAULT == null ? creativeModeTab != null : !CREATIVE_MODE_TAB_EDEFAULT.equals(creativeModeTab);
+			case OzelotPackage.ITEM__TRANSLATIONS:
+				return translations != null && !translations.isEmpty();
+			case OzelotPackage.ITEM__ON_ATTACK:
+				return onAttack != null && !onAttack.isEmpty();
+			case OzelotPackage.ITEM__ON_TICK:
+				return onTick != null && !onTick.isEmpty();
+			case OzelotPackage.ITEM__ON_USE:
+				return onUse != null && !onUse.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -509,8 +704,12 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 		result.append(maxStackSize);
 		result.append(", isImmuneToFire: ");
 		result.append(isImmuneToFire);
-		result.append(", ItemId: ");
+		result.append(", itemId: ");
 		result.append(itemId);
+		result.append(", rarity: ");
+		result.append(rarity);
+		result.append(", creativeModeTab: ");
+		result.append(creativeModeTab);
 		result.append(')');
 		return result.toString();
 	}

@@ -11,6 +11,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,6 +25,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ozelot.Item;
+import ozelot.OzelotFactory;
 import ozelot.OzelotPackage;
 
 /**
@@ -61,13 +64,13 @@ public class ItemItemProvider
 			super.getPropertyDescriptors(object);
 
 			addToolPropertyPropertyDescriptor(object);
-			addOnTickPropertyDescriptor(object);
-			addOnAttackPropertyDescriptor(object);
 			addIconPathPropertyDescriptor(object);
 			addGlowsPropertyDescriptor(object);
 			addMaxStackSizePropertyDescriptor(object);
 			addIsImmuneToFirePropertyDescriptor(object);
 			addItemIdPropertyDescriptor(object);
+			addRarityPropertyDescriptor(object);
+			addCreativeModeTabPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,50 +89,6 @@ public class ItemItemProvider
 				 getString("_UI_Item_toolProperty_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Item_toolProperty_feature", "_UI_Item_type"),
 				 OzelotPackage.Literals.ITEM__TOOL_PROPERTY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the On Tick feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOnTickPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Item_onTick_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Item_onTick_feature", "_UI_Item_type"),
-				 OzelotPackage.Literals.ITEM__ON_TICK,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the On Attack feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOnAttackPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Item_onAttack_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Item_onAttack_feature", "_UI_Item_type"),
-				 OzelotPackage.Literals.ITEM__ON_ATTACK,
 				 true,
 				 false,
 				 true,
@@ -237,8 +196,8 @@ public class ItemItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Item_ItemId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Item_ItemId_feature", "_UI_Item_type"),
+				 getString("_UI_Item_itemId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Item_itemId_feature", "_UI_Item_type"),
 				 OzelotPackage.Literals.ITEM__ITEM_ID,
 				 true,
 				 false,
@@ -246,6 +205,83 @@ public class ItemItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rarity feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRarityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Item_rarity_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Item_rarity_feature", "_UI_Item_type"),
+				 OzelotPackage.Literals.ITEM__RARITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Creative Mode Tab feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCreativeModeTabPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Item_creativeModeTab_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Item_creativeModeTab_feature", "_UI_Item_type"),
+				 OzelotPackage.Literals.ITEM__CREATIVE_MODE_TAB,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(OzelotPackage.Literals.ITEM__TRANSLATIONS);
+			childrenFeatures.add(OzelotPackage.Literals.ITEM__ON_ATTACK);
+			childrenFeatures.add(OzelotPackage.Literals.ITEM__ON_TICK);
+			childrenFeatures.add(OzelotPackage.Literals.ITEM__ON_USE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -291,7 +327,15 @@ public class ItemItemProvider
 			case OzelotPackage.ITEM__MAX_STACK_SIZE:
 			case OzelotPackage.ITEM__IS_IMMUNE_TO_FIRE:
 			case OzelotPackage.ITEM__ITEM_ID:
+			case OzelotPackage.ITEM__RARITY:
+			case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case OzelotPackage.ITEM__TRANSLATIONS:
+			case OzelotPackage.ITEM__ON_ATTACK:
+			case OzelotPackage.ITEM__ON_TICK:
+			case OzelotPackage.ITEM__ON_USE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -307,6 +351,60 @@ public class ItemItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.ITEM__TRANSLATIONS,
+				 OzelotFactory.eINSTANCE.createTranslation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.ITEM__ON_ATTACK,
+				 OzelotFactory.eINSTANCE.createSelfOtherEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.ITEM__ON_TICK,
+				 OzelotFactory.eINSTANCE.createOnTickEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.ITEM__ON_USE,
+				 OzelotFactory.eINSTANCE.createEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.ITEM__ON_USE,
+				 OzelotFactory.eINSTANCE.createSelfOtherEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.ITEM__ON_USE,
+				 OzelotFactory.eINSTANCE.createOnTickEffect()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == OzelotPackage.Literals.ITEM__ON_ATTACK ||
+			childFeature == OzelotPackage.Literals.ITEM__ON_USE ||
+			childFeature == OzelotPackage.Literals.ITEM__ON_TICK;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

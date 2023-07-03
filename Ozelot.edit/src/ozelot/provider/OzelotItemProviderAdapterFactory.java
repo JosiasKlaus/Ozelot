@@ -118,29 +118,6 @@ public class OzelotItemProviderAdapterFactory extends OzelotAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ozelot.UsableItem} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UsableItemItemProvider usableItemItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ozelot.UsableItem}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUsableItemAdapter() {
-		if (usableItemItemProvider == null) {
-			usableItemItemProvider = new UsableItemItemProvider(this);
-		}
-
-		return usableItemItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ozelot.FoodItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,6 +256,29 @@ public class OzelotItemProviderAdapterFactory extends OzelotAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ozelot.Translation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TranslationItemProvider translationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ozelot.Translation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTranslationAdapter() {
+		if (translationItemProvider == null) {
+			translationItemProvider = new TranslationItemProvider(this);
+		}
+
+		return translationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -379,13 +379,13 @@ public class OzelotItemProviderAdapterFactory extends OzelotAdapterFactory imple
 	public void dispose() {
 		if (modItemProvider != null) modItemProvider.dispose();
 		if (itemItemProvider != null) itemItemProvider.dispose();
-		if (usableItemItemProvider != null) usableItemItemProvider.dispose();
 		if (foodItemItemProvider != null) foodItemItemProvider.dispose();
 		if (toolPropertyItemProvider != null) toolPropertyItemProvider.dispose();
 		if (blockItemProvider != null) blockItemProvider.dispose();
 		if (effectItemProvider != null) effectItemProvider.dispose();
 		if (selfOtherEffectItemProvider != null) selfOtherEffectItemProvider.dispose();
 		if (onTickEffectItemProvider != null) onTickEffectItemProvider.dispose();
+		if (translationItemProvider != null) translationItemProvider.dispose();
 	}
 
 }

@@ -40,15 +40,6 @@ public interface OzelotFactory extends EFactory {
 	Item createItem();
 
 	/**
-	 * Returns a new object of class '<em>Usable Item</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Usable Item</em>'.
-	 * @generated
-	 */
-	UsableItem createUsableItem();
-
-	/**
 	 * Returns a new object of class '<em>Food Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,6 +92,15 @@ public interface OzelotFactory extends EFactory {
 	 * @generated
 	 */
 	OnTickEffect createOnTickEffect();
+
+	/**
+	 * Returns a new object of class '<em>Translation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Translation</em>'.
+	 * @generated
+	 */
+	Translation createTranslation();
 
 	/**
 	 * Returns the package supported by this factory.

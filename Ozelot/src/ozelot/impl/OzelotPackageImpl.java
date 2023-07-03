@@ -19,7 +19,7 @@ import ozelot.OzelotFactory;
 import ozelot.OzelotPackage;
 import ozelot.SelfOtherEffect;
 import ozelot.ToolProperty;
-import ozelot.UsableItem;
+import ozelot.Translation;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,13 +41,6 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	private EClass itemEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass usableItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,6 +83,13 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	private EClass onTickEffectEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass translationEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -166,7 +166,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EReference getMod_Items() {
-		return (EReference)modEClass.getEStructuralFeatures().get(0);
+		return (EReference)modEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -175,7 +175,25 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EReference getMod_Blocks() {
-		return (EReference)modEClass.getEStructuralFeatures().get(1);
+		return (EReference)modEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMod_IconPath() {
+		return (EAttribute)modEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMod_Version() {
+		return (EAttribute)modEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -184,7 +202,34 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getMod_ModId() {
+		return (EAttribute)modEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMod_Name() {
+		return (EAttribute)modEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMod_Description() {
 		return (EAttribute)modEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMod_Authors() {
+		return (EAttribute)modEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -211,7 +256,16 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EReference getItem_OnTick() {
-		return (EReference)itemEClass.getEStructuralFeatures().get(1);
+		return (EReference)itemEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getItem_OnUse() {
+		return (EReference)itemEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -220,7 +274,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EReference getItem_OnAttack() {
-		return (EReference)itemEClass.getEStructuralFeatures().get(2);
+		return (EReference)itemEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -229,7 +283,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_IconPath() {
-		return (EAttribute)itemEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -238,7 +292,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_Glows() {
-		return (EAttribute)itemEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -247,7 +301,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_MaxStackSize() {
-		return (EAttribute)itemEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -256,7 +310,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_IsImmuneToFire() {
-		return (EAttribute)itemEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -265,6 +319,24 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_ItemId() {
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getItem_Rarity() {
+		return (EAttribute)itemEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getItem_CreativeModeTab() {
 		return (EAttribute)itemEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -273,26 +345,8 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUsableItem() {
-		return usableItemEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUsableItem_FoodProperty() {
-		return (EReference)usableItemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUsableItem_OnUse() {
-		return (EReference)usableItemEClass.getEStructuralFeatures().get(1);
+	public EReference getItem_Translations() {
+		return (EReference)itemEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -338,6 +392,15 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 */
 	public EAttribute getFoodItem_IsAlwaysEdible() {
 		return (EAttribute)foodItemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFoodItem_AfterEating() {
+		return (EReference)foodItemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -408,6 +471,42 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEffect_PotionEffects() {
+		return (EAttribute)effectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEffect_Level() {
+		return (EAttribute)effectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEffect_Duration() {
+		return (EAttribute)effectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEffect_Visible() {
+		return (EAttribute)effectEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSelfOtherEffect() {
 		return selfOtherEffectEClass;
 	}
@@ -417,8 +516,62 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSelfOtherEffect_IsSelf() {
+		return (EAttribute)selfOtherEffectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOnTickEffect() {
 		return onTickEffectEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOnTickEffect_NeedsSelected() {
+		return (EAttribute)onTickEffectEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTranslation() {
+		return translationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTranslation_Lang() {
+		return (EAttribute)translationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTranslation_Name() {
+		return (EAttribute)translationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTranslation_Description() {
+		return (EAttribute)translationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -450,29 +603,35 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 
 		// Create classes and their features
 		modEClass = createEClass(MOD);
+		createEAttribute(modEClass, MOD__MOD_ID);
+		createEAttribute(modEClass, MOD__NAME);
+		createEAttribute(modEClass, MOD__DESCRIPTION);
+		createEAttribute(modEClass, MOD__AUTHORS);
 		createEReference(modEClass, MOD__ITEMS);
 		createEReference(modEClass, MOD__BLOCKS);
-		createEAttribute(modEClass, MOD__MOD_ID);
+		createEAttribute(modEClass, MOD__ICON_PATH);
+		createEAttribute(modEClass, MOD__VERSION);
 
 		itemEClass = createEClass(ITEM);
 		createEReference(itemEClass, ITEM__TOOL_PROPERTY);
-		createEReference(itemEClass, ITEM__ON_TICK);
-		createEReference(itemEClass, ITEM__ON_ATTACK);
 		createEAttribute(itemEClass, ITEM__ICON_PATH);
 		createEAttribute(itemEClass, ITEM__GLOWS);
 		createEAttribute(itemEClass, ITEM__MAX_STACK_SIZE);
 		createEAttribute(itemEClass, ITEM__IS_IMMUNE_TO_FIRE);
 		createEAttribute(itemEClass, ITEM__ITEM_ID);
-
-		usableItemEClass = createEClass(USABLE_ITEM);
-		createEReference(usableItemEClass, USABLE_ITEM__FOOD_PROPERTY);
-		createEReference(usableItemEClass, USABLE_ITEM__ON_USE);
+		createEAttribute(itemEClass, ITEM__RARITY);
+		createEAttribute(itemEClass, ITEM__CREATIVE_MODE_TAB);
+		createEReference(itemEClass, ITEM__TRANSLATIONS);
+		createEReference(itemEClass, ITEM__ON_ATTACK);
+		createEReference(itemEClass, ITEM__ON_TICK);
+		createEReference(itemEClass, ITEM__ON_USE);
 
 		foodItemEClass = createEClass(FOOD_ITEM);
 		createEAttribute(foodItemEClass, FOOD_ITEM__NUTRITION);
 		createEAttribute(foodItemEClass, FOOD_ITEM__SATURATION);
 		createEAttribute(foodItemEClass, FOOD_ITEM__IS_MEAT);
 		createEAttribute(foodItemEClass, FOOD_ITEM__IS_ALWAYS_EDIBLE);
+		createEReference(foodItemEClass, FOOD_ITEM__AFTER_EATING);
 
 		toolPropertyEClass = createEClass(TOOL_PROPERTY);
 
@@ -483,10 +642,21 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		createEAttribute(blockEClass, BLOCK__BLOCK_ID);
 
 		effectEClass = createEClass(EFFECT);
+		createEAttribute(effectEClass, EFFECT__POTION_EFFECTS);
+		createEAttribute(effectEClass, EFFECT__LEVEL);
+		createEAttribute(effectEClass, EFFECT__DURATION);
+		createEAttribute(effectEClass, EFFECT__VISIBLE);
 
 		selfOtherEffectEClass = createEClass(SELF_OTHER_EFFECT);
+		createEAttribute(selfOtherEffectEClass, SELF_OTHER_EFFECT__IS_SELF);
 
 		onTickEffectEClass = createEClass(ON_TICK_EFFECT);
+		createEAttribute(onTickEffectEClass, ON_TICK_EFFECT__NEEDS_SELECTED);
+
+		translationEClass = createEClass(TRANSLATION);
+		createEAttribute(translationEClass, TRANSLATION__LANG);
+		createEAttribute(translationEClass, TRANSLATION__NAME);
+		createEAttribute(translationEClass, TRANSLATION__DESCRIPTION);
 	}
 
 	/**
@@ -517,50 +687,66 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		usableItemEClass.getESuperTypes().add(this.getItem());
-		foodItemEClass.getESuperTypes().add(this.getUsableItem());
+		foodItemEClass.getESuperTypes().add(this.getItem());
 		selfOtherEffectEClass.getESuperTypes().add(this.getEffect());
 		onTickEffectEClass.getESuperTypes().add(this.getEffect());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modEClass, Mod.class, "Mod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMod_Items(), this.getItem(), null, "items", null, 0, -1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMod_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMod_ModId(), ecorePackage.getEString(), "modId", null, 0, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMod_ModId(), ecorePackage.getEString(), "modId", null, 1, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMod_Name(), ecorePackage.getEString(), "name", null, 1, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMod_Description(), ecorePackage.getEString(), "description", null, 1, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMod_Authors(), ecorePackage.getEString(), "authors", null, 1, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMod_Items(), this.getItem(), null, "items", null, 0, -1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMod_Blocks(), this.getBlock(), null, "blocks", null, 0, -1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMod_IconPath(), ecorePackage.getEString(), "iconPath", null, 1, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMod_Version(), ecorePackage.getEString(), "version", null, 1, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getItem_ToolProperty(), this.getToolProperty(), null, "toolProperty", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getItem_OnTick(), this.getOnTickEffect(), null, "onTick", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getItem_OnAttack(), this.getSelfOtherEffect(), null, "onAttack", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_IconPath(), ecorePackage.getEString(), "iconPath", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_Glows(), ecorePackage.getEBoolean(), "glows", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_MaxStackSize(), ecorePackage.getEInt(), "maxStackSize", "64", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_IsImmuneToFire(), ecorePackage.getEBoolean(), "isImmuneToFire", "false", 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_ItemId(), ecorePackage.getEString(), "ItemId", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(usableItemEClass, UsableItem.class, "UsableItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUsableItem_FoodProperty(), this.getFoodItem(), null, "foodProperty", null, 0, 1, UsableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getUsableItem_OnUse(), this.getEffect(), null, "onUse", null, 0, -1, UsableItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_IconPath(), ecorePackage.getEString(), "iconPath", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Glows(), ecorePackage.getEBoolean(), "glows", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_MaxStackSize(), ecorePackage.getEInt(), "maxStackSize", "64", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_IsImmuneToFire(), ecorePackage.getEBoolean(), "isImmuneToFire", "false", 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_ItemId(), ecorePackage.getEString(), "itemId", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Rarity(), ecorePackage.getEString(), "rarity", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_CreativeModeTab(), ecorePackage.getEString(), "creativeModeTab", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getItem_Translations(), this.getTranslation(), null, "translations", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getItem_OnAttack(), this.getSelfOtherEffect(), null, "onAttack", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getItem_OnTick(), this.getOnTickEffect(), null, "onTick", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getItem_OnUse(), this.getEffect(), null, "onUse", null, 0, -1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(foodItemEClass, FoodItem.class, "FoodItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFoodItem_Nutrition(), ecorePackage.getEInt(), "nutrition", "4", 0, 1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFoodItem_Saturation(), ecorePackage.getEFloat(), "saturation", "0.3", 0, 1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFoodItem_IsMeat(), ecorePackage.getEBoolean(), "isMeat", null, 0, 1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFoodItem_IsAlwaysEdible(), ecorePackage.getEBoolean(), "isAlwaysEdible", "false", 0, 1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFoodItem_Nutrition(), ecorePackage.getEInt(), "nutrition", "4", 1, 1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFoodItem_Saturation(), ecorePackage.getEFloat(), "saturation", "0.3", 1, 1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFoodItem_IsMeat(), ecorePackage.getEBoolean(), "isMeat", null, 1, 1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFoodItem_IsAlwaysEdible(), ecorePackage.getEBoolean(), "isAlwaysEdible", "false", 1, 1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFoodItem_AfterEating(), this.getEffect(), null, "afterEating", null, 0, -1, FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(toolPropertyEClass, ToolProperty.class, "ToolProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBlock_OnStepOn(), this.getEffect(), null, "onStepOn", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBlock_OnDestroyed(), this.getEffect(), null, "onDestroyed", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBlock_OnPlaced(), this.getEffect(), null, "onPlaced", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBlock_BlockId(), ecorePackage.getEString(), "blockId", null, 0, 1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBlock_OnStepOn(), this.getEffect(), null, "onStepOn", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBlock_OnDestroyed(), this.getEffect(), null, "onDestroyed", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBlock_OnPlaced(), this.getEffect(), null, "onPlaced", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBlock_BlockId(), ecorePackage.getEString(), "blockId", null, 1, 1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(effectEClass, Effect.class, "Effect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEffect_PotionEffects(), ecorePackage.getEString(), "potionEffects", null, 1, 1, Effect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEffect_Level(), ecorePackage.getEInt(), "level", null, 1, 1, Effect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEffect_Duration(), ecorePackage.getEDouble(), "duration", null, 1, 1, Effect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEffect_Visible(), ecorePackage.getEBoolean(), "visible", null, 1, 1, Effect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(selfOtherEffectEClass, SelfOtherEffect.class, "SelfOtherEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSelfOtherEffect_IsSelf(), ecorePackage.getEBoolean(), "isSelf", null, 1, 1, SelfOtherEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(onTickEffectEClass, OnTickEffect.class, "OnTickEffect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOnTickEffect_NeedsSelected(), ecorePackage.getEBoolean(), "needsSelected", null, 1, 1, OnTickEffect.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(translationEClass, Translation.class, "Translation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTranslation_Lang(), ecorePackage.getEString(), "lang", "en_us", 1, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTranslation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTranslation_Description(), ecorePackage.getEString(), "description", null, 0, 1, Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

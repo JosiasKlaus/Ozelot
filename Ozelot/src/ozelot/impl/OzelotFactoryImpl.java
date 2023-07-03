@@ -58,13 +58,13 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 		switch (eClass.getClassifierID()) {
 			case OzelotPackage.MOD: return createMod();
 			case OzelotPackage.ITEM: return createItem();
-			case OzelotPackage.USABLE_ITEM: return createUsableItem();
 			case OzelotPackage.FOOD_ITEM: return createFoodItem();
 			case OzelotPackage.TOOL_PROPERTY: return createToolProperty();
 			case OzelotPackage.BLOCK: return createBlock();
 			case OzelotPackage.EFFECT: return createEffect();
 			case OzelotPackage.SELF_OTHER_EFFECT: return createSelfOtherEffect();
 			case OzelotPackage.ON_TICK_EFFECT: return createOnTickEffect();
+			case OzelotPackage.TRANSLATION: return createTranslation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -88,16 +88,6 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 	public Item createItem() {
 		ItemImpl item = new ItemImpl();
 		return item;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UsableItem createUsableItem() {
-		UsableItemImpl usableItem = new UsableItemImpl();
-		return usableItem;
 	}
 
 	/**
@@ -158,6 +148,16 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 	public OnTickEffect createOnTickEffect() {
 		OnTickEffectImpl onTickEffect = new OnTickEffectImpl();
 		return onTickEffect;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Translation createTranslation() {
+		TranslationImpl translation = new TranslationImpl();
+		return translation;
 	}
 
 	/**

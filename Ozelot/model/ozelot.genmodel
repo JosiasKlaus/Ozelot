@@ -6,39 +6,59 @@
   <foreignModel>ozelot.ecore</foreignModel>
   <genPackages prefix="Ozelot" disposableProviderFactory="true" ecorePackage="ozelot.ecore#/">
     <genClasses ecoreClass="ozelot.ecore#//Mod">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//Mod/items"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//Mod/blocks"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/modId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/authors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Mod/items"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Mod/blocks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/iconPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/version"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//Item">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//Item/toolProperty"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//Item/onTick"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//Item/onAttack"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/iconPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/glows"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/maxStackSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/isImmuneToFire"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/ItemId"/>
-    </genClasses>
-    <genClasses ecoreClass="ozelot.ecore#//UsableItem">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//UsableItem/foodProperty"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//UsableItem/onUse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/itemId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/rarity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/creativeModeTab"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Item/translations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Item/onAttack"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Item/onTick"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Item/onUse"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//FoodItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//FoodItem/nutrition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//FoodItem/saturation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//FoodItem/isMeat"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//FoodItem/isAlwaysEdible"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//FoodItem/afterEating"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//ToolProperty"/>
     <genClasses ecoreClass="ozelot.ecore#//Block">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onStepOn"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onDestroyed"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onPlaced"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onStepOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onDestroyed"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onPlaced"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/blockId"/>
     </genClasses>
-    <genClasses ecoreClass="ozelot.ecore#//Effect"/>
-    <genClasses ecoreClass="ozelot.ecore#//SelfOtherEffect"/>
-    <genClasses ecoreClass="ozelot.ecore#//OnTickEffect"/>
+    <genClasses ecoreClass="ozelot.ecore#//Effect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/potionEffects"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/visible"/>
+    </genClasses>
+    <genClasses ecoreClass="ozelot.ecore#//SelfOtherEffect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//SelfOtherEffect/isSelf"/>
+    </genClasses>
+    <genClasses ecoreClass="ozelot.ecore#//OnTickEffect">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//OnTickEffect/needsSelected"/>
+    </genClasses>
+    <genClasses ecoreClass="ozelot.ecore#//Translation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Translation/lang"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Translation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Translation/description"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

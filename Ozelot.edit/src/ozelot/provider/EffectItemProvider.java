@@ -11,13 +11,19 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import ozelot.Effect;
+import ozelot.OzelotPackage;
 
 /**
  * This is the item provider adapter for a {@link ozelot.Effect} object.
@@ -54,8 +60,100 @@ public class EffectItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPotionEffectsPropertyDescriptor(object);
+			addLevelPropertyDescriptor(object);
+			addDurationPropertyDescriptor(object);
+			addVisiblePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Potion Effects feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPotionEffectsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Effect_potionEffects_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Effect_potionEffects_feature", "_UI_Effect_type"),
+				 OzelotPackage.Literals.EFFECT__POTION_EFFECTS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Effect_level_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Effect_level_feature", "_UI_Effect_type"),
+				 OzelotPackage.Literals.EFFECT__LEVEL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Effect_duration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Effect_duration_feature", "_UI_Effect_type"),
+				 OzelotPackage.Literals.EFFECT__DURATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Visible feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVisiblePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Effect_visible_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Effect_visible_feature", "_UI_Effect_type"),
+				 OzelotPackage.Literals.EFFECT__VISIBLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -77,7 +175,10 @@ public class EffectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Effect_type");
+		String label = ((Effect)object).getPotionEffects();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Effect_type") :
+			getString("_UI_Effect_type") + " " + label;
 	}
 
 
@@ -91,6 +192,15 @@ public class EffectItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Effect.class)) {
+			case OzelotPackage.EFFECT__POTION_EFFECTS:
+			case OzelotPackage.EFFECT__LEVEL:
+			case OzelotPackage.EFFECT__DURATION:
+			case OzelotPackage.EFFECT__VISIBLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -9,7 +9,13 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import ozelot.OnTickEffect;
+import ozelot.OzelotPackage;
 
 /**
  * This is the item provider adapter for a {@link ozelot.OnTickEffect} object.
@@ -39,8 +45,31 @@ public class OnTickEffectItemProvider extends EffectItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNeedsSelectedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Needs Selected feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNeedsSelectedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OnTickEffect_needsSelected_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OnTickEffect_needsSelected_feature", "_UI_OnTickEffect_type"),
+				 OzelotPackage.Literals.ON_TICK_EFFECT__NEEDS_SELECTED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -62,7 +91,10 @@ public class OnTickEffectItemProvider extends EffectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_OnTickEffect_type");
+		String label = ((OnTickEffect)object).getPotionEffects();
+		return label == null || label.length() == 0 ?
+			getString("_UI_OnTickEffect_type") :
+			getString("_UI_OnTickEffect_type") + " " + label;
 	}
 
 
@@ -76,6 +108,12 @@ public class OnTickEffectItemProvider extends EffectItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(OnTickEffect.class)) {
+			case OzelotPackage.ON_TICK_EFFECT__NEEDS_SELECTED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

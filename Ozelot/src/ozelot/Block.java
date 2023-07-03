@@ -27,37 +27,37 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Block extends EObject {
 	/**
-	 * Returns the value of the '<em><b>On Step On</b></em>' reference list.
+	 * Returns the value of the '<em><b>On Step On</b></em>' containment reference list.
 	 * The list contents are of type {@link ozelot.Effect}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Step On</em>' reference list.
+	 * @return the value of the '<em>On Step On</em>' containment reference list.
 	 * @see ozelot.OzelotPackage#getBlock_OnStepOn()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Effect> getOnStepOn();
 
 	/**
-	 * Returns the value of the '<em><b>On Destroyed</b></em>' reference list.
+	 * Returns the value of the '<em><b>On Destroyed</b></em>' containment reference list.
 	 * The list contents are of type {@link ozelot.Effect}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Destroyed</em>' reference list.
+	 * @return the value of the '<em>On Destroyed</em>' containment reference list.
 	 * @see ozelot.OzelotPackage#getBlock_OnDestroyed()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Effect> getOnDestroyed();
 
 	/**
-	 * Returns the value of the '<em><b>On Placed</b></em>' reference list.
+	 * Returns the value of the '<em><b>On Placed</b></em>' containment reference list.
 	 * The list contents are of type {@link ozelot.Effect}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Placed</em>' reference list.
+	 * @return the value of the '<em>On Placed</em>' containment reference list.
 	 * @see ozelot.OzelotPackage#getBlock_OnPlaced()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Effect> getOnPlaced();
@@ -69,7 +69,7 @@ public interface Block extends EObject {
 	 * @return the value of the '<em>Block Id</em>' attribute.
 	 * @see #setBlockId(String)
 	 * @see ozelot.OzelotPackage#getBlock_BlockId()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getBlockId();

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,6 +24,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ozelot.Block;
+import ozelot.OzelotFactory;
 import ozelot.OzelotPackage;
 
 /**
@@ -60,78 +62,9 @@ public class BlockItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOnStepOnPropertyDescriptor(object);
-			addOnDestroyedPropertyDescriptor(object);
-			addOnPlacedPropertyDescriptor(object);
 			addBlockIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the On Step On feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOnStepOnPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Block_onStepOn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Block_onStepOn_feature", "_UI_Block_type"),
-				 OzelotPackage.Literals.BLOCK__ON_STEP_ON,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the On Destroyed feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOnDestroyedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Block_onDestroyed_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Block_onDestroyed_feature", "_UI_Block_type"),
-				 OzelotPackage.Literals.BLOCK__ON_DESTROYED,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the On Placed feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOnPlacedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Block_onPlaced_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Block_onPlaced_feature", "_UI_Block_type"),
-				 OzelotPackage.Literals.BLOCK__ON_PLACED,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -154,6 +87,38 @@ public class BlockItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(OzelotPackage.Literals.BLOCK__ON_STEP_ON);
+			childrenFeatures.add(OzelotPackage.Literals.BLOCK__ON_DESTROYED);
+			childrenFeatures.add(OzelotPackage.Literals.BLOCK__ON_PLACED);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -197,6 +162,11 @@ public class BlockItemProvider
 			case OzelotPackage.BLOCK__BLOCK_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case OzelotPackage.BLOCK__ON_STEP_ON:
+			case OzelotPackage.BLOCK__ON_DESTROYED:
+			case OzelotPackage.BLOCK__ON_PLACED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -211,6 +181,75 @@ public class BlockItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_STEP_ON,
+				 OzelotFactory.eINSTANCE.createEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_STEP_ON,
+				 OzelotFactory.eINSTANCE.createSelfOtherEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_STEP_ON,
+				 OzelotFactory.eINSTANCE.createOnTickEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_DESTROYED,
+				 OzelotFactory.eINSTANCE.createEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_DESTROYED,
+				 OzelotFactory.eINSTANCE.createSelfOtherEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_DESTROYED,
+				 OzelotFactory.eINSTANCE.createOnTickEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_PLACED,
+				 OzelotFactory.eINSTANCE.createEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_PLACED,
+				 OzelotFactory.eINSTANCE.createSelfOtherEffect()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OzelotPackage.Literals.BLOCK__ON_PLACED,
+				 OzelotFactory.eINSTANCE.createOnTickEffect()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == OzelotPackage.Literals.BLOCK__ON_STEP_ON ||
+			childFeature == OzelotPackage.Literals.BLOCK__ON_DESTROYED ||
+			childFeature == OzelotPackage.Literals.BLOCK__ON_PLACED;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

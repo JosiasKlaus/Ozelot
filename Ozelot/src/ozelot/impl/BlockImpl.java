@@ -6,15 +6,17 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import ozelot.Block;
 import ozelot.Effect;
 import ozelot.OzelotPackage;
@@ -37,7 +39,7 @@ import ozelot.OzelotPackage;
  */
 public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	/**
-	 * The cached value of the '{@link #getOnStepOn() <em>On Step On</em>}' reference list.
+	 * The cached value of the '{@link #getOnStepOn() <em>On Step On</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOnStepOn()
@@ -47,7 +49,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	protected EList<Effect> onStepOn;
 
 	/**
-	 * The cached value of the '{@link #getOnDestroyed() <em>On Destroyed</em>}' reference list.
+	 * The cached value of the '{@link #getOnDestroyed() <em>On Destroyed</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOnDestroyed()
@@ -57,7 +59,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	protected EList<Effect> onDestroyed;
 
 	/**
-	 * The cached value of the '{@link #getOnPlaced() <em>On Placed</em>}' reference list.
+	 * The cached value of the '{@link #getOnPlaced() <em>On Placed</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOnPlaced()
@@ -112,7 +114,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 */
 	public EList<Effect> getOnStepOn() {
 		if (onStepOn == null) {
-			onStepOn = new EObjectResolvingEList<Effect>(Effect.class, this, OzelotPackage.BLOCK__ON_STEP_ON);
+			onStepOn = new EObjectContainmentEList<Effect>(Effect.class, this, OzelotPackage.BLOCK__ON_STEP_ON);
 		}
 		return onStepOn;
 	}
@@ -124,7 +126,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 */
 	public EList<Effect> getOnDestroyed() {
 		if (onDestroyed == null) {
-			onDestroyed = new EObjectResolvingEList<Effect>(Effect.class, this, OzelotPackage.BLOCK__ON_DESTROYED);
+			onDestroyed = new EObjectContainmentEList<Effect>(Effect.class, this, OzelotPackage.BLOCK__ON_DESTROYED);
 		}
 		return onDestroyed;
 	}
@@ -136,7 +138,7 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 	 */
 	public EList<Effect> getOnPlaced() {
 		if (onPlaced == null) {
-			onPlaced = new EObjectResolvingEList<Effect>(Effect.class, this, OzelotPackage.BLOCK__ON_PLACED);
+			onPlaced = new EObjectContainmentEList<Effect>(Effect.class, this, OzelotPackage.BLOCK__ON_PLACED);
 		}
 		return onPlaced;
 	}
@@ -160,6 +162,24 @@ public class BlockImpl extends MinimalEObjectImpl.Container implements Block {
 		blockId = newBlockId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.BLOCK__BLOCK_ID, oldBlockId, blockId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case OzelotPackage.BLOCK__ON_STEP_ON:
+				return ((InternalEList<?>)getOnStepOn()).basicRemove(otherEnd, msgs);
+			case OzelotPackage.BLOCK__ON_DESTROYED:
+				return ((InternalEList<?>)getOnDestroyed()).basicRemove(otherEnd, msgs);
+			case OzelotPackage.BLOCK__ON_PLACED:
+				return ((InternalEList<?>)getOnPlaced()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

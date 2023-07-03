@@ -13,7 +13,7 @@ import ozelot.OzelotFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FoodItemTest extends UsableItemTest {
+public class FoodItemTest extends ItemTest {
 
 	/**
 	 * <!-- begin-user-doc -->

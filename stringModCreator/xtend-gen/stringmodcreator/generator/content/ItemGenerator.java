@@ -21,7 +21,6 @@ import stringmodcreator.data.Rarity;
 import stringmodcreator.data.SelfOtherEffect;
 import stringmodcreator.data.ToolProperty;
 import stringmodcreator.data.Translation;
-import stringmodcreator.data.UsableItem;
 import stringmodcreator.generator.FileGenerator;
 import stringmodcreator.generator.FolderGenerator;
 
@@ -221,6 +220,18 @@ public class ItemGenerator {
       _builder.newLine();
       _builder.append("import net.minecraft.world.item.Rarity;");
       _builder.newLine();
+      _builder.append("import net.minecraft.world.item.TooltipFlag;");
+      _builder.newLine();
+      _builder.append("import net.minecraftforge.api.distmarker.OnlyIn;");
+      _builder.newLine();
+      _builder.append("import net.minecraftforge.api.distmarker.Dist;");
+      _builder.newLine();
+      _builder.append("import java.util.List;");
+      _builder.newLine();
+      _builder.append("import net.minecraft.network.chat.Component;");
+      _builder.newLine();
+      _builder.append("import net.minecraft.network.chat.TranslatableComponent;");
+      _builder.newLine();
       {
         if ((item instanceof FoodItem)) {
           _builder.append("import net.minecraft.world.food.FoodProperties;");
@@ -228,7 +239,9 @@ public class ItemGenerator {
         }
       }
       {
-        if (((item instanceof UsableItem) && (((UsableItem) item).getOnUse().size() > 0))) {
+        int _size = item.getOnUse().size();
+        boolean _greaterThan = (_size > 0);
+        if (_greaterThan) {
           _builder.append("import net.minecraft.world.InteractionResultHolder;");
           _builder.newLine();
           _builder.append("import net.minecraft.world.InteractionHand;");
@@ -244,15 +257,15 @@ public class ItemGenerator {
         }
       }
       {
-        int _size = item.getOnTick().size();
-        boolean _greaterThan = (_size > 0);
-        if (_greaterThan) {
+        int _size_1 = item.getOnTick().size();
+        boolean _greaterThan_1 = (_size_1 > 0);
+        if (_greaterThan_1) {
           _builder.append("import net.minecraft.world.entity.Entity;");
           _builder.newLine();
         }
       }
       {
-        if (((((item.getOnTick().size() > 0) || (item.getOnAttack().size() > 0)) || ((item instanceof UsableItem) && (((UsableItem) item).getOnUse().size() > 0))) || ((item instanceof FoodItem) && (((FoodItem) item).getAfterEating().size() > 0)))) {
+        if (((((item.getOnTick().size() > 0) || (item.getOnAttack().size() > 0)) || (item.getOnUse().size() > 0)) || ((item instanceof FoodItem) && (((FoodItem) item).getAfterEating().size() > 0)))) {
           _builder.append("import net.minecraft.world.effect.MobEffectInstance;");
           _builder.newLine();
           _builder.append("import net.minecraft.world.effect.MobEffects;");
@@ -260,15 +273,6 @@ public class ItemGenerator {
           _builder.append("import net.minecraft.world.level.Level;");
           _builder.newLine();
           _builder.append("import net.minecraft.world.item.ItemStack;");
-          _builder.newLine();
-        }
-      }
-      {
-        boolean _isGlows = item.isGlows();
-        if (_isGlows) {
-          _builder.append("import net.minecraftforge.api.distmarker.OnlyIn;");
-          _builder.newLine();
-          _builder.append("import net.minecraftforge.api.distmarker.Dist;");
           _builder.newLine();
         }
       }
@@ -351,13 +355,15 @@ public class ItemGenerator {
       _builder_1.newLine();
       _builder_1.newLine();
       {
-        if (((item instanceof UsableItem) && (((UsableItem) item).getOnUse().size() > 0))) {
+        int _size_2 = item.getOnUse().size();
+        boolean _greaterThan_2 = (_size_2 > 0);
+        if (_greaterThan_2) {
           _builder_1.append("@Override");
           _builder_1.newLine();
           _builder_1.append("public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {");
           _builder_1.newLine();
           {
-            List<Effect> _onUse = ((UsableItem) item).getOnUse();
+            List<Effect> _onUse = item.getOnUse();
             boolean _hasElements = false;
             for(final Effect onUse : _onUse) {
               if (!_hasElements) {
@@ -380,9 +386,9 @@ public class ItemGenerator {
       }
       _builder_1.newLine();
       {
-        int _size_1 = item.getOnTick().size();
-        boolean _greaterThan_1 = (_size_1 > 0);
-        if (_greaterThan_1) {
+        int _size_3 = item.getOnTick().size();
+        boolean _greaterThan_3 = (_size_3 > 0);
+        if (_greaterThan_3) {
           _builder_1.append("@Override");
           _builder_1.newLine();
           _builder_1.append("public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {");
@@ -397,9 +403,9 @@ public class ItemGenerator {
             final Function1<OnTickEffect, Boolean> _function_1 = (OnTickEffect e) -> {
               return Boolean.valueOf(e.isNeedsSelected());
             };
-            int _size_2 = IterableExtensions.size(IterableExtensions.<OnTickEffect>filter(item.getOnTick(), _function_1));
-            boolean _greaterThan_2 = (_size_2 > 0);
-            if (_greaterThan_2) {
+            int _size_4 = IterableExtensions.size(IterableExtensions.<OnTickEffect>filter(item.getOnTick(), _function_1));
+            boolean _greaterThan_4 = (_size_4 > 0);
+            if (_greaterThan_4) {
               _builder_1.append("\t\t");
               _builder_1.append("if (selected) {");
               _builder_1.newLine();
@@ -455,9 +461,9 @@ public class ItemGenerator {
       }
       _builder_1.newLine();
       {
-        int _size_3 = item.getOnAttack().size();
-        boolean _greaterThan_3 = (_size_3 > 0);
-        if (_greaterThan_3) {
+        int _size_5 = item.getOnAttack().size();
+        boolean _greaterThan_5 = (_size_5 > 0);
+        if (_greaterThan_5) {
           _builder_1.append("@Override");
           _builder_1.newLine();
           _builder_1.append("public boolean hurtEnemy(ItemStack itemstack, LivingEntity target, LivingEntity source) {");
@@ -521,9 +527,27 @@ public class ItemGenerator {
         }
       }
       _builder_1.newLine();
+      _builder_1.append("@OnlyIn(Dist.CLIENT)");
+      _builder_1.newLine();
+      _builder_1.append("@Override");
+      _builder_1.newLine();
+      _builder_1.append("public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {");
+      _builder_1.newLine();
+      _builder_1.append("\t");
+      _builder_1.append("tooltip.add(new TranslatableComponent(\"tooltip.");
+      String _modId = mod.getModId();
+      _builder_1.append(_modId, "\t");
+      _builder_1.append(".item.");
+      String _itemId = item.getItemId();
+      _builder_1.append(_itemId, "\t");
+      _builder_1.append("\"));");
+      _builder_1.newLineIfNotEmpty();
+      _builder_1.append("}");
+      _builder_1.newLine();
+      _builder_1.newLine();
       {
-        boolean _isGlows_1 = item.isGlows();
-        if (_isGlows_1) {
+        boolean _isGlows = item.isGlows();
+        if (_isGlows) {
           _builder_1.append("@Override");
           _builder_1.newLine();
           _builder_1.append("@OnlyIn(Dist.CLIENT)");

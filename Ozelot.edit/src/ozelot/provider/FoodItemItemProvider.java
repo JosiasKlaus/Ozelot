@@ -23,7 +23,7 @@ import ozelot.OzelotPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FoodItemItemProvider extends UsableItemItemProvider {
+public class FoodItemItemProvider extends ItemItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -49,6 +49,7 @@ public class FoodItemItemProvider extends UsableItemItemProvider {
 			addSaturationPropertyDescriptor(object);
 			addIsMeatPropertyDescriptor(object);
 			addIsAlwaysEdiblePropertyDescriptor(object);
+			addAfterEatingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -142,6 +143,28 @@ public class FoodItemItemProvider extends UsableItemItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the After Eating feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAfterEatingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FoodItem_afterEating_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FoodItem_afterEating_feature", "_UI_FoodItem_type"),
+				 OzelotPackage.Literals.FOOD_ITEM__AFTER_EATING,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns FoodItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,6 +222,30 @@ public class FoodItemItemProvider extends UsableItemItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == OzelotPackage.Literals.ITEM__ON_ATTACK ||
+			childFeature == OzelotPackage.Literals.ITEM__ON_USE ||
+			childFeature == OzelotPackage.Literals.ITEM__ON_TICK;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

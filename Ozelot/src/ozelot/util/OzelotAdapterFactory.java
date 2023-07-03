@@ -76,10 +76,6 @@ public class OzelotAdapterFactory extends AdapterFactoryImpl {
 				return createItemAdapter();
 			}
 			@Override
-			public Adapter caseUsableItem(UsableItem object) {
-				return createUsableItemAdapter();
-			}
-			@Override
 			public Adapter caseFoodItem(FoodItem object) {
 				return createFoodItemAdapter();
 			}
@@ -102,6 +98,10 @@ public class OzelotAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOnTickEffect(OnTickEffect object) {
 				return createOnTickEffectAdapter();
+			}
+			@Override
+			public Adapter caseTranslation(Translation object) {
+				return createTranslationAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -148,20 +148,6 @@ public class OzelotAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createItemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ozelot.UsableItem <em>Usable Item</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ozelot.UsableItem
-	 * @generated
-	 */
-	public Adapter createUsableItemAdapter() {
 		return null;
 	}
 
@@ -246,6 +232,20 @@ public class OzelotAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOnTickEffectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ozelot.Translation <em>Translation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ozelot.Translation
+	 * @generated
+	 */
+	public Adapter createTranslationAdapter() {
 		return null;
 	}
 

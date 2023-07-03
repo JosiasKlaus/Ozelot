@@ -78,17 +78,9 @@ public class OzelotSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OzelotPackage.USABLE_ITEM: {
-				UsableItem usableItem = (UsableItem)theEObject;
-				T result = caseUsableItem(usableItem);
-				if (result == null) result = caseItem(usableItem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case OzelotPackage.FOOD_ITEM: {
 				FoodItem foodItem = (FoodItem)theEObject;
 				T result = caseFoodItem(foodItem);
-				if (result == null) result = caseUsableItem(foodItem);
 				if (result == null) result = caseItem(foodItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -125,6 +117,12 @@ public class OzelotSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case OzelotPackage.TRANSLATION: {
+				Translation translation = (Translation)theEObject;
+				T result = caseTranslation(translation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -156,21 +154,6 @@ public class OzelotSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseItem(Item object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Usable Item</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Usable Item</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseUsableItem(UsableItem object) {
 		return null;
 	}
 
@@ -261,6 +244,21 @@ public class OzelotSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOnTickEffect(OnTickEffect object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Translation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Translation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTranslation(Translation object) {
 		return null;
 	}
 

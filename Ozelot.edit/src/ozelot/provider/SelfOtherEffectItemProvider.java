@@ -9,7 +9,13 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import ozelot.OzelotPackage;
+import ozelot.SelfOtherEffect;
 
 /**
  * This is the item provider adapter for a {@link ozelot.SelfOtherEffect} object.
@@ -39,8 +45,31 @@ public class SelfOtherEffectItemProvider extends EffectItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addIsSelfPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Self feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsSelfPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SelfOtherEffect_isSelf_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SelfOtherEffect_isSelf_feature", "_UI_SelfOtherEffect_type"),
+				 OzelotPackage.Literals.SELF_OTHER_EFFECT__IS_SELF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -62,7 +91,10 @@ public class SelfOtherEffectItemProvider extends EffectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SelfOtherEffect_type");
+		String label = ((SelfOtherEffect)object).getPotionEffects();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SelfOtherEffect_type") :
+			getString("_UI_SelfOtherEffect_type") + " " + label;
 	}
 
 
@@ -76,6 +108,12 @@ public class SelfOtherEffectItemProvider extends EffectItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(SelfOtherEffect.class)) {
+			case OzelotPackage.SELF_OTHER_EFFECT__IS_SELF:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

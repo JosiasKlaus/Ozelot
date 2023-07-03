@@ -2,12 +2,16 @@
  */
 package ozelot.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import ozelot.Effect;
 import ozelot.FoodItem;
 import ozelot.OzelotPackage;
 
@@ -23,11 +27,12 @@ import ozelot.OzelotPackage;
  *   <li>{@link ozelot.impl.FoodItemImpl#getSaturation <em>Saturation</em>}</li>
  *   <li>{@link ozelot.impl.FoodItemImpl#isIsMeat <em>Is Meat</em>}</li>
  *   <li>{@link ozelot.impl.FoodItemImpl#isIsAlwaysEdible <em>Is Always Edible</em>}</li>
+ *   <li>{@link ozelot.impl.FoodItemImpl#getAfterEating <em>After Eating</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FoodItemImpl extends UsableItemImpl implements FoodItem {
+public class FoodItemImpl extends ItemImpl implements FoodItem {
 	/**
 	 * The default value of the '{@link #getNutrition() <em>Nutrition</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,6 +112,16 @@ public class FoodItemImpl extends UsableItemImpl implements FoodItem {
 	 * @ordered
 	 */
 	protected boolean isAlwaysEdible = IS_ALWAYS_EDIBLE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAfterEating() <em>After Eating</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAfterEating()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Effect> afterEating;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +231,18 @@ public class FoodItemImpl extends UsableItemImpl implements FoodItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Effect> getAfterEating() {
+		if (afterEating == null) {
+			afterEating = new EObjectResolvingEList<Effect>(Effect.class, this, OzelotPackage.FOOD_ITEM__AFTER_EATING);
+		}
+		return afterEating;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -227,6 +254,8 @@ public class FoodItemImpl extends UsableItemImpl implements FoodItem {
 				return isIsMeat();
 			case OzelotPackage.FOOD_ITEM__IS_ALWAYS_EDIBLE:
 				return isIsAlwaysEdible();
+			case OzelotPackage.FOOD_ITEM__AFTER_EATING:
+				return getAfterEating();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +265,7 @@ public class FoodItemImpl extends UsableItemImpl implements FoodItem {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -250,6 +280,10 @@ public class FoodItemImpl extends UsableItemImpl implements FoodItem {
 				return;
 			case OzelotPackage.FOOD_ITEM__IS_ALWAYS_EDIBLE:
 				setIsAlwaysEdible((Boolean)newValue);
+				return;
+			case OzelotPackage.FOOD_ITEM__AFTER_EATING:
+				getAfterEating().clear();
+				getAfterEating().addAll((Collection<? extends Effect>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,6 +309,9 @@ public class FoodItemImpl extends UsableItemImpl implements FoodItem {
 			case OzelotPackage.FOOD_ITEM__IS_ALWAYS_EDIBLE:
 				setIsAlwaysEdible(IS_ALWAYS_EDIBLE_EDEFAULT);
 				return;
+			case OzelotPackage.FOOD_ITEM__AFTER_EATING:
+				getAfterEating().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -295,6 +332,8 @@ public class FoodItemImpl extends UsableItemImpl implements FoodItem {
 				return isMeat != IS_MEAT_EDEFAULT;
 			case OzelotPackage.FOOD_ITEM__IS_ALWAYS_EDIBLE:
 				return isAlwaysEdible != IS_ALWAYS_EDIBLE_EDEFAULT;
+			case OzelotPackage.FOOD_ITEM__AFTER_EATING:
+				return afterEating != null && !afterEating.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

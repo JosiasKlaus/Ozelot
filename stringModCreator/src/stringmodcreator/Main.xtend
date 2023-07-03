@@ -41,7 +41,8 @@ class Main {
 						Rarity.COMMON,
 						CreativeModeTab.MISC,
 						<OnTickEffect>newArrayList(),
-						<SelfOtherEffect>newArrayList
+						<SelfOtherEffect>newArrayList,
+						<Effect>newArrayList
 					),
 					new FoodItem(null, 'C:/Users/johfr/Desktop/my_item.png', false, 16, true, 'my_2_item',
 						<Translation>newArrayList(

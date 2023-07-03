@@ -6,7 +6,7 @@ import org.eclipse.xtext.xbase.lib.Pure;
 
 @Accessors
 @SuppressWarnings("all")
-public class FoodItem extends UsableItem {
+public class FoodItem extends Item {
   public FoodItem(final ToolProperty toolProperty, final String iconPath, final boolean glows, final int maxStackSize, final boolean isImmuneToFire, final String itemId, final List<Translation> translations, final Rarity rarity, final CreativeModeTab creativeModeTab, final List<OnTickEffect> onTick, final List<SelfOtherEffect> onAttack, final List<Effect> onUse, final int nutrition, final float saturation, final boolean isMeat, final boolean isAlwaysEdible, final List<Effect> afterEating) {
     super(toolProperty, iconPath, glows, maxStackSize, isImmuneToFire, itemId, translations, rarity, creativeModeTab, onTick, onAttack, onUse);
     this.nutrition = nutrition;

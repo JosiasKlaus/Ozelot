@@ -7,7 +7,7 @@ import org.eclipse.xtext.xbase.lib.Pure;
 @Accessors
 @SuppressWarnings("all")
 public class Item {
-  public Item(final ToolProperty toolProperty, final String iconPath, final boolean glows, final int maxStackSize, final boolean isImmuneToFire, final String itemId, final List<Translation> translations, final Rarity rarity, final CreativeModeTab creativeModeTab, final List<OnTickEffect> onTick, final List<SelfOtherEffect> onAttack) {
+  public Item(final ToolProperty toolProperty, final String iconPath, final boolean glows, final int maxStackSize, final boolean isImmuneToFire, final String itemId, final List<Translation> translations, final Rarity rarity, final CreativeModeTab creativeModeTab, final List<OnTickEffect> onTick, final List<SelfOtherEffect> onAttack, final List<Effect> onUse) {
     this.toolProperty = toolProperty;
     this.iconPath = iconPath;
     this.glows = glows;
@@ -19,6 +19,7 @@ public class Item {
     this.creativeModeTab = creativeModeTab;
     this.onTick = onTick;
     this.onAttack = onAttack;
+    this.onUse = onUse;
   }
 
   private ToolProperty toolProperty;
@@ -42,6 +43,8 @@ public class Item {
   private List<OnTickEffect> onTick;
 
   private List<SelfOtherEffect> onAttack;
+
+  private List<Effect> onUse;
 
   @Pure
   public ToolProperty getToolProperty() {
@@ -140,5 +143,14 @@ public class Item {
 
   public void setOnAttack(final List<SelfOtherEffect> onAttack) {
     this.onAttack = onAttack;
+  }
+
+  @Pure
+  public List<Effect> getOnUse() {
+    return this.onUse;
+  }
+
+  public void setOnUse(final List<Effect> onUse) {
+    this.onUse = onUse;
   }
 }

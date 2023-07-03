@@ -7,7 +7,6 @@ import stringmodcreator.data.FoodItem
 import stringmodcreator.data.Item
 import stringmodcreator.data.Rarity
 import stringmodcreator.data.CreativeModeTab
-import stringmodcreator.data.UsableItem
 
 class ItemGenerator {
 	def static void run(Mod mod){
@@ -97,10 +96,16 @@ class ItemGenerator {
 				import net.minecraft.world.item.CreativeModeTab;
 				import net.minecraft.world.item.Item;
 				import net.minecraft.world.item.Rarity;
+				import net.minecraft.world.item.TooltipFlag;
+				import net.minecraftforge.api.distmarker.OnlyIn;
+				import net.minecraftforge.api.distmarker.Dist;
+				import java.util.List;
+				import net.minecraft.network.chat.Component;
+				import net.minecraft.network.chat.TranslatableComponent;
 				«IF item instanceof FoodItem»
 				import net.minecraft.world.food.FoodProperties;
 				«ENDIF»
-				«IF item instanceof UsableItem && (item as UsableItem).onUse.size > 0» 
+				«IF item.onUse.size > 0» 
 				import net.minecraft.world.InteractionResultHolder;
 				import net.minecraft.world.InteractionHand;
 				import net.minecraft.world.entity.player.Player;
@@ -111,15 +116,11 @@ class ItemGenerator {
 				«IF item.onTick.size > 0» 
 				import net.minecraft.world.entity.Entity;
 				«ENDIF»
-				«IF item.onTick.size > 0 || item.onAttack.size > 0 || (item instanceof UsableItem && (item as UsableItem).onUse.size > 0) || item instanceof FoodItem && (item as FoodItem).afterEating.size > 0»
+				«IF item.onTick.size > 0 || item.onAttack.size > 0 || (item.onUse.size > 0) || item instanceof FoodItem && (item as FoodItem).afterEating.size > 0»
 				import net.minecraft.world.effect.MobEffectInstance;
 				import net.minecraft.world.effect.MobEffects;
 				import net.minecraft.world.level.Level;
 				import net.minecraft.world.item.ItemStack;
-				«ENDIF»
-				«IF item.glows» 
-				import net.minecraftforge.api.distmarker.OnlyIn;
-				import net.minecraftforge.api.distmarker.Dist;
 				«ENDIF»
 				''',
 				'''
@@ -145,10 +146,10 @@ class ItemGenerator {
 						.rarity(«item.rarity.rarityString»));
 				}
 				
-				«IF item instanceof UsableItem && (item as UsableItem).onUse.size > 0» 
+				«IF item.onUse.size > 0» 
 				@Override
 				public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
-					«FOR onUse : (item as UsableItem).onUse SEPARATOR '\n'»
+					«FOR onUse : item.onUse SEPARATOR '\n'»
 					«EffectHelper.getEffectInstaceString(onUse, 'player')»
 					«ENDFOR»
 					return super.use(world, player, hand);
@@ -193,6 +194,12 @@ class ItemGenerator {
 					return super.finishUsingItem(itemstack, world, livingEntity);
 				}
 				«ENDIF»
+				
+				@OnlyIn(Dist.CLIENT)
+				@Override
+				public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
+					tooltip.add(new TranslatableComponent("tooltip.«mod.modId».item.«item.itemId»"));
+				}
 				
 				«IF item.glows»    
 				@Override
