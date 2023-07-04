@@ -29,9 +29,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemId" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rarity" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Rarity"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="creativeModeTab" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//CreativeModeTab"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="translations" upperBound="-1"
         eType="#//Translation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onAttack" upperBound="-1"
@@ -51,7 +51,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAlwaysEdible" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="afterEating" upperBound="-1"
-        eType="#//Effect"/>
+        eType="#//Effect" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ToolProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
@@ -65,13 +65,13 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Effect">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="potionEffects" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="potionEffect" lowerBound="1"
+        eType="#//PotionEffect"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visible" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SelfOtherEffect" eSuperTypes="#//Effect">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSelf" lowerBound="1"
@@ -87,5 +87,55 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PotionEffect">
+    <eLiterals name="MOVEMENT_SPEED"/>
+    <eLiterals name="MOVEMENT_SLOWDOWN" value="1"/>
+    <eLiterals name="DIG_SPEED" value="2"/>
+    <eLiterals name="DIG_SLOWDOWN" value="3"/>
+    <eLiterals name="DAMAGE_BOOST" value="4"/>
+    <eLiterals name="HEAL" value="5"/>
+    <eLiterals name="HARM" value="6"/>
+    <eLiterals name="JUMP" value="7"/>
+    <eLiterals name="CONFUSION" value="8"/>
+    <eLiterals name="REGENERATION" value="9"/>
+    <eLiterals name="DAMAGE_RESISTANCE" value="10"/>
+    <eLiterals name="FIRE_RESISTANCE" value="11"/>
+    <eLiterals name="WATER_BREATHING" value="12"/>
+    <eLiterals name="INVISIBILITY" value="13"/>
+    <eLiterals name="BLINDNESS" value="14"/>
+    <eLiterals name="NIGHT_VISION" value="15"/>
+    <eLiterals name="HUNGER" value="16"/>
+    <eLiterals name="WEAKNESS" value="17"/>
+    <eLiterals name="POISON" value="18"/>
+    <eLiterals name="WITHER" value="19"/>
+    <eLiterals name="HEALTH_BOOST" value="20"/>
+    <eLiterals name="ABSORPTION" value="21"/>
+    <eLiterals name="SATURATION" value="22"/>
+    <eLiterals name="GLOWING" value="23"/>
+    <eLiterals name="LEVITATION" value="24"/>
+    <eLiterals name="LUCK" value="25"/>
+    <eLiterals name="UNLUCK" value="26"/>
+    <eLiterals name="SLOW_FALLING" value="27"/>
+    <eLiterals name="CONDUIT_POWER" value="28"/>
+    <eLiterals name="DOLPHINS_GRACE" value="29"/>
+    <eLiterals name="BAD_OMEN" value="30"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Rarity">
+    <eLiterals name="COMMON"/>
+    <eLiterals name="UNCOMMON" value="1"/>
+    <eLiterals name="RARE" value="2"/>
+    <eLiterals name="EPIC" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CreativeModeTab">
+    <eLiterals name="BUILDING_BLOCKS"/>
+    <eLiterals name="DECORATIONS" value="1"/>
+    <eLiterals name="REDSTONE" value="2"/>
+    <eLiterals name="TRANSPORTATION" value="3"/>
+    <eLiterals name="MISC" value="4"/>
+    <eLiterals name="FOOD" value="5"/>
+    <eLiterals name="TOOLS" value="6"/>
+    <eLiterals name="COMBAT" value="7"/>
+    <eLiterals name="BREWING" value="8"/>
   </eClassifiers>
 </ecore:EPackage>

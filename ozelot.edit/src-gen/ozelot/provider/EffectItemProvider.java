@@ -23,6 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ozelot.Effect;
 import ozelot.OzelotPackage;
+import ozelot.PotionEffect;
 
 /**
  * This is the item provider adapter for a {@link ozelot.Effect} object.
@@ -53,7 +54,7 @@ public class EffectItemProvider extends ItemProviderAdapter implements IEditingD
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPotionEffectsPropertyDescriptor(object);
+			addPotionEffectPropertyDescriptor(object);
 			addLevelPropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
 			addVisiblePropertyDescriptor(object);
@@ -62,18 +63,18 @@ public class EffectItemProvider extends ItemProviderAdapter implements IEditingD
 	}
 
 	/**
-	 * This adds a property descriptor for the Potion Effects feature.
+	 * This adds a property descriptor for the Potion Effect feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPotionEffectsPropertyDescriptor(Object object) {
+	protected void addPotionEffectPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Effect_potionEffects_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Effect_potionEffects_feature",
+						getResourceLocator(), getString("_UI_Effect_potionEffect_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Effect_potionEffect_feature",
 								"_UI_Effect_type"),
-						OzelotPackage.Literals.EFFECT__POTION_EFFECTS, true, false, false,
+						OzelotPackage.Literals.EFFECT__POTION_EFFECT, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -153,7 +154,8 @@ public class EffectItemProvider extends ItemProviderAdapter implements IEditingD
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Effect) object).getPotionEffects();
+		PotionEffect labelValue = ((Effect) object).getPotionEffect();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ? getString("_UI_Effect_type")
 				: getString("_UI_Effect_type") + " " + label;
 	}
@@ -170,7 +172,7 @@ public class EffectItemProvider extends ItemProviderAdapter implements IEditingD
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Effect.class)) {
-		case OzelotPackage.EFFECT__POTION_EFFECTS:
+		case OzelotPackage.EFFECT__POTION_EFFECT:
 		case OzelotPackage.EFFECT__LEVEL:
 		case OzelotPackage.EFFECT__DURATION:
 		case OzelotPackage.EFFECT__VISIBLE:

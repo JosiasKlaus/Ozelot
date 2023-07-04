@@ -9,6 +9,56 @@
   <foreignModel>ozelot.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Ozelot" disposableProviderFactory="true" ecorePackage="ozelot.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//PotionEffect">
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/MOVEMENT_SPEED"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/MOVEMENT_SLOWDOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DIG_SPEED"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DIG_SLOWDOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DAMAGE_BOOST"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HEAL"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HARM"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/JUMP"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/CONFUSION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/REGENERATION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DAMAGE_RESISTANCE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/FIRE_RESISTANCE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WATER_BREATHING"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/INVISIBILITY"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/BLINDNESS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/NIGHT_VISION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HUNGER"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WEAKNESS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/POISON"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WITHER"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HEALTH_BOOST"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/ABSORPTION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/SATURATION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/GLOWING"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/LEVITATION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/LUCK"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/UNLUCK"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/SLOW_FALLING"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/CONDUIT_POWER"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DOLPHINS_GRACE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/BAD_OMEN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//Rarity">
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//Rarity/COMMON"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//Rarity/UNCOMMON"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//Rarity/RARE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//Rarity/EPIC"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//CreativeModeTab">
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/BUILDING_BLOCKS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/DECORATIONS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/REDSTONE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/TRANSPORTATION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/MISC"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/FOOD"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/TOOLS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/COMBAT"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/BREWING"/>
+    </genEnums>
     <genClasses ecoreClass="ozelot.ecore#//Mod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/modId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/name"/>
@@ -48,7 +98,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/blockId"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//Effect">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/potionEffects"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/potionEffect"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/level"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/duration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/visible"/>

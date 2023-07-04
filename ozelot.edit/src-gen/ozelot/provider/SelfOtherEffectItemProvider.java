@@ -14,6 +14,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ozelot.OzelotPackage;
+import ozelot.PotionEffect;
 import ozelot.SelfOtherEffect;
 
 /**
@@ -94,7 +95,8 @@ public class SelfOtherEffectItemProvider extends EffectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SelfOtherEffect) object).getPotionEffects();
+		PotionEffect labelValue = ((SelfOtherEffect) object).getPotionEffect();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ? getString("_UI_SelfOtherEffect_type")
 				: getString("_UI_SelfOtherEffect_type") + " " + label;
 	}

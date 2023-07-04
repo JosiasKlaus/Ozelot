@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ozelot.OnTickEffect;
 import ozelot.OzelotPackage;
+import ozelot.PotionEffect;
 
 /**
  * This is the item provider adapter for a {@link ozelot.OnTickEffect} object.
@@ -94,7 +95,8 @@ public class OnTickEffectItemProvider extends EffectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((OnTickEffect) object).getPotionEffects();
+		PotionEffect labelValue = ((OnTickEffect) object).getPotionEffect();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ? getString("_UI_OnTickEffect_type")
 				: getString("_UI_OnTickEffect_type") + " " + label;
 	}

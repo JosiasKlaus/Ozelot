@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ozelot.Effect#getPotionEffects <em>Potion Effects</em>}</li>
+ *   <li>{@link ozelot.Effect#getPotionEffect <em>Potion Effect</em>}</li>
  *   <li>{@link ozelot.Effect#getLevel <em>Level</em>}</li>
  *   <li>{@link ozelot.Effect#getDuration <em>Duration</em>}</li>
  *   <li>{@link ozelot.Effect#isVisible <em>Visible</em>}</li>
@@ -25,26 +25,29 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Effect extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Potion Effects</b></em>' attribute.
+	 * Returns the value of the '<em><b>Potion Effect</b></em>' attribute.
+	 * The literals are from the enumeration {@link ozelot.PotionEffect}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Potion Effects</em>' attribute.
-	 * @see #setPotionEffects(String)
-	 * @see ozelot.OzelotPackage#getEffect_PotionEffects()
+	 * @return the value of the '<em>Potion Effect</em>' attribute.
+	 * @see ozelot.PotionEffect
+	 * @see #setPotionEffect(PotionEffect)
+	 * @see ozelot.OzelotPackage#getEffect_PotionEffect()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getPotionEffects();
+	PotionEffect getPotionEffect();
 
 	/**
-	 * Sets the value of the '{@link ozelot.Effect#getPotionEffects <em>Potion Effects</em>}' attribute.
+	 * Sets the value of the '{@link ozelot.Effect#getPotionEffect <em>Potion Effect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Potion Effects</em>' attribute.
-	 * @see #getPotionEffects()
+	 * @param value the new value of the '<em>Potion Effect</em>' attribute.
+	 * @see ozelot.PotionEffect
+	 * @see #getPotionEffect()
 	 * @generated
 	 */
-	void setPotionEffects(String value);
+	void setPotionEffect(PotionEffect value);
 
 	/**
 	 * Returns the value of the '<em><b>Level</b></em>' attribute.

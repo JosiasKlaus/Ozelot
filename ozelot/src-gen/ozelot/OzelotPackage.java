@@ -4,6 +4,7 @@ package ozelot;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -447,7 +448,7 @@ public interface OzelotPackage extends EPackage {
 	int FOOD_ITEM__IS_ALWAYS_EDIBLE = ITEM_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>After Eating</b></em>' reference list.
+	 * The feature id for the '<em><b>After Eating</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -576,13 +577,13 @@ public interface OzelotPackage extends EPackage {
 	int EFFECT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Potion Effects</b></em>' attribute.
+	 * The feature id for the '<em><b>Potion Effect</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT__POTION_EFFECTS = 0;
+	int EFFECT__POTION_EFFECT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -640,13 +641,13 @@ public interface OzelotPackage extends EPackage {
 	int SELF_OTHER_EFFECT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Potion Effects</b></em>' attribute.
+	 * The feature id for the '<em><b>Potion Effect</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SELF_OTHER_EFFECT__POTION_EFFECTS = EFFECT__POTION_EFFECTS;
+	int SELF_OTHER_EFFECT__POTION_EFFECT = EFFECT__POTION_EFFECT;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -713,13 +714,13 @@ public interface OzelotPackage extends EPackage {
 	int ON_TICK_EFFECT = 7;
 
 	/**
-	 * The feature id for the '<em><b>Potion Effects</b></em>' attribute.
+	 * The feature id for the '<em><b>Potion Effect</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ON_TICK_EFFECT__POTION_EFFECTS = EFFECT__POTION_EFFECTS;
+	int ON_TICK_EFFECT__POTION_EFFECT = EFFECT__POTION_EFFECT;
 
 	/**
 	 * The feature id for the '<em><b>Level</b></em>' attribute.
@@ -829,6 +830,36 @@ public interface OzelotPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRANSLATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ozelot.PotionEffect <em>Potion Effect</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.PotionEffect
+	 * @see ozelot.impl.OzelotPackageImpl#getPotionEffect()
+	 * @generated
+	 */
+	int POTION_EFFECT = 9;
+
+	/**
+	 * The meta object id for the '{@link ozelot.Rarity <em>Rarity</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.Rarity
+	 * @see ozelot.impl.OzelotPackageImpl#getRarity()
+	 * @generated
+	 */
+	int RARITY = 10;
+
+	/**
+	 * The meta object id for the '{@link ozelot.CreativeModeTab <em>Creative Mode Tab</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.CreativeModeTab
+	 * @see ozelot.impl.OzelotPackageImpl#getCreativeModeTab()
+	 * @generated
+	 */
+	int CREATIVE_MODE_TAB = 11;
 
 	/**
 	 * Returns the meta object for class '{@link ozelot.Mod <em>Mod</em>}'.
@@ -1125,10 +1156,10 @@ public interface OzelotPackage extends EPackage {
 	EAttribute getFoodItem_IsAlwaysEdible();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ozelot.FoodItem#getAfterEating <em>After Eating</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ozelot.FoodItem#getAfterEating <em>After Eating</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>After Eating</em>'.
+	 * @return the meta object for the containment reference list '<em>After Eating</em>'.
 	 * @see ozelot.FoodItem#getAfterEating()
 	 * @see #getFoodItem()
 	 * @generated
@@ -1210,15 +1241,15 @@ public interface OzelotPackage extends EPackage {
 	EClass getEffect();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ozelot.Effect#getPotionEffects <em>Potion Effects</em>}'.
+	 * Returns the meta object for the attribute '{@link ozelot.Effect#getPotionEffect <em>Potion Effect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Potion Effects</em>'.
-	 * @see ozelot.Effect#getPotionEffects()
+	 * @return the meta object for the attribute '<em>Potion Effect</em>'.
+	 * @see ozelot.Effect#getPotionEffect()
 	 * @see #getEffect()
 	 * @generated
 	 */
-	EAttribute getEffect_PotionEffects();
+	EAttribute getEffect_PotionEffect();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ozelot.Effect#getLevel <em>Level</em>}'.
@@ -1337,6 +1368,36 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTranslation_Description();
+
+	/**
+	 * Returns the meta object for enum '{@link ozelot.PotionEffect <em>Potion Effect</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Potion Effect</em>'.
+	 * @see ozelot.PotionEffect
+	 * @generated
+	 */
+	EEnum getPotionEffect();
+
+	/**
+	 * Returns the meta object for enum '{@link ozelot.Rarity <em>Rarity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Rarity</em>'.
+	 * @see ozelot.Rarity
+	 * @generated
+	 */
+	EEnum getRarity();
+
+	/**
+	 * Returns the meta object for enum '{@link ozelot.CreativeModeTab <em>Creative Mode Tab</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Creative Mode Tab</em>'.
+	 * @see ozelot.CreativeModeTab
+	 * @generated
+	 */
+	EEnum getCreativeModeTab();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1584,7 +1645,7 @@ public interface OzelotPackage extends EPackage {
 		EAttribute FOOD_ITEM__IS_ALWAYS_EDIBLE = eINSTANCE.getFoodItem_IsAlwaysEdible();
 
 		/**
-		 * The meta object literal for the '<em><b>After Eating</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>After Eating</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1654,12 +1715,12 @@ public interface OzelotPackage extends EPackage {
 		EClass EFFECT = eINSTANCE.getEffect();
 
 		/**
-		 * The meta object literal for the '<em><b>Potion Effects</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Potion Effect</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EFFECT__POTION_EFFECTS = eINSTANCE.getEffect_PotionEffects();
+		EAttribute EFFECT__POTION_EFFECT = eINSTANCE.getEffect_PotionEffect();
 
 		/**
 		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
@@ -1754,6 +1815,36 @@ public interface OzelotPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TRANSLATION__DESCRIPTION = eINSTANCE.getTranslation_Description();
+
+		/**
+		 * The meta object literal for the '{@link ozelot.PotionEffect <em>Potion Effect</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.PotionEffect
+		 * @see ozelot.impl.OzelotPackageImpl#getPotionEffect()
+		 * @generated
+		 */
+		EEnum POTION_EFFECT = eINSTANCE.getPotionEffect();
+
+		/**
+		 * The meta object literal for the '{@link ozelot.Rarity <em>Rarity</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.Rarity
+		 * @see ozelot.impl.OzelotPackageImpl#getRarity()
+		 * @generated
+		 */
+		EEnum RARITY = eINSTANCE.getRarity();
+
+		/**
+		 * The meta object literal for the '{@link ozelot.CreativeModeTab <em>Creative Mode Tab</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.CreativeModeTab
+		 * @see ozelot.impl.OzelotPackageImpl#getCreativeModeTab()
+		 * @generated
+		 */
+		EEnum CREATIVE_MODE_TAB = eINSTANCE.getCreativeModeTab();
 
 	}
 

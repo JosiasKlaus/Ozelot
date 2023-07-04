@@ -117,13 +117,13 @@ public interface FoodItem extends Item {
 	void setIsAlwaysEdible(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>After Eating</b></em>' reference list.
+	 * Returns the value of the '<em><b>After Eating</b></em>' containment reference list.
 	 * The list contents are of type {@link ozelot.Effect}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>After Eating</em>' reference list.
+	 * @return the value of the '<em>After Eating</em>' containment reference list.
 	 * @see ozelot.OzelotPackage#getFoodItem_AfterEating()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Effect> getAfterEating();

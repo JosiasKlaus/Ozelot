@@ -6,14 +6,16 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import ozelot.Effect;
 import ozelot.FoodItem;
 import ozelot.OzelotPackage;
@@ -117,7 +119,7 @@ public class FoodItemImpl extends ItemImpl implements FoodItem {
 	protected boolean isAlwaysEdible = IS_ALWAYS_EDIBLE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAfterEating() <em>After Eating</em>}' reference list.
+	 * The cached value of the '{@link #getAfterEating() <em>After Eating</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAfterEating()
@@ -239,9 +241,24 @@ public class FoodItemImpl extends ItemImpl implements FoodItem {
 	 */
 	public EList<Effect> getAfterEating() {
 		if (afterEating == null) {
-			afterEating = new EObjectResolvingEList<Effect>(Effect.class, this, OzelotPackage.FOOD_ITEM__AFTER_EATING);
+			afterEating = new EObjectContainmentEList<Effect>(Effect.class, this,
+					OzelotPackage.FOOD_ITEM__AFTER_EATING);
 		}
 		return afterEating;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case OzelotPackage.FOOD_ITEM__AFTER_EATING:
+			return ((InternalEList<?>) getAfterEating()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

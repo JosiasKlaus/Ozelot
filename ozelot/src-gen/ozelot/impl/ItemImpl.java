@@ -15,10 +15,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import ozelot.CreativeModeTab;
 import ozelot.Effect;
 import ozelot.Item;
 import ozelot.OnTickEffect;
 import ozelot.OzelotPackage;
+import ozelot.Rarity;
 import ozelot.SelfOtherEffect;
 import ozelot.ToolProperty;
 import ozelot.Translation;
@@ -166,7 +168,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String RARITY_EDEFAULT = null;
+	protected static final Rarity RARITY_EDEFAULT = Rarity.COMMON;
 
 	/**
 	 * The cached value of the '{@link #getRarity() <em>Rarity</em>}' attribute.
@@ -176,7 +178,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * @generated
 	 * @ordered
 	 */
-	protected String rarity = RARITY_EDEFAULT;
+	protected Rarity rarity = RARITY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCreativeModeTab() <em>Creative Mode Tab</em>}' attribute.
@@ -186,7 +188,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CREATIVE_MODE_TAB_EDEFAULT = null;
+	protected static final CreativeModeTab CREATIVE_MODE_TAB_EDEFAULT = CreativeModeTab.BUILDING_BLOCKS;
 
 	/**
 	 * The cached value of the '{@link #getCreativeModeTab() <em>Creative Mode Tab</em>}' attribute.
@@ -196,7 +198,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * @generated
 	 * @ordered
 	 */
-	protected String creativeModeTab = CREATIVE_MODE_TAB_EDEFAULT;
+	protected CreativeModeTab creativeModeTab = CREATIVE_MODE_TAB_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTranslations() <em>Translations</em>}' containment reference list.
@@ -410,7 +412,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRarity() {
+	public Rarity getRarity() {
 		return rarity;
 	}
 
@@ -419,9 +421,9 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRarity(String newRarity) {
-		String oldRarity = rarity;
-		rarity = newRarity;
+	public void setRarity(Rarity newRarity) {
+		Rarity oldRarity = rarity;
+		rarity = newRarity == null ? RARITY_EDEFAULT : newRarity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.ITEM__RARITY, oldRarity, rarity));
 	}
@@ -431,7 +433,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCreativeModeTab() {
+	public CreativeModeTab getCreativeModeTab() {
 		return creativeModeTab;
 	}
 
@@ -440,9 +442,9 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCreativeModeTab(String newCreativeModeTab) {
-		String oldCreativeModeTab = creativeModeTab;
-		creativeModeTab = newCreativeModeTab;
+	public void setCreativeModeTab(CreativeModeTab newCreativeModeTab) {
+		CreativeModeTab oldCreativeModeTab = creativeModeTab;
+		creativeModeTab = newCreativeModeTab == null ? CREATIVE_MODE_TAB_EDEFAULT : newCreativeModeTab;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.ITEM__CREATIVE_MODE_TAB,
 					oldCreativeModeTab, creativeModeTab));
@@ -584,10 +586,10 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			setItemId((String) newValue);
 			return;
 		case OzelotPackage.ITEM__RARITY:
-			setRarity((String) newValue);
+			setRarity((Rarity) newValue);
 			return;
 		case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
-			setCreativeModeTab((String) newValue);
+			setCreativeModeTab((CreativeModeTab) newValue);
 			return;
 		case OzelotPackage.ITEM__TRANSLATIONS:
 			getTranslations().clear();
@@ -678,10 +680,9 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 		case OzelotPackage.ITEM__ITEM_ID:
 			return ITEM_ID_EDEFAULT == null ? itemId != null : !ITEM_ID_EDEFAULT.equals(itemId);
 		case OzelotPackage.ITEM__RARITY:
-			return RARITY_EDEFAULT == null ? rarity != null : !RARITY_EDEFAULT.equals(rarity);
+			return rarity != RARITY_EDEFAULT;
 		case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
-			return CREATIVE_MODE_TAB_EDEFAULT == null ? creativeModeTab != null
-					: !CREATIVE_MODE_TAB_EDEFAULT.equals(creativeModeTab);
+			return creativeModeTab != CREATIVE_MODE_TAB_EDEFAULT;
 		case OzelotPackage.ITEM__TRANSLATIONS:
 			return translations != null && !translations.isEmpty();
 		case OzelotPackage.ITEM__ON_ATTACK:

@@ -169,47 +169,53 @@ public interface Item extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Rarity</b></em>' attribute.
+	 * The literals are from the enumeration {@link ozelot.Rarity}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rarity</em>' attribute.
-	 * @see #setRarity(String)
+	 * @see ozelot.Rarity
+	 * @see #setRarity(Rarity)
 	 * @see ozelot.OzelotPackage#getItem_Rarity()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getRarity();
+	Rarity getRarity();
 
 	/**
 	 * Sets the value of the '{@link ozelot.Item#getRarity <em>Rarity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Rarity</em>' attribute.
+	 * @see ozelot.Rarity
 	 * @see #getRarity()
 	 * @generated
 	 */
-	void setRarity(String value);
+	void setRarity(Rarity value);
 
 	/**
 	 * Returns the value of the '<em><b>Creative Mode Tab</b></em>' attribute.
+	 * The literals are from the enumeration {@link ozelot.CreativeModeTab}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Creative Mode Tab</em>' attribute.
-	 * @see #setCreativeModeTab(String)
+	 * @see ozelot.CreativeModeTab
+	 * @see #setCreativeModeTab(CreativeModeTab)
 	 * @see ozelot.OzelotPackage#getItem_CreativeModeTab()
 	 * @model required="true"
 	 * @generated
 	 */
-	String getCreativeModeTab();
+	CreativeModeTab getCreativeModeTab();
 
 	/**
 	 * Sets the value of the '{@link ozelot.Item#getCreativeModeTab <em>Creative Mode Tab</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Creative Mode Tab</em>' attribute.
+	 * @see ozelot.CreativeModeTab
 	 * @see #getCreativeModeTab()
 	 * @generated
 	 */
-	void setCreativeModeTab(String value);
+	void setCreativeModeTab(CreativeModeTab value);
 
 	/**
 	 * Returns the value of the '<em><b>Translations</b></em>' containment reference list.

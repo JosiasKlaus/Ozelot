@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import ozelot.Effect;
 import ozelot.OzelotPackage;
+import ozelot.PotionEffect;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ import ozelot.OzelotPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ozelot.impl.EffectImpl#getPotionEffects <em>Potion Effects</em>}</li>
+ *   <li>{@link ozelot.impl.EffectImpl#getPotionEffect <em>Potion Effect</em>}</li>
  *   <li>{@link ozelot.impl.EffectImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link ozelot.impl.EffectImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link ozelot.impl.EffectImpl#isVisible <em>Visible</em>}</li>
@@ -30,24 +31,24 @@ import ozelot.OzelotPackage;
  */
 public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 	/**
-	 * The default value of the '{@link #getPotionEffects() <em>Potion Effects</em>}' attribute.
+	 * The default value of the '{@link #getPotionEffect() <em>Potion Effect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPotionEffects()
+	 * @see #getPotionEffect()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String POTION_EFFECTS_EDEFAULT = null;
+	protected static final PotionEffect POTION_EFFECT_EDEFAULT = PotionEffect.MOVEMENT_SPEED;
 
 	/**
-	 * The cached value of the '{@link #getPotionEffects() <em>Potion Effects</em>}' attribute.
+	 * The cached value of the '{@link #getPotionEffect() <em>Potion Effect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPotionEffects()
+	 * @see #getPotionEffect()
 	 * @generated
 	 * @ordered
 	 */
-	protected String potionEffects = POTION_EFFECTS_EDEFAULT;
+	protected PotionEffect potionEffect = POTION_EFFECT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLevel() <em>Level</em>}' attribute.
@@ -133,8 +134,8 @@ public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPotionEffects() {
-		return potionEffects;
+	public PotionEffect getPotionEffect() {
+		return potionEffect;
 	}
 
 	/**
@@ -142,12 +143,12 @@ public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPotionEffects(String newPotionEffects) {
-		String oldPotionEffects = potionEffects;
-		potionEffects = newPotionEffects;
+	public void setPotionEffect(PotionEffect newPotionEffect) {
+		PotionEffect oldPotionEffect = potionEffect;
+		potionEffect = newPotionEffect == null ? POTION_EFFECT_EDEFAULT : newPotionEffect;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.EFFECT__POTION_EFFECTS,
-					oldPotionEffects, potionEffects));
+			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.EFFECT__POTION_EFFECT, oldPotionEffect,
+					potionEffect));
 	}
 
 	/**
@@ -222,8 +223,8 @@ public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case OzelotPackage.EFFECT__POTION_EFFECTS:
-			return getPotionEffects();
+		case OzelotPackage.EFFECT__POTION_EFFECT:
+			return getPotionEffect();
 		case OzelotPackage.EFFECT__LEVEL:
 			return getLevel();
 		case OzelotPackage.EFFECT__DURATION:
@@ -242,8 +243,8 @@ public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case OzelotPackage.EFFECT__POTION_EFFECTS:
-			setPotionEffects((String) newValue);
+		case OzelotPackage.EFFECT__POTION_EFFECT:
+			setPotionEffect((PotionEffect) newValue);
 			return;
 		case OzelotPackage.EFFECT__LEVEL:
 			setLevel((Integer) newValue);
@@ -266,8 +267,8 @@ public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case OzelotPackage.EFFECT__POTION_EFFECTS:
-			setPotionEffects(POTION_EFFECTS_EDEFAULT);
+		case OzelotPackage.EFFECT__POTION_EFFECT:
+			setPotionEffect(POTION_EFFECT_EDEFAULT);
 			return;
 		case OzelotPackage.EFFECT__LEVEL:
 			setLevel(LEVEL_EDEFAULT);
@@ -290,9 +291,8 @@ public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case OzelotPackage.EFFECT__POTION_EFFECTS:
-			return POTION_EFFECTS_EDEFAULT == null ? potionEffects != null
-					: !POTION_EFFECTS_EDEFAULT.equals(potionEffects);
+		case OzelotPackage.EFFECT__POTION_EFFECT:
+			return potionEffect != POTION_EFFECT_EDEFAULT;
 		case OzelotPackage.EFFECT__LEVEL:
 			return level != LEVEL_EDEFAULT;
 		case OzelotPackage.EFFECT__DURATION:
@@ -314,8 +314,8 @@ public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (potionEffects: ");
-		result.append(potionEffects);
+		result.append(" (potionEffect: ");
+		result.append(potionEffect);
 		result.append(", level: ");
 		result.append(level);
 		result.append(", duration: ");

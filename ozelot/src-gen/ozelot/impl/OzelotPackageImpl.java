@@ -4,12 +4,14 @@ package ozelot.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import ozelot.Block;
+import ozelot.CreativeModeTab;
 import ozelot.Effect;
 import ozelot.FoodItem;
 import ozelot.Item;
@@ -17,6 +19,8 @@ import ozelot.Mod;
 import ozelot.OnTickEffect;
 import ozelot.OzelotFactory;
 import ozelot.OzelotPackage;
+import ozelot.PotionEffect;
+import ozelot.Rarity;
 import ozelot.SelfOtherEffect;
 import ozelot.ToolProperty;
 import ozelot.Translation;
@@ -90,6 +94,27 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	private EClass translationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum potionEffectEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum rarityEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum creativeModeTabEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -475,7 +500,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEffect_PotionEffects() {
+	public EAttribute getEffect_PotionEffect() {
 		return (EAttribute) effectEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -583,6 +608,33 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getPotionEffect() {
+		return potionEffectEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getRarity() {
+		return rarityEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCreativeModeTab() {
+		return creativeModeTabEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OzelotFactory getOzelotFactory() {
 		return (OzelotFactory) getEFactoryInstance();
 	}
@@ -647,7 +699,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		createEAttribute(blockEClass, BLOCK__BLOCK_ID);
 
 		effectEClass = createEClass(EFFECT);
-		createEAttribute(effectEClass, EFFECT__POTION_EFFECTS);
+		createEAttribute(effectEClass, EFFECT__POTION_EFFECT);
 		createEAttribute(effectEClass, EFFECT__LEVEL);
 		createEAttribute(effectEClass, EFFECT__DURATION);
 		createEAttribute(effectEClass, EFFECT__VISIBLE);
@@ -662,6 +714,11 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		createEAttribute(translationEClass, TRANSLATION__LANG);
 		createEAttribute(translationEClass, TRANSLATION__NAME);
 		createEAttribute(translationEClass, TRANSLATION__DESCRIPTION);
+
+		// Create enums
+		potionEffectEEnum = createEEnum(POTION_EFFECT);
+		rarityEEnum = createEEnum(RARITY);
+		creativeModeTabEEnum = createEEnum(CREATIVE_MODE_TAB);
 	}
 
 	/**
@@ -733,9 +790,9 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 				IS_ORDERED);
 		initEAttribute(getItem_ItemId(), ecorePackage.getEString(), "itemId", null, 1, 1, Item.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_Rarity(), ecorePackage.getEString(), "rarity", null, 1, 1, Item.class, !IS_TRANSIENT,
+		initEAttribute(getItem_Rarity(), this.getRarity(), "rarity", null, 1, 1, Item.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_CreativeModeTab(), ecorePackage.getEString(), "creativeModeTab", null, 1, 1, Item.class,
+		initEAttribute(getItem_CreativeModeTab(), this.getCreativeModeTab(), "creativeModeTab", null, 1, 1, Item.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getItem_Translations(), this.getTranslation(), null, "translations", null, 0, -1, Item.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -762,7 +819,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 				FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getFoodItem_AfterEating(), this.getEffect(), null, "afterEating", null, 0, -1, FoodItem.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(toolPropertyEClass, ToolProperty.class, "ToolProperty", !IS_ABSTRACT, !IS_INTERFACE,
@@ -782,7 +839,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(effectEClass, Effect.class, "Effect", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEffect_PotionEffects(), ecorePackage.getEString(), "potionEffects", null, 1, 1, Effect.class,
+		initEAttribute(getEffect_PotionEffect(), this.getPotionEffect(), "potionEffect", null, 1, 1, Effect.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEffect_Level(), ecorePackage.getEInt(), "level", null, 1, 1, Effect.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -813,6 +870,57 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		initEAttribute(getTranslation_Description(), ecorePackage.getEString(), "description", null, 0, 1,
 				Translation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(potionEffectEEnum, PotionEffect.class, "PotionEffect");
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.MOVEMENT_SPEED);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.MOVEMENT_SLOWDOWN);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.DIG_SPEED);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.DIG_SLOWDOWN);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.DAMAGE_BOOST);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.HEAL);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.HARM);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.JUMP);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.CONFUSION);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.REGENERATION);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.DAMAGE_RESISTANCE);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.FIRE_RESISTANCE);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.WATER_BREATHING);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.INVISIBILITY);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.BLINDNESS);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.NIGHT_VISION);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.HUNGER);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.WEAKNESS);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.POISON);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.WITHER);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.HEALTH_BOOST);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.ABSORPTION);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.SATURATION);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.GLOWING);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.LEVITATION);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.LUCK);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.UNLUCK);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.SLOW_FALLING);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.CONDUIT_POWER);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.DOLPHINS_GRACE);
+		addEEnumLiteral(potionEffectEEnum, PotionEffect.BAD_OMEN);
+
+		initEEnum(rarityEEnum, Rarity.class, "Rarity");
+		addEEnumLiteral(rarityEEnum, Rarity.COMMON);
+		addEEnumLiteral(rarityEEnum, Rarity.UNCOMMON);
+		addEEnumLiteral(rarityEEnum, Rarity.RARE);
+		addEEnumLiteral(rarityEEnum, Rarity.EPIC);
+
+		initEEnum(creativeModeTabEEnum, CreativeModeTab.class, "CreativeModeTab");
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.BUILDING_BLOCKS);
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.DECORATIONS);
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.REDSTONE);
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.TRANSPORTATION);
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.MISC);
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.FOOD);
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.TOOLS);
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.COMBAT);
+		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.BREWING);
 
 		// Create resource
 		createResource(eNS_URI);
