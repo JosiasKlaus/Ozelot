@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Ozelot/src" modelPluginID="Ozelot" modelName="Ozelot"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/ozelot/src-gen" creationIcons="false" editDirectory="/ozelot.edit/src-gen"
+    editorDirectory="/ozelot.editor/src-gen" modelPluginID="ozelot" modelName="Ozelot"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>ozelot.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Ozelot" disposableProviderFactory="true" ecorePackage="ozelot.ecore#/">
     <genClasses ecoreClass="ozelot.ecore#//Mod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/modId"/>

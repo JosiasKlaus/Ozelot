@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: Ozelot.editor;singleton:=true
-Automatic-Module-Name: Ozelot.editor
+Bundle-SymbolicName: ozelot.editor;singleton:=true
+Automatic-Module-Name: ozelot.editor
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: ozelot.presentation.OzelotEditorPlugin$Implementation
@@ -12,8 +12,12 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: ozelot.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- Ozelot.edit;visibility:=reexport,
+ ozelot.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
 Bundle-ActivationPolicy: lazy
