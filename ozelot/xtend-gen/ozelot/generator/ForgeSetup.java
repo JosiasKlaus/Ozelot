@@ -10,16 +10,15 @@ public class ForgeSetup {
   public static void run(final IProject project, final Mod mod) {
     InputOutput.<String>println("\n\nForgeSetup:");
     String _baseFolder = FolderGenerator.getBaseFolder(mod);
-    String _plus = ("Coping \"gradle-wrapper.jar\" to \"" + _baseFolder);
-    String _plus_1 = (_plus + "/gradle/wrapper/\"");
-    InputOutput.<String>println(_plus_1);
-    String _baseFolder_1 = FolderGenerator.getBaseFolder(mod);
-    String _plus_2 = (_baseFolder_1 + "/gradle/wrapper/");
-    FileGenerator.generateFile(project, "gradle-wrapper.properties", _plus_2, ForgeSetup.getGradleWrapper(), true);
+    String _plus = (_baseFolder + "/gradle/wrapper/");
+    FileGenerator.generateFile(project, "gradle-wrapper.properties", _plus, ForgeSetup.getGradleWrapper(), true);
     FileGenerator.generateFile(project, "build.gradle", FolderGenerator.getBaseFolder(mod), ForgeSetup.getBuildGradle(mod), true);
     FileGenerator.generateFile(project, "gradle.properties", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradleProperties(), true);
     FileGenerator.generateFile(project, "gradlew", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradlew(), true);
     FileGenerator.generateFile(project, "gradlew.bat", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradlewBat(), true);
+    String _baseFolder_1 = FolderGenerator.getBaseFolder(mod);
+    String _plus_1 = (_baseFolder_1 + "/gradle/wrapper/gradle-wrapper.jar");
+    FileGenerator.copy("./res/gradle-wrapper.jar", _plus_1);
   }
 
   private static String getGradleWrapper() {

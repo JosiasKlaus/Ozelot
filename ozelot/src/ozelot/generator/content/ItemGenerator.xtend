@@ -220,6 +220,8 @@ class ItemGenerator {
 	def private static void generateModels(IProject project, Mod mod){
 		mod.items.forEach[item |
 			println('Coping "' + item.iconPath + '" to "' + FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/textures/item"')
+	
+			FileGenerator.copy(item.iconPath, FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/textures/item')
 			FileGenerator.generateFile(
 				project,
 				item.itemId + ".json",

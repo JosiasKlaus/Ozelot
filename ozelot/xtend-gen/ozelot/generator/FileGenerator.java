@@ -12,6 +12,10 @@ import ozelot.Mod;
 
 @SuppressWarnings("all")
 public class FileGenerator {
+  public static void copy(final String originalPath, final String newPath) {
+    InputOutput.<String>println((((("Coping \"" + originalPath) + "\" to \"") + newPath) + "\""));
+  }
+
   public static void generateFile(final IProject project, final String fileName, final String path, final CharSequence content, final boolean overwrite) {
     try {
       String currentFolderString = "src-gen/";
@@ -19,10 +23,8 @@ public class FileGenerator {
       String[] _split = path.split("/");
       for (final String s : _split) {
         {
-          InputOutput.<String>println(((currentFolderString + s) + "/"));
           currentFolderString = ((currentFolderString + s) + "/");
           folder = project.getFolder(currentFolderString);
-          System.out.println(("folder:" + folder));
           boolean _exists = folder.exists();
           boolean _not = (!_exists);
           if (_not) {

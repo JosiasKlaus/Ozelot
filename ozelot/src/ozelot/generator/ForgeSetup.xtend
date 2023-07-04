@@ -1,17 +1,21 @@
 package ozelot.generator
 
-import ozelot.Mod
 import org.eclipse.core.resources.IProject
+import ozelot.Mod
+import java.nio.file.Paths
 
 class ForgeSetup {	
 	def static void run(IProject project, Mod mod){
-		println("\n\nForgeSetup:")
-		println('Coping "gradle-wrapper.jar" to "' + FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper/"')
+		println("\n\nForgeSetup:")		
+		
 		FileGenerator.generateFile(project, "gradle-wrapper.properties", FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper/', getGradleWrapper, true)
 		FileGenerator.generateFile(project, "build.gradle", FolderGenerator.getBaseFolder(mod), getBuildGradle(mod), true)
 		FileGenerator.generateFile(project, "gradle.properties", FolderGenerator.getBaseFolder(mod), gradleProperties, true)		
 		FileGenerator.generateFile(project, "gradlew", FolderGenerator.getBaseFolder(mod), gradlew, true)		
-		FileGenerator.generateFile(project, "gradlew.bat", FolderGenerator.getBaseFolder(mod), gradlewBat, true)						
+		FileGenerator.generateFile(project, "gradlew.bat", FolderGenerator.getBaseFolder(mod), gradlewBat, true)
+		
+		//todo: Josias
+		FileGenerator.copy('./res/gradle-wrapper.jar', FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper/gradle-wrapper.jar')		
 	}
 	
 	def private static String getGradleWrapper(){

@@ -582,13 +582,20 @@ public class ItemGenerator {
       String _plus_4 = (_plus_3 + _modId);
       String _plus_5 = (_plus_4 + "/textures/item\"");
       InputOutput.<String>println(_plus_5);
-      String _itemId = item.getItemId();
-      String _plus_6 = (_itemId + ".json");
+      String _iconPath_1 = item.getIconPath();
       String _baseFolder_1 = FolderGenerator.getBaseFolder(mod);
-      String _plus_7 = (_baseFolder_1 + "/src/main/resources/assets/");
+      String _plus_6 = (_baseFolder_1 + "/src/main/resources/assets/");
       String _modId_1 = mod.getModId();
-      String _plus_8 = (_plus_7 + _modId_1);
-      String _plus_9 = (_plus_8 + "/models/item");
+      String _plus_7 = (_plus_6 + _modId_1);
+      String _plus_8 = (_plus_7 + "/textures/item");
+      FileGenerator.copy(_iconPath_1, _plus_8);
+      String _itemId = item.getItemId();
+      String _plus_9 = (_itemId + ".json");
+      String _baseFolder_2 = FolderGenerator.getBaseFolder(mod);
+      String _plus_10 = (_baseFolder_2 + "/src/main/resources/assets/");
+      String _modId_2 = mod.getModId();
+      String _plus_11 = (_plus_10 + _modId_2);
+      String _plus_12 = (_plus_11 + "/models/item");
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("{");
       _builder.newLine();
@@ -600,8 +607,8 @@ public class ItemGenerator {
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("\"layer0\": \"");
-      String _modId_2 = mod.getModId();
-      _builder.append(_modId_2, "\t\t");
+      String _modId_3 = mod.getModId();
+      _builder.append(_modId_3, "\t\t");
       _builder.append(":item/");
       String _replace = IterableExtensions.<String>last(((Iterable<String>)Conversions.doWrapArray(item.getIconPath().split("/")))).replace(".png", "");
       _builder.append(_replace, "\t\t");
@@ -612,7 +619,7 @@ public class ItemGenerator {
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();
-      FileGenerator.generateFile(project, _plus_6, _plus_9, _builder, 
+      FileGenerator.generateFile(project, _plus_9, _plus_12, _builder, 
         true);
     };
     mod.getItems().forEach(_function);

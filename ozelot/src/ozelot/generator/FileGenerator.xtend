@@ -1,22 +1,25 @@
 package ozelot.generator
 
-import java.io.ByteArrayInputStream
-import java.io.InputStream
 import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.IFolder
 import org.eclipse.core.resources.IProject
+import java.io.InputStream
+import java.io.ByteArrayInputStream
 import ozelot.Mod
 
 class FileGenerator {
+	def static void copy(String originalPath, String newPath){
+		//todo: Josias
+		println('Coping "' + originalPath + '" to "' + newPath + '"')
+	}
+	
 	def static void generateFile(IProject project, String fileName, String path, CharSequence content, boolean overwrite){
 		var String currentFolderString = "src-gen/";
 		var IFolder folder
 		for(String s : path.split("/")){
-			println(currentFolderString + s + "/") 
 			currentFolderString = currentFolderString + s + "/";
 			
 			folder = project.getFolder(currentFolderString);
-			System.out.println("folder:" + folder);
 			if(!folder.exists){
 				folder.create(true,true,null);
 			}
