@@ -112,13 +112,20 @@ public class EffectHelper {
 
   public static String getEffectInstaceString(final Effect effect, final String target) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("if(!player.hasEffect(");
+    _builder.append("if(!");
+    _builder.append(target);
+    _builder.append(".hasEffect(");
     String _potionEffectString = EffectHelper.getPotionEffectString(effect.getPotionEffect());
     _builder.append(_potionEffectString);
-    _builder.append(") || player.getEffect(");
+    _builder.append(") || ");
+    _builder.append(target);
+    _builder.append(".getEffect(");
     String _potionEffectString_1 = EffectHelper.getPotionEffectString(effect.getPotionEffect());
     _builder.append(_potionEffectString_1);
-    _builder.append(").getAmplifier() < (level - 1)){");
+    _builder.append(").getAmplifier() < (");
+    int _level = effect.getLevel();
+    _builder.append(_level);
+    _builder.append(" - 1)){");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append(target, "\t");
@@ -130,8 +137,8 @@ public class EffectHelper {
     double _multiply = (_duration * 20);
     _builder.append(((int) _multiply), "\t");
     _builder.append(", ");
-    int _level = effect.getLevel();
-    _builder.append(_level, "\t");
+    int _level_1 = effect.getLevel();
+    _builder.append(_level_1, "\t");
     _builder.append(" - 1, ");
     boolean _isVisible = effect.isVisible();
     _builder.append(_isVisible, "\t");
@@ -163,8 +170,8 @@ public class EffectHelper {
     double _multiply_1 = (_duration_1 * 20);
     _builder.append(((int) _multiply_1), "\t");
     _builder.append(", ");
-    int _level_1 = effect.getLevel();
-    _builder.append(_level_1, "\t");
+    int _level_2 = effect.getLevel();
+    _builder.append(_level_2, "\t");
     _builder.append(" - 1, ");
     boolean _isVisible_3 = effect.isVisible();
     _builder.append(_isVisible_3, "\t");

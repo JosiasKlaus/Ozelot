@@ -43,7 +43,7 @@ class EffectHelper {
 	def static String getEffectInstaceString(Effect effect, String target){
 		return 
 		'''
-		if(!player.hasEffect(«effect.potionEffect.potionEffectString») || player.getEffect(«effect.potionEffect.potionEffectString»).getAmplifier() < (level - 1)){
+		if(!«target».hasEffect(«effect.potionEffect.potionEffectString») || «target».getEffect(«effect.potionEffect.potionEffectString»).getAmplifier() < («effect.level» - 1)){
 			«target».addEffect(new MobEffectInstance(«effect.potionEffect.potionEffectString», «((effect.duration * 20) as int)», «effect.level» - 1, «effect.visible», «effect.visible», «effect.visible»));
 		}
 		else{

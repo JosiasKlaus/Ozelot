@@ -121,7 +121,7 @@ class ItemGenerator {
 				«IF item.onTick.size > 0» 
 				import net.minecraft.world.entity.Entity;
 				«ENDIF»
-				«IF item.onTick.size > 0 || item.onAttack.size > 0 || (item.onUse.size > 0) || item instanceof FoodItem && (item as FoodItem).afterEating.size > 0»
+				«IF item.onTick.size > 0 || item.onAttack.size > 0 || item.onUse.size > 0 || item instanceof FoodItem && (item as FoodItem).afterEating.size > 0»
 				import net.minecraft.world.effect.MobEffectInstance;
 				import net.minecraft.world.effect.MobEffects;
 				«ENDIF»
