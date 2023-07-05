@@ -55,7 +55,6 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addToolPropertyPropertyDescriptor(object);
 			addIconPathPropertyDescriptor(object);
 			addGlowsPropertyDescriptor(object);
 			addMaxStackSizePropertyDescriptor(object);
@@ -65,21 +64,6 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
 			addCreativeModeTabPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Tool Property feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addToolPropertyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Item_toolProperty_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Item_toolProperty_feature",
-								"_UI_Item_type"),
-						OzelotPackage.Literals.ITEM__TOOL_PROPERTY, true, false, true, null, null, null));
 	}
 
 	/**

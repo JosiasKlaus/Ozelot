@@ -95,12 +95,13 @@ public interface Effect extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Visible</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Visible</em>' attribute.
 	 * @see #setVisible(boolean)
 	 * @see ozelot.OzelotPackage#getEffect_Visible()
-	 * @model required="true"
+	 * @model default="true" required="true"
 	 * @generated
 	 */
 	boolean isVisible();

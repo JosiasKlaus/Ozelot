@@ -3,6 +3,7 @@
 package ozelot;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ozelot.Item#getToolProperty <em>Tool Property</em>}</li>
  *   <li>{@link ozelot.Item#getIconPath <em>Icon Path</em>}</li>
  *   <li>{@link ozelot.Item#isGlows <em>Glows</em>}</li>
  *   <li>{@link ozelot.Item#getMaxStackSize <em>Max Stack Size</em>}</li>
@@ -33,28 +33,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Item extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Tool Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tool Property</em>' reference.
-	 * @see #setToolProperty(ToolProperty)
-	 * @see ozelot.OzelotPackage#getItem_ToolProperty()
-	 * @model
-	 * @generated
-	 */
-	ToolProperty getToolProperty();
-
-	/**
-	 * Sets the value of the '{@link ozelot.Item#getToolProperty <em>Tool Property</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tool Property</em>' reference.
-	 * @see #getToolProperty()
-	 * @generated
-	 */
-	void setToolProperty(ToolProperty value);
-
 	/**
 	 * Returns the value of the '<em><b>Icon Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->

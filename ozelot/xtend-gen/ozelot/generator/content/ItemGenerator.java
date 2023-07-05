@@ -1,6 +1,7 @@
 package ozelot.generator.content;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import java.util.function.Consumer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.util.EList;
@@ -16,11 +17,13 @@ import ozelot.CreativeModeTab;
 import ozelot.Effect;
 import ozelot.FoodItem;
 import ozelot.Item;
+import ozelot.MiningLevel;
 import ozelot.Mod;
 import ozelot.OnTickEffect;
 import ozelot.Rarity;
 import ozelot.SelfOtherEffect;
-import ozelot.ToolProperty;
+import ozelot.ToolItem;
+import ozelot.ToolType;
 import ozelot.Translation;
 import ozelot.generator.FileGenerator;
 import ozelot.generator.FolderGenerator;
@@ -32,6 +35,7 @@ public class ItemGenerator {
     ItemGenerator.generateItemInit(project, mod);
     ItemGenerator.generateItemClass(project, mod);
     ItemGenerator.generateModels(project, mod);
+    ItemGenerator.generateTiers(project, mod);
   }
 
   public static String getClassName(final Item item) {
@@ -43,9 +47,7 @@ public class ItemGenerator {
   }
 
   public static String getPackageExtension(final Item item) {
-    ToolProperty _toolProperty = item.getToolProperty();
-    boolean _tripleNotEquals = (_toolProperty != null);
-    if (_tripleNotEquals) {
+    if ((item instanceof ToolItem)) {
       return "item.tool";
     } else {
       if ((item instanceof FoodItem)) {
@@ -214,157 +216,188 @@ public class ItemGenerator {
       String _className = ItemGenerator.getClassName(item);
       String _packageExtension = ItemGenerator.getPackageExtension(item);
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("import net.minecraft.world.item.CreativeModeTab;");
-      _builder.newLine();
-      _builder.append("import net.minecraft.world.item.Item;");
-      _builder.newLine();
-      _builder.append("import net.minecraft.world.item.Rarity;");
-      _builder.newLine();
-      _builder.append("import net.minecraft.world.item.TooltipFlag;");
-      _builder.newLine();
-      _builder.append("import net.minecraftforge.api.distmarker.OnlyIn;");
-      _builder.newLine();
-      _builder.append("import net.minecraftforge.api.distmarker.Dist;");
-      _builder.newLine();
-      _builder.append("import java.util.List;");
-      _builder.newLine();
-      _builder.append("import net.minecraft.network.chat.Component;");
-      _builder.newLine();
-      _builder.append("import net.minecraft.network.chat.TranslatableComponent;");
-      _builder.newLine();
-      _builder.append("import net.minecraft.world.level.Level;");
-      _builder.newLine();
-      _builder.append("import net.minecraft.world.item.ItemStack;");
-      _builder.newLine();
+      _builder.append("extends ");
+      String _baseClassString = ItemGenerator.getBaseClassString(item);
+      _builder.append(_baseClassString);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("import net.minecraft.world.item.CreativeModeTab;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraft.world.item.Item;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraft.world.item.Rarity;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraft.world.item.TooltipFlag;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraftforge.api.distmarker.OnlyIn;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraftforge.api.distmarker.Dist;");
+      _builder_1.newLine();
+      _builder_1.append("import java.util.List;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraft.network.chat.Component;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraft.network.chat.TranslatableComponent;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraft.world.level.Level;");
+      _builder_1.newLine();
+      _builder_1.append("import net.minecraft.world.item.ItemStack;");
+      _builder_1.newLine();
+      {
+        if ((item instanceof ToolItem)) {
+          _builder_1.append("import ");
+          String _basePackage = FolderGenerator.getBasePackage(mod);
+          _builder_1.append(_basePackage);
+          _builder_1.append(".item.tool.TiersGen;");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("import net.minecraft.world.item.");
+          String _baseClassString_1 = ItemGenerator.getBaseClassString(item);
+          _builder_1.append(_baseClassString_1);
+          _builder_1.append(";");
+          _builder_1.newLineIfNotEmpty();
+        }
+      }
       {
         if ((item instanceof FoodItem)) {
-          _builder.append("import net.minecraft.world.food.FoodProperties;");
-          _builder.newLine();
+          _builder_1.append("import net.minecraft.world.food.FoodProperties;");
+          _builder_1.newLine();
         }
       }
       {
         int _size = item.getOnUse().size();
         boolean _greaterThan = (_size > 0);
         if (_greaterThan) {
-          _builder.append("import net.minecraft.world.InteractionResultHolder;");
-          _builder.newLine();
-          _builder.append("import net.minecraft.world.InteractionHand;");
-          _builder.newLine();
-          _builder.append("import net.minecraft.world.entity.player.Player;");
-          _builder.newLine();
+          _builder_1.append("import net.minecraft.world.InteractionResultHolder;");
+          _builder_1.newLine();
+          _builder_1.append("import net.minecraft.world.InteractionHand;");
+          _builder_1.newLine();
+          _builder_1.append("import net.minecraft.world.entity.player.Player;");
+          _builder_1.newLine();
         }
       }
       {
         if ((((item.getOnTick().size() > 0) || (item.getOnAttack().size() > 0)) || ((item instanceof FoodItem) && (((FoodItem) item).getAfterEating().size() > 0)))) {
-          _builder.append("import net.minecraft.world.entity.LivingEntity;");
-          _builder.newLine();
+          _builder_1.append("import net.minecraft.world.entity.LivingEntity;");
+          _builder_1.newLine();
         }
       }
       {
         int _size_1 = item.getOnTick().size();
         boolean _greaterThan_1 = (_size_1 > 0);
         if (_greaterThan_1) {
-          _builder.append("import net.minecraft.world.entity.Entity;");
-          _builder.newLine();
+          _builder_1.append("import net.minecraft.world.entity.Entity;");
+          _builder_1.newLine();
         }
       }
       {
         if (((((item.getOnTick().size() > 0) || (item.getOnAttack().size() > 0)) || (item.getOnUse().size() > 0)) || ((item instanceof FoodItem) && (((FoodItem) item).getAfterEating().size() > 0)))) {
-          _builder.append("import net.minecraft.world.effect.MobEffectInstance;");
-          _builder.newLine();
-          _builder.append("import net.minecraft.world.effect.MobEffects;");
-          _builder.newLine();
+          _builder_1.append("import net.minecraft.world.effect.MobEffectInstance;");
+          _builder_1.newLine();
+          _builder_1.append("import net.minecraft.world.effect.MobEffects;");
+          _builder_1.newLine();
         }
       }
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("public ");
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("public ");
       String _className_1 = ItemGenerator.getClassName(item);
-      _builder_1.append(_className_1);
-      _builder_1.append("Gen() {");
-      _builder_1.newLineIfNotEmpty();
-      _builder_1.append("\t");
-      _builder_1.append("super(new Item.Properties()");
-      _builder_1.newLine();
-      _builder_1.append("\t\t");
-      _builder_1.append(".tab(CreativeModeTab.");
+      _builder_2.append(_className_1);
+      _builder_2.append("Gen() {");
+      _builder_2.newLineIfNotEmpty();
+      _builder_2.append("\t");
+      _builder_2.append("super(");
+      _builder_2.newLine();
+      {
+        if ((item instanceof ToolItem)) {
+          _builder_2.append("\t\t");
+          _builder_2.append("TiersGen.");
+          String _upperCase = ((ToolItem)item).getItemId().toUpperCase();
+          _builder_2.append(_upperCase, "\t\t");
+          _builder_2.append(", 0, 0f, ");
+          _builder_2.newLineIfNotEmpty();
+        }
+      }
+      _builder_2.append("\t\t");
+      _builder_2.append("new Item.Properties()");
+      _builder_2.newLine();
+      _builder_2.append("\t\t");
+      _builder_2.append(".tab(CreativeModeTab.");
       String _tabString = ItemGenerator.getTabString(item.getCreativeModeTab());
-      _builder_1.append(_tabString, "\t\t");
-      _builder_1.append(")");
-      _builder_1.newLineIfNotEmpty();
+      _builder_2.append(_tabString, "\t\t");
+      _builder_2.append(")");
+      _builder_2.newLineIfNotEmpty();
       {
         boolean _isIsImmuneToFire = item.isIsImmuneToFire();
         if (_isIsImmuneToFire) {
-          _builder_1.append("\t\t");
-          _builder_1.append(".fireResistant()");
-          _builder_1.newLine();
+          _builder_2.append("\t\t");
+          _builder_2.append(".fireResistant()");
+          _builder_2.newLine();
         }
       }
       {
         if ((item instanceof FoodItem)) {
-          _builder_1.append("\t\t");
-          _builder_1.append(".food((new FoodProperties.Builder())");
-          _builder_1.newLine();
-          _builder_1.append("\t\t");
-          _builder_1.append("\t");
-          _builder_1.append(".nutrition(");
+          _builder_2.append("\t\t");
+          _builder_2.append(".food((new FoodProperties.Builder())");
+          _builder_2.newLine();
+          _builder_2.append("\t\t");
+          _builder_2.append("\t");
+          _builder_2.append(".nutrition(");
           int _nutrition = ((FoodItem) item).getNutrition();
-          _builder_1.append(_nutrition, "\t\t\t");
-          _builder_1.append(")");
-          _builder_1.newLineIfNotEmpty();
-          _builder_1.append("\t\t");
-          _builder_1.append("\t");
-          _builder_1.append(".saturationMod(");
+          _builder_2.append(_nutrition, "\t\t\t");
+          _builder_2.append(")");
+          _builder_2.newLineIfNotEmpty();
+          _builder_2.append("\t\t");
+          _builder_2.append("\t");
+          _builder_2.append(".saturationMod(");
           float _saturation = ((FoodItem) item).getSaturation();
-          _builder_1.append(_saturation, "\t\t\t");
-          _builder_1.append("f)");
-          _builder_1.newLineIfNotEmpty();
+          _builder_2.append(_saturation, "\t\t\t");
+          _builder_2.append("f)");
+          _builder_2.newLineIfNotEmpty();
           {
             boolean _isIsAlwaysEdible = ((FoodItem) item).isIsAlwaysEdible();
             if (_isIsAlwaysEdible) {
-              _builder_1.append("\t\t");
-              _builder_1.append("\t");
-              _builder_1.append(".alwaysEat()");
-              _builder_1.newLine();
+              _builder_2.append("\t\t");
+              _builder_2.append("\t");
+              _builder_2.append(".alwaysEat()");
+              _builder_2.newLine();
             }
           }
           {
             boolean _isIsMeat = ((FoodItem) item).isIsMeat();
             if (_isIsMeat) {
-              _builder_1.append("\t\t");
-              _builder_1.append("\t");
-              _builder_1.append(".meat()");
-              _builder_1.newLine();
+              _builder_2.append("\t\t");
+              _builder_2.append("\t");
+              _builder_2.append(".meat()");
+              _builder_2.newLine();
             }
           }
-          _builder_1.append("\t\t");
-          _builder_1.append("\t");
-          _builder_1.append(".build())");
-          _builder_1.newLine();
+          _builder_2.append("\t\t");
+          _builder_2.append("\t");
+          _builder_2.append(".build())");
+          _builder_2.newLine();
         }
       }
-      _builder_1.append("\t\t");
-      _builder_1.append(".stacksTo(");
+      _builder_2.append("\t\t");
+      _builder_2.append(".stacksTo(");
       int _maxStackSize = item.getMaxStackSize();
-      _builder_1.append(_maxStackSize, "\t\t");
-      _builder_1.append(")");
-      _builder_1.newLineIfNotEmpty();
-      _builder_1.append("\t\t");
-      _builder_1.append(".rarity(Rarity.");
+      _builder_2.append(_maxStackSize, "\t\t");
+      _builder_2.append(")");
+      _builder_2.newLineIfNotEmpty();
+      _builder_2.append("\t\t");
+      _builder_2.append(".rarity(Rarity.");
       String _rarityString = ItemGenerator.getRarityString(item.getRarity());
-      _builder_1.append(_rarityString, "\t\t");
-      _builder_1.append("));");
-      _builder_1.newLineIfNotEmpty();
-      _builder_1.append("}");
-      _builder_1.newLine();
-      _builder_1.newLine();
+      _builder_2.append(_rarityString, "\t\t");
+      _builder_2.append("));");
+      _builder_2.newLineIfNotEmpty();
+      _builder_2.append("}");
+      _builder_2.newLine();
+      _builder_2.newLine();
       {
         int _size_2 = item.getOnUse().size();
         boolean _greaterThan_2 = (_size_2 > 0);
         if (_greaterThan_2) {
-          _builder_1.append("@Override");
-          _builder_1.newLine();
-          _builder_1.append("public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {");
-          _builder_1.newLine();
+          _builder_2.append("@Override");
+          _builder_2.newLine();
+          _builder_2.append("public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {");
+          _builder_2.newLine();
           {
             EList<Effect> _onUse = item.getOnUse();
             boolean _hasElements = false;
@@ -372,36 +405,36 @@ public class ItemGenerator {
               if (!_hasElements) {
                 _hasElements = true;
               } else {
-                _builder_1.appendImmediate("\n", "\t");
+                _builder_2.appendImmediate("\n", "\t");
               }
-              _builder_1.append("\t");
+              _builder_2.append("\t");
               String _effectInstaceString = EffectHelper.getEffectInstaceString(onUse, "player");
-              _builder_1.append(_effectInstaceString, "\t");
-              _builder_1.newLineIfNotEmpty();
+              _builder_2.append(_effectInstaceString, "\t");
+              _builder_2.newLineIfNotEmpty();
             }
           }
-          _builder_1.append("\t");
-          _builder_1.append("return super.use(world, player, hand);");
-          _builder_1.newLine();
-          _builder_1.append("}");
-          _builder_1.newLine();
+          _builder_2.append("\t");
+          _builder_2.append("return super.use(world, player, hand);");
+          _builder_2.newLine();
+          _builder_2.append("}");
+          _builder_2.newLine();
         }
       }
-      _builder_1.newLine();
+      _builder_2.newLine();
       {
         int _size_3 = item.getOnTick().size();
         boolean _greaterThan_3 = (_size_3 > 0);
         if (_greaterThan_3) {
-          _builder_1.append("@Override");
-          _builder_1.newLine();
-          _builder_1.append("public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {");
-          _builder_1.newLine();
-          _builder_1.append("\t");
-          _builder_1.append("super.inventoryTick(itemstack, world, entity, slot, selected);");
-          _builder_1.newLine();
-          _builder_1.append("\t");
-          _builder_1.append("if(entity instanceof LivingEntity livingEntity) {");
-          _builder_1.newLine();
+          _builder_2.append("@Override");
+          _builder_2.newLine();
+          _builder_2.append("public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {");
+          _builder_2.newLine();
+          _builder_2.append("\t");
+          _builder_2.append("super.inventoryTick(itemstack, world, entity, slot, selected);");
+          _builder_2.newLine();
+          _builder_2.append("\t");
+          _builder_2.append("if(entity instanceof LivingEntity livingEntity) {");
+          _builder_2.newLine();
           {
             final Function1<OnTickEffect, Boolean> _function_1 = (OnTickEffect e) -> {
               return Boolean.valueOf(e.isNeedsSelected());
@@ -409,9 +442,9 @@ public class ItemGenerator {
             int _size_4 = IterableExtensions.size(IterableExtensions.<OnTickEffect>filter(item.getOnTick(), _function_1));
             boolean _greaterThan_4 = (_size_4 > 0);
             if (_greaterThan_4) {
-              _builder_1.append("\t\t");
-              _builder_1.append("if (selected) {");
-              _builder_1.newLine();
+              _builder_2.append("\t\t");
+              _builder_2.append("if (selected) {");
+              _builder_2.newLine();
               {
                 final Function1<OnTickEffect, Boolean> _function_2 = (OnTickEffect e) -> {
                   return Boolean.valueOf(e.isNeedsSelected());
@@ -422,18 +455,18 @@ public class ItemGenerator {
                   if (!_hasElements_1) {
                     _hasElements_1 = true;
                   } else {
-                    _builder_1.appendImmediate("\n", "\t\t\t");
+                    _builder_2.appendImmediate("\n", "\t\t\t");
                   }
-                  _builder_1.append("\t\t");
-                  _builder_1.append("\t");
+                  _builder_2.append("\t\t");
+                  _builder_2.append("\t");
                   String _effectInstaceString_1 = EffectHelper.getEffectInstaceString(onTick, "livingEntity");
-                  _builder_1.append(_effectInstaceString_1, "\t\t\t");
-                  _builder_1.newLineIfNotEmpty();
+                  _builder_2.append(_effectInstaceString_1, "\t\t\t");
+                  _builder_2.newLineIfNotEmpty();
                 }
               }
-              _builder_1.append("\t\t");
-              _builder_1.append("}");
-              _builder_1.newLine();
+              _builder_2.append("\t\t");
+              _builder_2.append("}");
+              _builder_2.newLine();
             }
           }
           {
@@ -447,30 +480,30 @@ public class ItemGenerator {
               if (!_hasElements_2) {
                 _hasElements_2 = true;
               } else {
-                _builder_1.appendImmediate("\n", "\t\t");
+                _builder_2.appendImmediate("\n", "\t\t");
               }
-              _builder_1.append("\t\t");
+              _builder_2.append("\t\t");
               String _effectInstaceString_2 = EffectHelper.getEffectInstaceString(onTick_1, "livingEntity");
-              _builder_1.append(_effectInstaceString_2, "\t\t");
-              _builder_1.newLineIfNotEmpty();
+              _builder_2.append(_effectInstaceString_2, "\t\t");
+              _builder_2.newLineIfNotEmpty();
             }
           }
-          _builder_1.append("\t");
-          _builder_1.append("}");
-          _builder_1.newLine();
-          _builder_1.append("}");
-          _builder_1.newLine();
+          _builder_2.append("\t");
+          _builder_2.append("}");
+          _builder_2.newLine();
+          _builder_2.append("}");
+          _builder_2.newLine();
         }
       }
-      _builder_1.newLine();
+      _builder_2.newLine();
       {
         int _size_5 = item.getOnAttack().size();
         boolean _greaterThan_5 = (_size_5 > 0);
         if (_greaterThan_5) {
-          _builder_1.append("@Override");
-          _builder_1.newLine();
-          _builder_1.append("public boolean hurtEnemy(ItemStack itemstack, LivingEntity target, LivingEntity source) {");
-          _builder_1.newLine();
+          _builder_2.append("@Override");
+          _builder_2.newLine();
+          _builder_2.append("public boolean hurtEnemy(ItemStack itemstack, LivingEntity target, LivingEntity source) {");
+          _builder_2.newLine();
           {
             EList<SelfOtherEffect> _onAttack = item.getOnAttack();
             boolean _hasElements_3 = false;
@@ -478,9 +511,9 @@ public class ItemGenerator {
               if (!_hasElements_3) {
                 _hasElements_3 = true;
               } else {
-                _builder_1.appendImmediate("\n", "\t");
+                _builder_2.appendImmediate("\n", "\t");
               }
-              _builder_1.append("\t");
+              _builder_2.append("\t");
               String _xifexpression = null;
               boolean _isIsSelf = onAttack.isIsSelf();
               if (_isIsSelf) {
@@ -489,24 +522,24 @@ public class ItemGenerator {
                 _xifexpression = "target";
               }
               String _effectInstaceString_3 = EffectHelper.getEffectInstaceString(onAttack, _xifexpression);
-              _builder_1.append(_effectInstaceString_3, "\t");
-              _builder_1.newLineIfNotEmpty();
+              _builder_2.append(_effectInstaceString_3, "\t");
+              _builder_2.newLineIfNotEmpty();
             }
           }
-          _builder_1.append("\t");
-          _builder_1.append("return super.hurtEnemy(itemstack, target, source);");
-          _builder_1.newLine();
-          _builder_1.append("}");
-          _builder_1.newLine();
+          _builder_2.append("\t");
+          _builder_2.append("return super.hurtEnemy(itemstack, target, source);");
+          _builder_2.newLine();
+          _builder_2.append("}");
+          _builder_2.newLine();
         }
       }
-      _builder_1.newLine();
+      _builder_2.newLine();
       {
         if (((item instanceof FoodItem) && (((FoodItem) item).getAfterEating().size() > 0))) {
-          _builder_1.append("@Override");
-          _builder_1.newLine();
-          _builder_1.append("public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity livingEntity) {");
-          _builder_1.newLine();
+          _builder_2.append("@Override");
+          _builder_2.newLine();
+          _builder_2.append("public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity livingEntity) {");
+          _builder_2.newLine();
           {
             EList<Effect> _afterEating = ((FoodItem) item).getAfterEating();
             boolean _hasElements_4 = false;
@@ -514,58 +547,57 @@ public class ItemGenerator {
               if (!_hasElements_4) {
                 _hasElements_4 = true;
               } else {
-                _builder_1.appendImmediate("\n", "\t");
+                _builder_2.appendImmediate("\n", "\t");
               }
-              _builder_1.append("\t");
+              _builder_2.append("\t");
               String _effectInstaceString_4 = EffectHelper.getEffectInstaceString(afterEating, "livingEntity");
-              _builder_1.append(_effectInstaceString_4, "\t");
-              _builder_1.newLineIfNotEmpty();
+              _builder_2.append(_effectInstaceString_4, "\t");
+              _builder_2.newLineIfNotEmpty();
             }
           }
-          _builder_1.append("\t");
-          _builder_1.append("return super.finishUsingItem(itemstack, world, livingEntity);");
-          _builder_1.newLine();
-          _builder_1.append("}");
-          _builder_1.newLine();
+          _builder_2.append("\t");
+          _builder_2.append("return super.finishUsingItem(itemstack, world, livingEntity);");
+          _builder_2.newLine();
+          _builder_2.append("}");
+          _builder_2.newLine();
         }
       }
-      _builder_1.newLine();
-      _builder_1.append("@OnlyIn(Dist.CLIENT)");
-      _builder_1.newLine();
-      _builder_1.append("@Override");
-      _builder_1.newLine();
-      _builder_1.append("public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {");
-      _builder_1.newLine();
-      _builder_1.append("\t");
-      _builder_1.append("tooltip.add(new TranslatableComponent(\"tooltip.");
+      _builder_2.newLine();
+      _builder_2.append("@OnlyIn(Dist.CLIENT)");
+      _builder_2.newLine();
+      _builder_2.append("@Override");
+      _builder_2.newLine();
+      _builder_2.append("public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {");
+      _builder_2.newLine();
+      _builder_2.append("\t");
+      _builder_2.append("tooltip.add(new TranslatableComponent(\"tooltip.");
       String _modId = mod.getModId();
-      _builder_1.append(_modId, "\t");
-      _builder_1.append(".item.");
+      _builder_2.append(_modId, "\t");
+      _builder_2.append(".item.");
       String _itemId = item.getItemId();
-      _builder_1.append(_itemId, "\t");
-      _builder_1.append("\"));");
-      _builder_1.newLineIfNotEmpty();
-      _builder_1.append("}");
-      _builder_1.newLine();
-      _builder_1.newLine();
+      _builder_2.append(_itemId, "\t");
+      _builder_2.append("\"));");
+      _builder_2.newLineIfNotEmpty();
+      _builder_2.append("}");
+      _builder_2.newLine();
+      _builder_2.newLine();
       {
         boolean _isGlows = item.isGlows();
         if (_isGlows) {
-          _builder_1.append("@Override");
-          _builder_1.newLine();
-          _builder_1.append("@OnlyIn(Dist.CLIENT)");
-          _builder_1.newLine();
-          _builder_1.append("public boolean isFoil(ItemStack itemStack){");
-          _builder_1.newLine();
-          _builder_1.append("\t");
-          _builder_1.append("return true;");
-          _builder_1.newLine();
-          _builder_1.append("}");
-          _builder_1.newLine();
+          _builder_2.append("@Override");
+          _builder_2.newLine();
+          _builder_2.append("@OnlyIn(Dist.CLIENT)");
+          _builder_2.newLine();
+          _builder_2.append("public boolean isFoil(ItemStack itemStack){");
+          _builder_2.newLine();
+          _builder_2.append("\t");
+          _builder_2.append("return true;");
+          _builder_2.newLine();
+          _builder_2.append("}");
+          _builder_2.newLine();
         }
       }
-      FileGenerator.generateJavaClass(project, _className, _packageExtension, 
-        "extends Item", _builder.toString(), _builder_1.toString(), mod);
+      FileGenerator.generateJavaClass(project, _className, _packageExtension, _builder.toString(), _builder_1.toString(), _builder_2.toString(), mod);
     };
     mod.getItems().forEach(_function);
   }
@@ -623,6 +655,161 @@ public class ItemGenerator {
         true);
     };
     mod.getItems().forEach(_function);
+  }
+
+  private static void generateTiers(final IProject project, final Mod mod) {
+    Iterable<ToolItem> tieredItems = Iterables.<ToolItem>filter(mod.getItems(), ToolItem.class);
+    int _size = IterableExtensions.size(tieredItems);
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        final Function1<ToolItem, MiningLevel> _function = (ToolItem it) -> {
+          return it.getMiningLevel();
+        };
+        final Function1<MiningLevel, Boolean> _function_1 = (MiningLevel ml) -> {
+          return Boolean.valueOf(((Objects.equal(ml, MiningLevel.STONE) || Objects.equal(ml, MiningLevel.IRON)) || Objects.equal(ml, MiningLevel.DIAMOND)));
+        };
+        int _size_1 = IterableExtensions.size(IterableExtensions.<MiningLevel>filter(IterableExtensions.<ToolItem, MiningLevel>map(tieredItems, _function), _function_1));
+        boolean _greaterThan_1 = (_size_1 > 0);
+        if (_greaterThan_1) {
+          _builder.append("import net.minecraft.tags.BlockTags;");
+          _builder.newLine();
+        }
+      }
+      {
+        final Function1<ToolItem, MiningLevel> _function_2 = (ToolItem it) -> {
+          return it.getMiningLevel();
+        };
+        final Function1<MiningLevel, Boolean> _function_3 = (MiningLevel ml) -> {
+          return Boolean.valueOf((Objects.equal(ml, MiningLevel.WOOD) || Objects.equal(ml, MiningLevel.NETHERITE)));
+        };
+        int _size_2 = IterableExtensions.size(IterableExtensions.<MiningLevel>filter(IterableExtensions.<ToolItem, MiningLevel>map(tieredItems, _function_2), _function_3));
+        boolean _greaterThan_2 = (_size_2 > 0);
+        if (_greaterThan_2) {
+          _builder.append("import net.minecraftforge.common.Tags;");
+          _builder.newLine();
+        }
+      }
+      _builder.append("import net.minecraft.world.item.crafting.Ingredient;");
+      _builder.newLine();
+      _builder.append("import net.minecraftforge.common.ForgeTier;");
+      _builder.newLine();
+      _builder.append("import ");
+      String _basePackage = FolderGenerator.getBasePackage(mod);
+      _builder.append(_basePackage);
+      _builder.append(".item.ItemInitGen;");
+      _builder.newLineIfNotEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      {
+        for(final ToolItem tieredItem : tieredItems) {
+          _builder_1.append("public static final ForgeTier ");
+          String _upperCase = tieredItem.getItemId().toUpperCase();
+          _builder_1.append(_upperCase);
+          _builder_1.append(" = new ForgeTier(");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("\t\t\t");
+          int _value = tieredItem.getMiningLevel().getValue();
+          _builder_1.append(_value, "\t\t\t");
+          _builder_1.append(", ");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("\t\t\t");
+          int _durability = tieredItem.getDurability();
+          _builder_1.append(_durability, "\t\t\t");
+          _builder_1.append(",");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("\t\t\t");
+          float _speed = tieredItem.getSpeed();
+          _builder_1.append(_speed, "\t\t\t");
+          _builder_1.append("f, ");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("\t\t\t");
+          float _damage = tieredItem.getDamage();
+          _builder_1.append(_damage, "\t\t\t");
+          _builder_1.append("f, ");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("\t\t\t");
+          int _enchantmentValue = tieredItem.getEnchantmentValue();
+          _builder_1.append(_enchantmentValue, "\t\t\t");
+          _builder_1.append(", ");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("\t\t\t");
+          String _miningTagString = ItemGenerator.getMiningTagString(tieredItem.getMiningLevel());
+          _builder_1.append(_miningTagString, "\t\t\t");
+          _builder_1.append(",");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("\t\t\t");
+          _builder_1.append("() -> Ingredient.of(ItemInitGen.");
+          String _upperCase_1 = tieredItem.getItemId().toUpperCase();
+          _builder_1.append(_upperCase_1, "\t\t\t");
+          _builder_1.append(".get()));");
+          _builder_1.newLineIfNotEmpty();
+        }
+      }
+      FileGenerator.generateJavaClass(project, 
+        "Tiers", 
+        "item.tool", 
+        "", _builder.toString(), _builder_1.toString(), mod, 
+        false, 
+        true);
+    }
+  }
+
+  private static String getMiningTagString(final MiningLevel level) {
+    String _switchResult = null;
+    if (level != null) {
+      switch (level) {
+        case WOOD:
+          _switchResult = "Tags.Blocks.NEEDS_WOOD_TOOL";
+          break;
+        case STONE:
+          _switchResult = "BlockTags.NEEDS_STONE_TOOL";
+          break;
+        case IRON:
+          _switchResult = "BlockTags.NEEDS_IRON_TOOL";
+          break;
+        case DIAMOND:
+          _switchResult = "BlockTags.NEEDS_DIAMOND_TOOL";
+          break;
+        case NETHERITE:
+          _switchResult = "Tags.Blocks.NEEDS_NETHERITE_TOOL";
+          break;
+        default:
+          break;
+      }
+    }
+    return _switchResult;
+  }
+
+  private static String getBaseClassString(final Item item) {
+    if ((item instanceof ToolItem)) {
+      String _switchResult = null;
+      ToolType _type = ((ToolItem) item).getType();
+      if (_type != null) {
+        switch (_type) {
+          case SWORD:
+            _switchResult = "SwordItem";
+            break;
+          case PICKAXE:
+            _switchResult = "PickaxeItem";
+            break;
+          case SHOVEL:
+            _switchResult = "ShovelItem";
+            break;
+          case AXE:
+            _switchResult = "AxeItem";
+            break;
+          case HOE:
+            _switchResult = "HoeItem";
+            break;
+          default:
+            break;
+        }
+      }
+      return _switchResult;
+    } else {
+      return "Item";
+    }
   }
 
   private static String getRarityString(final Rarity rarity) {

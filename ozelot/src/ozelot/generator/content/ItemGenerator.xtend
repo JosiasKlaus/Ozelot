@@ -8,6 +8,8 @@ import ozelot.generator.FileGenerator
 import ozelot.Rarity
 import ozelot.CreativeModeTab
 import org.eclipse.core.resources.IProject
+import ozelot.ToolItem
+import ozelot.MiningLevel
 
 class ItemGenerator {
 	def static void run(IProject project, Mod mod){
@@ -15,6 +17,7 @@ class ItemGenerator {
 			project.generateItemInit(mod)
 			project.generateItemClass(mod)
 			project.generateModels(mod)
+			project.generateTiers(mod)
 	}
 	
 	def static String getClassName(Item item){
@@ -22,7 +25,7 @@ class ItemGenerator {
 	}
 	
 	def static String getPackageExtension(Item item){
-		if(item.toolProperty !== null ){
+		if(item instanceof ToolItem ){
 			return "item.tool"
 		}
 		else if(item instanceof FoodItem){
@@ -94,7 +97,7 @@ class ItemGenerator {
 				project, 
 				item.className,
 				item.packageExtension,
-				'extends Item',
+				'''extends «item.getBaseClassString»''',
 				'''
 				import net.minecraft.world.item.CreativeModeTab;
 				import net.minecraft.world.item.Item;
@@ -107,6 +110,10 @@ class ItemGenerator {
 				import net.minecraft.network.chat.TranslatableComponent;
 				import net.minecraft.world.level.Level;
 				import net.minecraft.world.item.ItemStack;
+				«IF item instanceof ToolItem»
+				import «FolderGenerator.getBasePackage(mod)».item.tool.TiersGen;
+				import net.minecraft.world.item.«item.getBaseClassString»;
+				«ENDIF»
 				«IF item instanceof FoodItem»
 				import net.minecraft.world.food.FoodProperties;
 				«ENDIF»
@@ -128,7 +135,11 @@ class ItemGenerator {
 				''',
 				'''
 				public «item.className»Gen() {
-					super(new Item.Properties()
+					super(
+						«IF item instanceof ToolItem»
+						TiersGen.«item.itemId.toUpperCase», 0, 0f, 
+						«ENDIF»
+						new Item.Properties()
 						.tab(CreativeModeTab.«item.creativeModeTab.tabString»)
 						«IF item.isIsImmuneToFire»
 						.fireResistant()
@@ -237,6 +248,71 @@ class ItemGenerator {
 				true
 			)
 		]
+	}
+	
+	def private static void generateTiers(IProject project, Mod mod){
+		var tieredItems = mod.items.filter(ToolItem)
+		
+		if(tieredItems.size > 0){
+			FileGenerator.generateJavaClass(
+				project, 
+				"Tiers",
+				"item.tool",
+				"",
+				'''
+				«IF tieredItems.map[miningLevel].filter[ml|ml == MiningLevel.STONE || ml == MiningLevel.IRON || ml == MiningLevel.DIAMOND].size > 0»
+				import net.minecraft.tags.BlockTags;
+				«ENDIF»
+				«IF tieredItems.map[miningLevel].filter[ml|ml == MiningLevel.WOOD || ml == MiningLevel.NETHERITE].size > 0»
+				import net.minecraftforge.common.Tags;
+				«ENDIF»
+				import net.minecraft.world.item.crafting.Ingredient;
+				import net.minecraftforge.common.ForgeTier;
+				import «FolderGenerator.getBasePackage(mod)».item.ItemInitGen;
+				''',
+				'''
+				«FOR tieredItem : tieredItems»
+				public static final ForgeTier «tieredItem.itemId.toUpperCase» = new ForgeTier(
+							«tieredItem.miningLevel.value», 
+							«tieredItem.durability»,
+							«tieredItem.speed»f, 
+							«tieredItem.damage»f, 
+							«tieredItem.enchantmentValue», 
+							«tieredItem.miningLevel.getMiningTagString»,
+							() -> Ingredient.of(ItemInitGen.«tieredItem.itemId.toUpperCase».get()));
+				«ENDFOR»
+				''',
+				mod,
+				false,
+				true
+			)
+		}
+	}
+	
+	def private static String getMiningTagString(MiningLevel level){
+		switch level{
+			case WOOD: 'Tags.Blocks.NEEDS_WOOD_TOOL'
+		   	case STONE: 'BlockTags.NEEDS_STONE_TOOL'
+		   	case IRON: 'BlockTags.NEEDS_IRON_TOOL'
+		   	case DIAMOND: 'BlockTags.NEEDS_DIAMOND_TOOL'
+		   	case NETHERITE: 'Tags.Blocks.NEEDS_NETHERITE_TOOL'
+		}
+	}
+	
+	def private static String getBaseClassString(Item item){
+		if(item instanceof ToolItem){
+			return switch (item as ToolItem).type{
+				case SWORD: 'SwordItem'
+			   	case PICKAXE: 'PickaxeItem'
+			   	case SHOVEL: 'ShovelItem'
+			   	case AXE: 'AxeItem'
+			   	case HOE: 'HoeItem'
+			}
+		}
+		else{
+			return 'Item'
+		}
+		
 	}
 	
 	def private static String getRarityString(Rarity rarity){

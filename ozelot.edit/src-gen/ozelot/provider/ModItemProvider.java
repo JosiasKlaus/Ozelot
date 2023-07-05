@@ -264,6 +264,9 @@ public class ModItemProvider extends ItemProviderAdapter implements IEditingDoma
 				.add(createChildParameter(OzelotPackage.Literals.MOD__ITEMS, OzelotFactory.eINSTANCE.createItem()));
 
 		newChildDescriptors
+				.add(createChildParameter(OzelotPackage.Literals.MOD__ITEMS, OzelotFactory.eINSTANCE.createToolItem()));
+
+		newChildDescriptors
 				.add(createChildParameter(OzelotPackage.Literals.MOD__ITEMS, OzelotFactory.eINSTANCE.createFoodItem()));
 
 		newChildDescriptors

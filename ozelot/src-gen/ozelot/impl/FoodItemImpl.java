@@ -5,17 +5,18 @@ package ozelot.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import ozelot.Effect;
 import ozelot.FoodItem;
 import ozelot.OzelotPackage;
@@ -106,7 +107,7 @@ public class FoodItemImpl extends ItemImpl implements FoodItem {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_ALWAYS_EDIBLE_EDEFAULT = false;
+	protected static final boolean IS_ALWAYS_EDIBLE_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isIsAlwaysEdible() <em>Is Always Edible</em>}' attribute.

@@ -119,6 +119,29 @@ public class OzelotItemProviderAdapterFactory extends OzelotAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ozelot.ToolItem} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ToolItemItemProvider toolItemItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ozelot.ToolItem}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createToolItemAdapter() {
+		if (toolItemItemProvider == null) {
+			toolItemItemProvider = new ToolItemItemProvider(this);
+		}
+
+		return toolItemItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ozelot.FoodItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,29 +162,6 @@ public class OzelotItemProviderAdapterFactory extends OzelotAdapterFactory
 		}
 
 		return foodItemItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link ozelot.ToolProperty} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ToolPropertyItemProvider toolPropertyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ozelot.ToolProperty}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createToolPropertyAdapter() {
-		if (toolPropertyItemProvider == null) {
-			toolPropertyItemProvider = new ToolPropertyItemProvider(this);
-		}
-
-		return toolPropertyItemProvider;
 	}
 
 	/**
@@ -382,10 +382,10 @@ public class OzelotItemProviderAdapterFactory extends OzelotAdapterFactory
 			modItemProvider.dispose();
 		if (itemItemProvider != null)
 			itemItemProvider.dispose();
+		if (toolItemItemProvider != null)
+			toolItemItemProvider.dispose();
 		if (foodItemItemProvider != null)
 			foodItemItemProvider.dispose();
-		if (toolPropertyItemProvider != null)
-			toolPropertyItemProvider.dispose();
 		if (blockItemProvider != null)
 			blockItemProvider.dispose();
 		if (effectItemProvider != null)

@@ -15,6 +15,7 @@ import ozelot.CreativeModeTab;
 import ozelot.Effect;
 import ozelot.FoodItem;
 import ozelot.Item;
+import ozelot.MiningLevel;
 import ozelot.Mod;
 import ozelot.OnTickEffect;
 import ozelot.OzelotFactory;
@@ -22,7 +23,8 @@ import ozelot.OzelotPackage;
 import ozelot.PotionEffect;
 import ozelot.Rarity;
 import ozelot.SelfOtherEffect;
-import ozelot.ToolProperty;
+import ozelot.ToolItem;
+import ozelot.ToolType;
 import ozelot.Translation;
 
 /**
@@ -51,14 +53,14 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass foodItemEClass = null;
+	private EClass toolItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass toolPropertyEClass = null;
+	private EClass foodItemEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,6 +117,20 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	private EEnum creativeModeTabEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum toolTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum miningLevelEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -275,17 +291,8 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getItem_ToolProperty() {
-		return (EReference) itemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getItem_IconPath() {
-		return (EAttribute) itemEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) itemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -294,7 +301,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_Glows() {
-		return (EAttribute) itemEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) itemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -303,7 +310,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_MaxStackSize() {
-		return (EAttribute) itemEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) itemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -312,7 +319,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_IsImmuneToFire() {
-		return (EAttribute) itemEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) itemEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -321,7 +328,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_ItemId() {
-		return (EAttribute) itemEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) itemEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -330,7 +337,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_Rarity() {
-		return (EAttribute) itemEClass.getEStructuralFeatures().get(6);
+		return (EAttribute) itemEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -339,7 +346,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EAttribute getItem_CreativeModeTab() {
-		return (EAttribute) itemEClass.getEStructuralFeatures().get(7);
+		return (EAttribute) itemEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -348,7 +355,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EReference getItem_Translations() {
-		return (EReference) itemEClass.getEStructuralFeatures().get(8);
+		return (EReference) itemEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -357,7 +364,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EReference getItem_OnAttack() {
-		return (EReference) itemEClass.getEStructuralFeatures().get(9);
+		return (EReference) itemEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -366,7 +373,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EReference getItem_OnTick() {
-		return (EReference) itemEClass.getEStructuralFeatures().get(10);
+		return (EReference) itemEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -375,7 +382,79 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * @generated
 	 */
 	public EReference getItem_OnUse() {
-		return (EReference) itemEClass.getEStructuralFeatures().get(11);
+		return (EReference) itemEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getToolItem() {
+		return toolItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getToolItem_Type() {
+		return (EAttribute) toolItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getToolItem_MiningLevel() {
+		return (EAttribute) toolItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getToolItem_Durability() {
+		return (EAttribute) toolItemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getToolItem_Speed() {
+		return (EAttribute) toolItemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getToolItem_Damage() {
+		return (EAttribute) toolItemEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getToolItem_EnchantmentValue() {
+		return (EAttribute) toolItemEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToolItem_RepairItem() {
+		return (EReference) toolItemEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -430,15 +509,6 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 */
 	public EReference getFoodItem_AfterEating() {
 		return (EReference) foodItemEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getToolProperty() {
-		return toolPropertyEClass;
 	}
 
 	/**
@@ -635,6 +705,24 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getToolType() {
+		return toolTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMiningLevel() {
+		return miningLevelEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OzelotFactory getOzelotFactory() {
 		return (OzelotFactory) getEFactoryInstance();
 	}
@@ -670,7 +758,6 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		createEAttribute(modEClass, MOD__VERSION);
 
 		itemEClass = createEClass(ITEM);
-		createEReference(itemEClass, ITEM__TOOL_PROPERTY);
 		createEAttribute(itemEClass, ITEM__ICON_PATH);
 		createEAttribute(itemEClass, ITEM__GLOWS);
 		createEAttribute(itemEClass, ITEM__MAX_STACK_SIZE);
@@ -683,14 +770,21 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		createEReference(itemEClass, ITEM__ON_TICK);
 		createEReference(itemEClass, ITEM__ON_USE);
 
+		toolItemEClass = createEClass(TOOL_ITEM);
+		createEAttribute(toolItemEClass, TOOL_ITEM__TYPE);
+		createEAttribute(toolItemEClass, TOOL_ITEM__MINING_LEVEL);
+		createEAttribute(toolItemEClass, TOOL_ITEM__DURABILITY);
+		createEAttribute(toolItemEClass, TOOL_ITEM__SPEED);
+		createEAttribute(toolItemEClass, TOOL_ITEM__DAMAGE);
+		createEAttribute(toolItemEClass, TOOL_ITEM__ENCHANTMENT_VALUE);
+		createEReference(toolItemEClass, TOOL_ITEM__REPAIR_ITEM);
+
 		foodItemEClass = createEClass(FOOD_ITEM);
 		createEAttribute(foodItemEClass, FOOD_ITEM__NUTRITION);
 		createEAttribute(foodItemEClass, FOOD_ITEM__SATURATION);
 		createEAttribute(foodItemEClass, FOOD_ITEM__IS_MEAT);
 		createEAttribute(foodItemEClass, FOOD_ITEM__IS_ALWAYS_EDIBLE);
 		createEReference(foodItemEClass, FOOD_ITEM__AFTER_EATING);
-
-		toolPropertyEClass = createEClass(TOOL_PROPERTY);
 
 		blockEClass = createEClass(BLOCK);
 		createEReference(blockEClass, BLOCK__ON_STEP_ON);
@@ -719,6 +813,8 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		potionEffectEEnum = createEEnum(POTION_EFFECT);
 		rarityEEnum = createEEnum(RARITY);
 		creativeModeTabEEnum = createEEnum(CREATIVE_MODE_TAB);
+		toolTypeEEnum = createEEnum(TOOL_TYPE);
+		miningLevelEEnum = createEEnum(MINING_LEVEL);
 	}
 
 	/**
@@ -750,6 +846,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		toolItemEClass.getESuperTypes().add(this.getItem());
 		foodItemEClass.getESuperTypes().add(this.getItem());
 		selfOtherEffectEClass.getESuperTypes().add(this.getEffect());
 		onTickEffectEClass.getESuperTypes().add(this.getEffect());
@@ -776,9 +873,6 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getItem_ToolProperty(), this.getToolProperty(), null, "toolProperty", null, 0, 1, Item.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItem_IconPath(), ecorePackage.getEString(), "iconPath", null, 1, 1, Item.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getItem_Glows(), ecorePackage.getEBoolean(), "glows", null, 1, 1, Item.class, !IS_TRANSIENT,
@@ -807,6 +901,25 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
+		initEClass(toolItemEClass, ToolItem.class, "ToolItem", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getToolItem_Type(), this.getToolType(), "type", null, 1, 1, ToolItem.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToolItem_MiningLevel(), this.getMiningLevel(), "miningLevel", null, 1, 1, ToolItem.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToolItem_Durability(), ecorePackage.getEInt(), "durability", null, 1, 1, ToolItem.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToolItem_Speed(), ecorePackage.getEFloat(), "speed", null, 1, 1, ToolItem.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToolItem_Damage(), ecorePackage.getEFloat(), "damage", null, 1, 1, ToolItem.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToolItem_EnchantmentValue(), ecorePackage.getEInt(), "enchantmentValue", null, 1, 1,
+				ToolItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getToolItem_RepairItem(), this.getItem(), null, "repairItem", null, 1, 1, ToolItem.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(foodItemEClass, FoodItem.class, "FoodItem", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFoodItem_Nutrition(), ecorePackage.getEInt(), "nutrition", "4", 1, 1, FoodItem.class,
@@ -815,15 +928,12 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFoodItem_IsMeat(), ecorePackage.getEBoolean(), "isMeat", null, 1, 1, FoodItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFoodItem_IsAlwaysEdible(), ecorePackage.getEBoolean(), "isAlwaysEdible", "false", 1, 1,
+		initEAttribute(getFoodItem_IsAlwaysEdible(), ecorePackage.getEBoolean(), "isAlwaysEdible", "true", 1, 1,
 				FoodItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getFoodItem_AfterEating(), this.getEffect(), null, "afterEating", null, 0, -1, FoodItem.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(toolPropertyEClass, ToolProperty.class, "ToolProperty", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlock_OnStepOn(), this.getEffect(), null, "onStepOn", null, 0, -1, Block.class, !IS_TRANSIENT,
@@ -845,7 +955,7 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEffect_Duration(), ecorePackage.getEDouble(), "duration", null, 1, 1, Effect.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEffect_Visible(), ecorePackage.getEBoolean(), "visible", null, 1, 1, Effect.class,
+		initEAttribute(getEffect_Visible(), ecorePackage.getEBoolean(), "visible", "true", 1, 1, Effect.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(selfOtherEffectEClass, SelfOtherEffect.class, "SelfOtherEffect", !IS_ABSTRACT, !IS_INTERFACE,
@@ -921,6 +1031,20 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.TOOLS);
 		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.COMBAT);
 		addEEnumLiteral(creativeModeTabEEnum, CreativeModeTab.BREWING);
+
+		initEEnum(toolTypeEEnum, ToolType.class, "ToolType");
+		addEEnumLiteral(toolTypeEEnum, ToolType.SWORD);
+		addEEnumLiteral(toolTypeEEnum, ToolType.PICKAXE);
+		addEEnumLiteral(toolTypeEEnum, ToolType.SHOVEL);
+		addEEnumLiteral(toolTypeEEnum, ToolType.AXE);
+		addEEnumLiteral(toolTypeEEnum, ToolType.HOE);
+
+		initEEnum(miningLevelEEnum, MiningLevel.class, "MiningLevel");
+		addEEnumLiteral(miningLevelEEnum, MiningLevel.WOOD);
+		addEEnumLiteral(miningLevelEEnum, MiningLevel.STONE);
+		addEEnumLiteral(miningLevelEEnum, MiningLevel.IRON);
+		addEEnumLiteral(miningLevelEEnum, MiningLevel.DIAMOND);
+		addEEnumLiteral(miningLevelEEnum, MiningLevel.NETHERITE);
 
 		// Create resource
 		createResource(eNS_URI);

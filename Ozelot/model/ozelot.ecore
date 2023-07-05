@@ -18,7 +18,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Item">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="toolProperty" eType="#//ToolProperty"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconPath" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glows" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -41,6 +40,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="onUse" upperBound="-1"
         eType="#//Effect" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToolItem" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//ToolType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="miningLevel" lowerBound="1"
+        eType="#//MiningLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="durability" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="damage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enchantmentValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repairItem" lowerBound="1"
+        eType="#//Item"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FoodItem" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nutrition" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="4"/>
@@ -53,7 +66,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="afterEating" upperBound="-1"
         eType="#//Effect" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ToolProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
     <eStructuralFeatures xsi:type="ecore:EReference" name="onStepOn" upperBound="-1"
         eType="#//Effect" containment="true"/>
@@ -137,5 +149,19 @@
     <eLiterals name="TOOLS" value="6"/>
     <eLiterals name="COMBAT" value="7"/>
     <eLiterals name="BREWING" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ToolType">
+    <eLiterals name="SWORD"/>
+    <eLiterals name="PICKAXE" value="1"/>
+    <eLiterals name="SHOVEL" value="2"/>
+    <eLiterals name="AXE" value="3"/>
+    <eLiterals name="HOE" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MiningLevel">
+    <eLiterals name="WOOD"/>
+    <eLiterals name="STONE" value="1"/>
+    <eLiterals name="IRON" value="2"/>
+    <eLiterals name="DIAMOND" value="3"/>
+    <eLiterals name="NETHERITE" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

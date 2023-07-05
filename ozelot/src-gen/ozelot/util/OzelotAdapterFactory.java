@@ -77,13 +77,13 @@ public class OzelotAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseFoodItem(FoodItem object) {
-			return createFoodItemAdapter();
+		public Adapter caseToolItem(ToolItem object) {
+			return createToolItemAdapter();
 		}
 
 		@Override
-		public Adapter caseToolProperty(ToolProperty object) {
-			return createToolPropertyAdapter();
+		public Adapter caseFoodItem(FoodItem object) {
+			return createFoodItemAdapter();
 		}
 
 		@Override
@@ -159,6 +159,20 @@ public class OzelotAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link ozelot.ToolItem <em>Tool Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ozelot.ToolItem
+	 * @generated
+	 */
+	public Adapter createToolItemAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link ozelot.FoodItem <em>Food Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -169,20 +183,6 @@ public class OzelotAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFoodItemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link ozelot.ToolProperty <em>Tool Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see ozelot.ToolProperty
-	 * @generated
-	 */
-	public Adapter createToolPropertyAdapter() {
 		return null;
 	}
 

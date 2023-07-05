@@ -168,22 +168,13 @@ public interface OzelotPackage extends EPackage {
 	int ITEM = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tool Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEM__TOOL_PROPERTY = 0;
-
-	/**
 	 * The feature id for the '<em><b>Icon Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__ICON_PATH = 1;
+	int ITEM__ICON_PATH = 0;
 
 	/**
 	 * The feature id for the '<em><b>Glows</b></em>' attribute.
@@ -192,7 +183,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__GLOWS = 2;
+	int ITEM__GLOWS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Max Stack Size</b></em>' attribute.
@@ -201,7 +192,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__MAX_STACK_SIZE = 3;
+	int ITEM__MAX_STACK_SIZE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Is Immune To Fire</b></em>' attribute.
@@ -210,7 +201,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__IS_IMMUNE_TO_FIRE = 4;
+	int ITEM__IS_IMMUNE_TO_FIRE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Item Id</b></em>' attribute.
@@ -219,7 +210,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__ITEM_ID = 5;
+	int ITEM__ITEM_ID = 4;
 
 	/**
 	 * The feature id for the '<em><b>Rarity</b></em>' attribute.
@@ -228,7 +219,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__RARITY = 6;
+	int ITEM__RARITY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Creative Mode Tab</b></em>' attribute.
@@ -237,7 +228,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__CREATIVE_MODE_TAB = 7;
+	int ITEM__CREATIVE_MODE_TAB = 6;
 
 	/**
 	 * The feature id for the '<em><b>Translations</b></em>' containment reference list.
@@ -246,7 +237,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__TRANSLATIONS = 8;
+	int ITEM__TRANSLATIONS = 7;
 
 	/**
 	 * The feature id for the '<em><b>On Attack</b></em>' containment reference list.
@@ -255,7 +246,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__ON_ATTACK = 9;
+	int ITEM__ON_ATTACK = 8;
 
 	/**
 	 * The feature id for the '<em><b>On Tick</b></em>' containment reference list.
@@ -264,7 +255,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__ON_TICK = 10;
+	int ITEM__ON_TICK = 9;
 
 	/**
 	 * The feature id for the '<em><b>On Use</b></em>' containment reference list.
@@ -273,7 +264,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__ON_USE = 11;
+	int ITEM__ON_USE = 10;
 
 	/**
 	 * The number of structural features of the '<em>Item</em>' class.
@@ -282,7 +273,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM_FEATURE_COUNT = 12;
+	int ITEM_FEATURE_COUNT = 11;
 
 	/**
 	 * The number of operations of the '<em>Item</em>' class.
@@ -294,6 +285,196 @@ public interface OzelotPackage extends EPackage {
 	int ITEM_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ozelot.impl.ToolItemImpl <em>Tool Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.impl.ToolItemImpl
+	 * @see ozelot.impl.OzelotPackageImpl#getToolItem()
+	 * @generated
+	 */
+	int TOOL_ITEM = 2;
+
+	/**
+	 * The feature id for the '<em><b>Icon Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__ICON_PATH = ITEM__ICON_PATH;
+
+	/**
+	 * The feature id for the '<em><b>Glows</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__GLOWS = ITEM__GLOWS;
+
+	/**
+	 * The feature id for the '<em><b>Max Stack Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__MAX_STACK_SIZE = ITEM__MAX_STACK_SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Is Immune To Fire</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__IS_IMMUNE_TO_FIRE = ITEM__IS_IMMUNE_TO_FIRE;
+
+	/**
+	 * The feature id for the '<em><b>Item Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__ITEM_ID = ITEM__ITEM_ID;
+
+	/**
+	 * The feature id for the '<em><b>Rarity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__RARITY = ITEM__RARITY;
+
+	/**
+	 * The feature id for the '<em><b>Creative Mode Tab</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__CREATIVE_MODE_TAB = ITEM__CREATIVE_MODE_TAB;
+
+	/**
+	 * The feature id for the '<em><b>Translations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__TRANSLATIONS = ITEM__TRANSLATIONS;
+
+	/**
+	 * The feature id for the '<em><b>On Attack</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__ON_ATTACK = ITEM__ON_ATTACK;
+
+	/**
+	 * The feature id for the '<em><b>On Tick</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__ON_TICK = ITEM__ON_TICK;
+
+	/**
+	 * The feature id for the '<em><b>On Use</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__ON_USE = ITEM__ON_USE;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__TYPE = ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mining Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__MINING_LEVEL = ITEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Durability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__DURABILITY = ITEM_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Speed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__SPEED = ITEM_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Damage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__DAMAGE = ITEM_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Enchantment Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__ENCHANTMENT_VALUE = ITEM_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Repair Item</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__REPAIR_ITEM = ITEM_FEATURE_COUNT + 6;
+
+	/**
+	 * The number of structural features of the '<em>Tool Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 7;
+
+	/**
+	 * The number of operations of the '<em>Tool Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ozelot.impl.FoodItemImpl <em>Food Item</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -301,16 +482,7 @@ public interface OzelotPackage extends EPackage {
 	 * @see ozelot.impl.OzelotPackageImpl#getFoodItem()
 	 * @generated
 	 */
-	int FOOD_ITEM = 2;
-
-	/**
-	 * The feature id for the '<em><b>Tool Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOOD_ITEM__TOOL_PROPERTY = ITEM__TOOL_PROPERTY;
+	int FOOD_ITEM = 3;
 
 	/**
 	 * The feature id for the '<em><b>Icon Path</b></em>' attribute.
@@ -473,34 +645,6 @@ public interface OzelotPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOOD_ITEM_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link ozelot.impl.ToolPropertyImpl <em>Tool Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ozelot.impl.ToolPropertyImpl
-	 * @see ozelot.impl.OzelotPackageImpl#getToolProperty()
-	 * @generated
-	 */
-	int TOOL_PROPERTY = 3;
-
-	/**
-	 * The number of structural features of the '<em>Tool Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOOL_PROPERTY_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Tool Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOOL_PROPERTY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ozelot.impl.BlockImpl <em>Block</em>}' class.
@@ -862,6 +1006,26 @@ public interface OzelotPackage extends EPackage {
 	int CREATIVE_MODE_TAB = 11;
 
 	/**
+	 * The meta object id for the '{@link ozelot.ToolType <em>Tool Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.ToolType
+	 * @see ozelot.impl.OzelotPackageImpl#getToolType()
+	 * @generated
+	 */
+	int TOOL_TYPE = 12;
+
+	/**
+	 * The meta object id for the '{@link ozelot.MiningLevel <em>Mining Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.MiningLevel
+	 * @see ozelot.impl.OzelotPackageImpl#getMiningLevel()
+	 * @generated
+	 */
+	int MINING_LEVEL = 13;
+
+	/**
 	 * Returns the meta object for class '{@link ozelot.Mod <em>Mod</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -968,17 +1132,6 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getItem();
-
-	/**
-	 * Returns the meta object for the reference '{@link ozelot.Item#getToolProperty <em>Tool Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Tool Property</em>'.
-	 * @see ozelot.Item#getToolProperty()
-	 * @see #getItem()
-	 * @generated
-	 */
-	EReference getItem_ToolProperty();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ozelot.Item#getIconPath <em>Icon Path</em>}'.
@@ -1102,6 +1255,93 @@ public interface OzelotPackage extends EPackage {
 	EReference getItem_OnUse();
 
 	/**
+	 * Returns the meta object for class '{@link ozelot.ToolItem <em>Tool Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tool Item</em>'.
+	 * @see ozelot.ToolItem
+	 * @generated
+	 */
+	EClass getToolItem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.ToolItem#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see ozelot.ToolItem#getType()
+	 * @see #getToolItem()
+	 * @generated
+	 */
+	EAttribute getToolItem_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.ToolItem#getMiningLevel <em>Mining Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mining Level</em>'.
+	 * @see ozelot.ToolItem#getMiningLevel()
+	 * @see #getToolItem()
+	 * @generated
+	 */
+	EAttribute getToolItem_MiningLevel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.ToolItem#getDurability <em>Durability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Durability</em>'.
+	 * @see ozelot.ToolItem#getDurability()
+	 * @see #getToolItem()
+	 * @generated
+	 */
+	EAttribute getToolItem_Durability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.ToolItem#getSpeed <em>Speed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Speed</em>'.
+	 * @see ozelot.ToolItem#getSpeed()
+	 * @see #getToolItem()
+	 * @generated
+	 */
+	EAttribute getToolItem_Speed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.ToolItem#getDamage <em>Damage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Damage</em>'.
+	 * @see ozelot.ToolItem#getDamage()
+	 * @see #getToolItem()
+	 * @generated
+	 */
+	EAttribute getToolItem_Damage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.ToolItem#getEnchantmentValue <em>Enchantment Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enchantment Value</em>'.
+	 * @see ozelot.ToolItem#getEnchantmentValue()
+	 * @see #getToolItem()
+	 * @generated
+	 */
+	EAttribute getToolItem_EnchantmentValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link ozelot.ToolItem#getRepairItem <em>Repair Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Repair Item</em>'.
+	 * @see ozelot.ToolItem#getRepairItem()
+	 * @see #getToolItem()
+	 * @generated
+	 */
+	EReference getToolItem_RepairItem();
+
+	/**
 	 * Returns the meta object for class '{@link ozelot.FoodItem <em>Food Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1165,16 +1405,6 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFoodItem_AfterEating();
-
-	/**
-	 * Returns the meta object for class '{@link ozelot.ToolProperty <em>Tool Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Tool Property</em>'.
-	 * @see ozelot.ToolProperty
-	 * @generated
-	 */
-	EClass getToolProperty();
 
 	/**
 	 * Returns the meta object for class '{@link ozelot.Block <em>Block</em>}'.
@@ -1400,6 +1630,26 @@ public interface OzelotPackage extends EPackage {
 	EEnum getCreativeModeTab();
 
 	/**
+	 * Returns the meta object for enum '{@link ozelot.ToolType <em>Tool Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Tool Type</em>'.
+	 * @see ozelot.ToolType
+	 * @generated
+	 */
+	EEnum getToolType();
+
+	/**
+	 * Returns the meta object for enum '{@link ozelot.MiningLevel <em>Mining Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Mining Level</em>'.
+	 * @see ozelot.MiningLevel
+	 * @generated
+	 */
+	EEnum getMiningLevel();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1507,14 +1757,6 @@ public interface OzelotPackage extends EPackage {
 		EClass ITEM = eINSTANCE.getItem();
 
 		/**
-		 * The meta object literal for the '<em><b>Tool Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITEM__TOOL_PROPERTY = eINSTANCE.getItem_ToolProperty();
-
-		/**
 		 * The meta object literal for the '<em><b>Icon Path</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1603,6 +1845,72 @@ public interface OzelotPackage extends EPackage {
 		EReference ITEM__ON_USE = eINSTANCE.getItem_OnUse();
 
 		/**
+		 * The meta object literal for the '{@link ozelot.impl.ToolItemImpl <em>Tool Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.impl.ToolItemImpl
+		 * @see ozelot.impl.OzelotPackageImpl#getToolItem()
+		 * @generated
+		 */
+		EClass TOOL_ITEM = eINSTANCE.getToolItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOOL_ITEM__TYPE = eINSTANCE.getToolItem_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Mining Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOOL_ITEM__MINING_LEVEL = eINSTANCE.getToolItem_MiningLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Durability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOOL_ITEM__DURABILITY = eINSTANCE.getToolItem_Durability();
+
+		/**
+		 * The meta object literal for the '<em><b>Speed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOOL_ITEM__SPEED = eINSTANCE.getToolItem_Speed();
+
+		/**
+		 * The meta object literal for the '<em><b>Damage</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOOL_ITEM__DAMAGE = eINSTANCE.getToolItem_Damage();
+
+		/**
+		 * The meta object literal for the '<em><b>Enchantment Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOOL_ITEM__ENCHANTMENT_VALUE = eINSTANCE.getToolItem_EnchantmentValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Repair Item</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TOOL_ITEM__REPAIR_ITEM = eINSTANCE.getToolItem_RepairItem();
+
+		/**
 		 * The meta object literal for the '{@link ozelot.impl.FoodItemImpl <em>Food Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1651,16 +1959,6 @@ public interface OzelotPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FOOD_ITEM__AFTER_EATING = eINSTANCE.getFoodItem_AfterEating();
-
-		/**
-		 * The meta object literal for the '{@link ozelot.impl.ToolPropertyImpl <em>Tool Property</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see ozelot.impl.ToolPropertyImpl
-		 * @see ozelot.impl.OzelotPackageImpl#getToolProperty()
-		 * @generated
-		 */
-		EClass TOOL_PROPERTY = eINSTANCE.getToolProperty();
 
 		/**
 		 * The meta object literal for the '{@link ozelot.impl.BlockImpl <em>Block</em>}' class.
@@ -1845,6 +2143,26 @@ public interface OzelotPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum CREATIVE_MODE_TAB = eINSTANCE.getCreativeModeTab();
+
+		/**
+		 * The meta object literal for the '{@link ozelot.ToolType <em>Tool Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.ToolType
+		 * @see ozelot.impl.OzelotPackageImpl#getToolType()
+		 * @generated
+		 */
+		EEnum TOOL_TYPE = eINSTANCE.getToolType();
+
+		/**
+		 * The meta object literal for the '{@link ozelot.MiningLevel <em>Mining Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.MiningLevel
+		 * @see ozelot.impl.OzelotPackageImpl#getMiningLevel()
+		 * @generated
+		 */
+		EEnum MINING_LEVEL = eINSTANCE.getMiningLevel();
 
 	}
 

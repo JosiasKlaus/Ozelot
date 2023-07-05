@@ -307,10 +307,11 @@ public enum PotionEffect implements Enumerator {
 	 * @ordered
 	 */
 	CONDUIT_POWER(28, "CONDUIT_POWER", "CONDUIT_POWER"),
+
 	/**
 	 * The '<em><b>DOLPHINS GRACE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #DOLPHINS_GRACE_VALUE
 	 * @generated
 	 * @ordered

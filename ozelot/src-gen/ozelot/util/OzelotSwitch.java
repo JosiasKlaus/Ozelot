@@ -80,18 +80,20 @@ public class OzelotSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case OzelotPackage.TOOL_ITEM: {
+			ToolItem toolItem = (ToolItem) theEObject;
+			T result = caseToolItem(toolItem);
+			if (result == null)
+				result = caseItem(toolItem);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case OzelotPackage.FOOD_ITEM: {
 			FoodItem foodItem = (FoodItem) theEObject;
 			T result = caseFoodItem(foodItem);
 			if (result == null)
 				result = caseItem(foodItem);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case OzelotPackage.TOOL_PROPERTY: {
-			ToolProperty toolProperty = (ToolProperty) theEObject;
-			T result = caseToolProperty(toolProperty);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -171,6 +173,21 @@ public class OzelotSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tool Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tool Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseToolItem(ToolItem object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Food Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -182,21 +199,6 @@ public class OzelotSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFoodItem(FoodItem object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Tool Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Tool Property</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseToolProperty(ToolProperty object) {
 		return null;
 	}
 

@@ -53,6 +53,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected static final String MOD_ID_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getModId() <em>Mod Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,6 +63,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected String modId = MOD_ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,6 +73,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -80,6 +83,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,6 +93,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -98,6 +103,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getAuthors() <em>Authors</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -107,6 +113,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected static final String AUTHORS_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getAuthors() <em>Authors</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -116,6 +123,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected String authors = AUTHORS_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -135,6 +143,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected EList<Block> blocks;
+
 	/**
 	 * The default value of the '{@link #getIconPath() <em>Icon Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -144,6 +153,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected static final String ICON_PATH_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getIconPath() <em>Icon Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -153,6 +163,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected String iconPath = ICON_PATH_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -162,6 +173,7 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected static final String VERSION_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
 	 * <!-- begin-user-doc -->

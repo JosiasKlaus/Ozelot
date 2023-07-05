@@ -3,18 +3,21 @@
 package ozelot.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import ozelot.CreativeModeTab;
 import ozelot.Effect;
 import ozelot.Item;
@@ -22,7 +25,6 @@ import ozelot.OnTickEffect;
 import ozelot.OzelotPackage;
 import ozelot.Rarity;
 import ozelot.SelfOtherEffect;
-import ozelot.ToolProperty;
 import ozelot.Translation;
 
 /**
@@ -33,7 +35,6 @@ import ozelot.Translation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ozelot.impl.ItemImpl#getToolProperty <em>Tool Property</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getIconPath <em>Icon Path</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#isGlows <em>Glows</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getMaxStackSize <em>Max Stack Size</em>}</li>
@@ -50,16 +51,6 @@ import ozelot.Translation;
  * @generated
  */
 public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
-	/**
-	 * The cached value of the '{@link #getToolProperty() <em>Tool Property</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getToolProperty()
-	 * @generated
-	 * @ordered
-	 */
-	protected ToolProperty toolProperty;
-
 	/**
 	 * The default value of the '{@link #getIconPath() <em>Icon Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -257,46 +248,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	protected EClass eStaticClass() {
 		return OzelotPackage.Literals.ITEM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ToolProperty getToolProperty() {
-		if (toolProperty != null && toolProperty.eIsProxy()) {
-			InternalEObject oldToolProperty = (InternalEObject) toolProperty;
-			toolProperty = (ToolProperty) eResolveProxy(oldToolProperty);
-			if (toolProperty != oldToolProperty) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OzelotPackage.ITEM__TOOL_PROPERTY,
-							oldToolProperty, toolProperty));
-			}
-		}
-		return toolProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ToolProperty basicGetToolProperty() {
-		return toolProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setToolProperty(ToolProperty newToolProperty) {
-		ToolProperty oldToolProperty = toolProperty;
-		toolProperty = newToolProperty;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.ITEM__TOOL_PROPERTY, oldToolProperty,
-					toolProperty));
 	}
 
 	/**
@@ -528,10 +479,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case OzelotPackage.ITEM__TOOL_PROPERTY:
-			if (resolve)
-				return getToolProperty();
-			return basicGetToolProperty();
 		case OzelotPackage.ITEM__ICON_PATH:
 			return getIconPath();
 		case OzelotPackage.ITEM__GLOWS:
@@ -567,9 +514,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case OzelotPackage.ITEM__TOOL_PROPERTY:
-			setToolProperty((ToolProperty) newValue);
-			return;
 		case OzelotPackage.ITEM__ICON_PATH:
 			setIconPath((String) newValue);
 			return;
@@ -619,9 +563,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case OzelotPackage.ITEM__TOOL_PROPERTY:
-			setToolProperty((ToolProperty) null);
-			return;
 		case OzelotPackage.ITEM__ICON_PATH:
 			setIconPath(ICON_PATH_EDEFAULT);
 			return;
@@ -667,8 +608,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case OzelotPackage.ITEM__TOOL_PROPERTY:
-			return toolProperty != null;
 		case OzelotPackage.ITEM__ICON_PATH:
 			return ICON_PATH_EDEFAULT == null ? iconPath != null : !ICON_PATH_EDEFAULT.equals(iconPath);
 		case OzelotPackage.ITEM__GLOWS:

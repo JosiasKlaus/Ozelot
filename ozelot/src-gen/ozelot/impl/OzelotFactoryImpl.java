@@ -61,10 +61,10 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 			return createMod();
 		case OzelotPackage.ITEM:
 			return createItem();
+		case OzelotPackage.TOOL_ITEM:
+			return createToolItem();
 		case OzelotPackage.FOOD_ITEM:
 			return createFoodItem();
-		case OzelotPackage.TOOL_PROPERTY:
-			return createToolProperty();
 		case OzelotPackage.BLOCK:
 			return createBlock();
 		case OzelotPackage.EFFECT:
@@ -94,6 +94,10 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 			return createRarityFromString(eDataType, initialValue);
 		case OzelotPackage.CREATIVE_MODE_TAB:
 			return createCreativeModeTabFromString(eDataType, initialValue);
+		case OzelotPackage.TOOL_TYPE:
+			return createToolTypeFromString(eDataType, initialValue);
+		case OzelotPackage.MINING_LEVEL:
+			return createMiningLevelFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +117,10 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 			return convertRarityToString(eDataType, instanceValue);
 		case OzelotPackage.CREATIVE_MODE_TAB:
 			return convertCreativeModeTabToString(eDataType, instanceValue);
+		case OzelotPackage.TOOL_TYPE:
+			return convertToolTypeToString(eDataType, instanceValue);
+		case OzelotPackage.MINING_LEVEL:
+			return convertMiningLevelToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -143,9 +151,9 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FoodItem createFoodItem() {
-		FoodItemImpl foodItem = new FoodItemImpl();
-		return foodItem;
+	public ToolItem createToolItem() {
+		ToolItemImpl toolItem = new ToolItemImpl();
+		return toolItem;
 	}
 
 	/**
@@ -153,9 +161,9 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ToolProperty createToolProperty() {
-		ToolPropertyImpl toolProperty = new ToolPropertyImpl();
-		return toolProperty;
+	public FoodItem createFoodItem() {
+		FoodItemImpl foodItem = new FoodItemImpl();
+		return foodItem;
 	}
 
 	/**
@@ -271,6 +279,50 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 	 * @generated
 	 */
 	public String convertCreativeModeTabToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ToolType createToolTypeFromString(EDataType eDataType, String initialValue) {
+		ToolType result = ToolType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertToolTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MiningLevel createMiningLevelFromString(EDataType eDataType, String initialValue) {
+		MiningLevel result = MiningLevel.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMiningLevelToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

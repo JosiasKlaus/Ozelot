@@ -5,17 +5,21 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
-public class Item1Gen extends Item {
+public class Item1Gen extends AxeItem {
     public Item1Gen() {
-        super(new Item.Properties()
+        super(
+        		Tiers.DIAMOND, 0, 0f, 
+        		new Item.Properties()
         		.tab(CreativeModeTab.TAB_MISC)
         		.fireResistant()
         		.stacksTo(64)

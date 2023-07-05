@@ -95,13 +95,13 @@ public interface FoodItem extends Item {
 
 	/**
 	 * Returns the value of the '<em><b>Is Always Edible</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Always Edible</em>' attribute.
 	 * @see #setIsAlwaysEdible(boolean)
 	 * @see ozelot.OzelotPackage#getFoodItem_IsAlwaysEdible()
-	 * @model default="false" required="true"
+	 * @model default="true" required="true"
 	 * @generated
 	 */
 	boolean isIsAlwaysEdible();

@@ -40,6 +40,15 @@ public interface OzelotFactory extends EFactory {
 	Item createItem();
 
 	/**
+	 * Returns a new object of class '<em>Tool Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tool Item</em>'.
+	 * @generated
+	 */
+	ToolItem createToolItem();
+
+	/**
 	 * Returns a new object of class '<em>Food Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,15 +56,6 @@ public interface OzelotFactory extends EFactory {
 	 * @generated
 	 */
 	FoodItem createFoodItem();
-
-	/**
-	 * Returns a new object of class '<em>Tool Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tool Property</em>'.
-	 * @generated
-	 */
-	ToolProperty createToolProperty();
 
 	/**
 	 * Returns a new object of class '<em>Block</em>'.
