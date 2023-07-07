@@ -53,8 +53,8 @@ public class TranslationItemProvider extends ItemProviderAdapter implements IEdi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLangPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addLangPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -154,8 +154,8 @@ public class TranslationItemProvider extends ItemProviderAdapter implements IEdi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Translation.class)) {
-		case OzelotPackage.TRANSLATION__LANG:
 		case OzelotPackage.TRANSLATION__NAME:
+		case OzelotPackage.TRANSLATION__LANG:
 		case OzelotPackage.TRANSLATION__DESCRIPTION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

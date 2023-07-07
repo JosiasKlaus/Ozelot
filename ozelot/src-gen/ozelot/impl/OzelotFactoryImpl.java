@@ -94,10 +94,16 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 			return createRarityFromString(eDataType, initialValue);
 		case OzelotPackage.CREATIVE_MODE_TAB:
 			return createCreativeModeTabFromString(eDataType, initialValue);
+		case OzelotPackage.MINING_TOOL_TYPE:
+			return createMiningToolTypeFromString(eDataType, initialValue);
 		case OzelotPackage.TOOL_TYPE:
 			return createToolTypeFromString(eDataType, initialValue);
 		case OzelotPackage.MINING_LEVEL:
 			return createMiningLevelFromString(eDataType, initialValue);
+		case OzelotPackage.BLOCK_MINING_LEVEL:
+			return createBlockMiningLevelFromString(eDataType, initialValue);
+		case OzelotPackage.SOUND_TYPE:
+			return createSoundTypeFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -117,10 +123,16 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 			return convertRarityToString(eDataType, instanceValue);
 		case OzelotPackage.CREATIVE_MODE_TAB:
 			return convertCreativeModeTabToString(eDataType, instanceValue);
+		case OzelotPackage.MINING_TOOL_TYPE:
+			return convertMiningToolTypeToString(eDataType, instanceValue);
 		case OzelotPackage.TOOL_TYPE:
 			return convertToolTypeToString(eDataType, instanceValue);
 		case OzelotPackage.MINING_LEVEL:
 			return convertMiningLevelToString(eDataType, instanceValue);
+		case OzelotPackage.BLOCK_MINING_LEVEL:
+			return convertBlockMiningLevelToString(eDataType, instanceValue);
+		case OzelotPackage.SOUND_TYPE:
+			return convertSoundTypeToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -287,6 +299,28 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MiningToolType createMiningToolTypeFromString(EDataType eDataType, String initialValue) {
+		MiningToolType result = MiningToolType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMiningToolTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ToolType createToolTypeFromString(EDataType eDataType, String initialValue) {
 		ToolType result = ToolType.get(initialValue);
 		if (result == null)
@@ -323,6 +357,50 @@ public class OzelotFactoryImpl extends EFactoryImpl implements OzelotFactory {
 	 * @generated
 	 */
 	public String convertMiningLevelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BlockMiningLevel createBlockMiningLevelFromString(EDataType eDataType, String initialValue) {
+		BlockMiningLevel result = BlockMiningLevel.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBlockMiningLevelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SoundType createSoundTypeFromString(EDataType eDataType, String initialValue) {
+		SoundType result = SoundType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSoundTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

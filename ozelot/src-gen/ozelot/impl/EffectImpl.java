@@ -38,7 +38,7 @@ public class EffectImpl extends MinimalEObjectImpl.Container implements Effect {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PotionEffect POTION_EFFECT_EDEFAULT = PotionEffect.MOVEMENT_SPEED;
+	protected static final PotionEffect POTION_EFFECT_EDEFAULT = PotionEffect.ABSORPTION;
 
 	/**
 	 * The cached value of the '{@link #getPotionEffect() <em>Potion Effect</em>}' attribute.

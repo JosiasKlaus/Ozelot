@@ -10,143 +10,125 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Tool Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Block Mining Level</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see ozelot.OzelotPackage#getToolType()
+ * @see ozelot.OzelotPackage#getBlockMiningLevel()
  * @model
  * @generated
  */
-public enum ToolType implements Enumerator {
+public enum BlockMiningLevel implements Enumerator {
 	/**
-	 * The '<em><b>AXE</b></em>' literal object.
+	 * The '<em><b>NONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #AXE_VALUE
+	 * @see #NONE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	AXE(0, "AXE", "AXE"),
+	NONE(0, "NONE", "NONE"),
 
 	/**
-	 * The '<em><b>HOE</b></em>' literal object.
+	 * The '<em><b>STONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #HOE_VALUE
+	 * @see #STONE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	HOE(1, "HOE", "HOE"),
-	/**
-	 * The '<em><b>PICKAXE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
-	 * @see #PICKAXE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	PICKAXE(2, "PICKAXE", "PICKAXE"),
-	/**
-	 * The '<em><b>SHOVEL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
-	 * @see #SHOVEL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SHOVEL(3, "SHOVEL", "SHOVEL"),
-	/**
-	 * The '<em><b>SWORD</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
-	 * @see #SWORD_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SWORD(4, "SWORD", "SWORD");
+	STONE(1, "STONE", "STONE"),
 
 	/**
-	 * The '<em><b>AXE</b></em>' literal value.
+	 * The '<em><b>IRON</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #AXE
+	 * @see #IRON_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	IRON(2, "IRON", "IRON"),
+
+	/**
+	 * The '<em><b>DIAMOND</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DIAMOND_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DIAMOND(3, "DIAMOND", "DIAMOND");
+
+	/**
+	 * The '<em><b>NONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NONE
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int AXE_VALUE = 0;
+	public static final int NONE_VALUE = 0;
 
 	/**
-	 * The '<em><b>HOE</b></em>' literal value.
+	 * The '<em><b>STONE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #HOE
+	 * @see #STONE
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HOE_VALUE = 1;
+	public static final int STONE_VALUE = 1;
 
 	/**
-	 * The '<em><b>PICKAXE</b></em>' literal value.
+	 * The '<em><b>IRON</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #PICKAXE
+	 * @see #IRON
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PICKAXE_VALUE = 2;
+	public static final int IRON_VALUE = 2;
 
 	/**
-	 * The '<em><b>SHOVEL</b></em>' literal value.
+	 * The '<em><b>DIAMOND</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SHOVEL
+	 * @see #DIAMOND
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SHOVEL_VALUE = 3;
+	public static final int DIAMOND_VALUE = 3;
 
 	/**
-	 * The '<em><b>SWORD</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SWORD
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SWORD_VALUE = 4;
-
-	/**
-	 * An array of all the '<em><b>Tool Type</b></em>' enumerators.
+	 * An array of all the '<em><b>Block Mining Level</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ToolType[] VALUES_ARRAY = new ToolType[] { AXE, HOE, PICKAXE, SHOVEL, SWORD, };
+	private static final BlockMiningLevel[] VALUES_ARRAY = new BlockMiningLevel[] { NONE, STONE, IRON, DIAMOND, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Tool Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Block Mining Level</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ToolType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<BlockMiningLevel> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Tool Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Block Mining Level</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ToolType get(String literal) {
+	public static BlockMiningLevel get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ToolType result = VALUES_ARRAY[i];
+			BlockMiningLevel result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -155,16 +137,16 @@ public enum ToolType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Tool Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Block Mining Level</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ToolType getByName(String name) {
+	public static BlockMiningLevel getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ToolType result = VALUES_ARRAY[i];
+			BlockMiningLevel result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -173,25 +155,23 @@ public enum ToolType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Tool Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Block Mining Level</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ToolType get(int value) {
+	public static BlockMiningLevel get(int value) {
 		switch (value) {
-		case AXE_VALUE:
-			return AXE;
-		case HOE_VALUE:
-			return HOE;
-		case PICKAXE_VALUE:
-			return PICKAXE;
-		case SHOVEL_VALUE:
-			return SHOVEL;
-		case SWORD_VALUE:
-			return SWORD;
+		case NONE_VALUE:
+			return NONE;
+		case STONE_VALUE:
+			return STONE;
+		case IRON_VALUE:
+			return IRON;
+		case DIAMOND_VALUE:
+			return DIAMOND;
 		}
 		return null;
 	}
@@ -223,7 +203,7 @@ public enum ToolType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ToolType(int value, String name, String literal) {
+	private BlockMiningLevel(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -267,4 +247,4 @@ public enum ToolType implements Enumerator {
 		return literal;
 	}
 
-} //ToolType
+} //BlockMiningLevel

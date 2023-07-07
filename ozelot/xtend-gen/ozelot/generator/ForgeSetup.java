@@ -2,13 +2,11 @@ package ozelot.generator;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozelot.Mod;
 
 @SuppressWarnings("all")
 public class ForgeSetup {
   public static void run(final IProject project, final Mod mod) {
-    InputOutput.<String>println("\n\nForgeSetup:");
     String _baseFolder = FolderGenerator.getBaseFolder(mod);
     String _plus = (_baseFolder + "/gradle/wrapper/");
     FileGenerator.generateFile(project, "gradle-wrapper.properties", _plus, ForgeSetup.getGradleWrapper(), true);

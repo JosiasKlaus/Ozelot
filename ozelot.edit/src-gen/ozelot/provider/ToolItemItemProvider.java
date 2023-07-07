@@ -195,7 +195,7 @@ public class ToolItemItemProvider extends ItemItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ToolItem) object).getIconPath();
+		String label = ((ToolItem) object).getItemId();
 		return label == null || label.length() == 0 ? getString("_UI_ToolItem_type")
 				: getString("_UI_ToolItem_type") + " " + label;
 	}

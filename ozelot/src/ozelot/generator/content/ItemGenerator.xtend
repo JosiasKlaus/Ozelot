@@ -13,7 +13,6 @@ import ozelot.MiningLevel
 
 class ItemGenerator {
 	def static void run(IProject project, Mod mod){
-			project.generateLang(mod)
 			project.generateItemInit(mod)
 			project.generateItemClass(mod)
 			project.generateModels(mod)
@@ -36,59 +35,40 @@ class ItemGenerator {
 		}
 	}
 	
-	def private static void generateLang(IProject project, Mod mod){
-		mod.items.flatMap[i|i.translations].toList.map[t|t.lang].toSet.forEach[lang|
-			//I don't know if the query would be run multiple times if you put it in the constructor of the for
-			var filteredItems = mod.items.filter[i|i.translations.map[t|t.lang].filter[s|s == lang].size > 0]
-			FileGenerator.generateFile(
-				project,
-				lang + '.json',
-				FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/lang',
+	def private static void generateItemInit(IProject project, Mod mod){
+		if(mod.items.size > 0 || mod.blocks.size > 0){
+			FileGenerator.generateJavaClass(
+				project, 
+				"ItemInit",
+				"item",
+				"",
 				'''
-				{
-					«FOR item : filteredItems SEPARATOR '\n'»
-					"item.«mod.modId».«item.itemId»": "«item.translations.filter[t|t.lang == lang].get(0).name»"
-					"tooltip.«mod.modId».item.«item.itemId»": "«item.translations.filter[t|t.lang == lang].get(0).description»",
-					«ENDFOR»
+				import «FolderGenerator.getBasePackage(mod) + "." + mod.name.replace(" ","")»; 
+				«FOR item : mod.items»
+				import «FolderGenerator.getBasePackage(mod) + "." + item.packageExtension + "." + item.className»; 
+				«ENDFOR»
+				import net.minecraft.world.item.Item;
+				import net.minecraftforge.eventbus.api.IEventBus;
+				import net.minecraftforge.registries.DeferredRegister;
+				import net.minecraftforge.registries.ForgeRegistries;
+				import net.minecraftforge.registries.RegistryObject;
+				''',
+				'''
+				public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, «mod.name.replace(" ","")».MOD_ID);
+				
+				«FOR item : mod.items»
+				public static final RegistryObject<Item> «item.itemId.toUpperCase» = ITEMS.register("«item.itemId»", «item.className»::new);
+				«ENDFOR»
+				
+				public static void register(IEventBus eventBus){
+					ITEMS.register(eventBus);
 				}
 				''',
+				mod,
+				false,
 				true
 			)
-		]
-	}
-	
-	def private static void generateItemInit(IProject project, Mod mod){
-		FileGenerator.generateJavaClass(
-			project, 
-			"ItemInit",
-			"item",
-			"",
-			'''
-			import «FolderGenerator.getBasePackage(mod) + "." + mod.name.replace(" ","")»; 
-			«FOR item : mod.items»
-			import «FolderGenerator.getBasePackage(mod) + "." + item.packageExtension + "." + item.className»; 
-			«ENDFOR»
-			import net.minecraft.world.item.Item;
-			import net.minecraftforge.eventbus.api.IEventBus;
-			import net.minecraftforge.registries.DeferredRegister;
-			import net.minecraftforge.registries.ForgeRegistries;
-			import net.minecraftforge.registries.RegistryObject;
-			''',
-			'''
-			public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, «mod.name.replace(" ","")».MOD_ID);
-			
-			«FOR item : mod.items»
-			public static final RegistryObject<Item> «item.itemId.toUpperCase» = ITEMS.register("«item.itemId»", «item.className»::new);
-			«ENDFOR»
-			
-			public static void register(IEventBus eventBus){
-				ITEMS.register(eventBus);
-			}
-			''',
-			mod,
-			false,
-			true
-		)
+		}
 	}
 	
 	def private static void generateItemClass(IProject project, Mod mod){
@@ -159,8 +139,8 @@ class ItemGenerator {
 						.stacksTo(«item.maxStackSize»)
 						.rarity(Rarity.«item.rarity.rarityString»));
 				}
-				
 				«IF item.onUse.size > 0» 
+				
 				@Override
 				public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
 					«FOR onUse : item.onUse SEPARATOR '\n'»
@@ -169,8 +149,8 @@ class ItemGenerator {
 					return super.use(world, player, hand);
 				}
 				«ENDIF»
-				
 				«IF item.onTick.size > 0» 
+				
 				@Override
 				public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
 					super.inventoryTick(itemstack, world, entity, slot, selected);
@@ -188,8 +168,8 @@ class ItemGenerator {
 					}
 				}
 				«ENDIF»
-				
 				«IF item.onAttack.size > 0» 
+				
 				@Override
 				public boolean hurtEnemy(ItemStack itemstack, LivingEntity target, LivingEntity source) {
 					«FOR onAttack : item.onAttack SEPARATOR '\n'»
@@ -198,8 +178,8 @@ class ItemGenerator {
 					return super.hurtEnemy(itemstack, target, source);
 				}
 				«ENDIF»
-				
 				«IF item instanceof FoodItem && (item as FoodItem).afterEating.size > 0» 
+				
 				@Override
 				public ItemStack finishUsingItem(ItemStack itemstack, Level world, LivingEntity livingEntity) {
 					«FOR afterEating : (item as FoodItem).afterEating SEPARATOR '\n'»
@@ -208,14 +188,15 @@ class ItemGenerator {
 					return super.finishUsingItem(itemstack, world, livingEntity);
 				}
 				«ENDIF»
-				
+				«IF item.translations.filter[t|t.description != ''].size > 0»
 				@OnlyIn(Dist.CLIENT)
 				@Override
 				public void appendHoverText(ItemStack stack, Level world, List<Component> tooltip, TooltipFlag flag) {
 					tooltip.add(new TranslatableComponent("tooltip.«mod.modId».item.«item.itemId»"));
 				}
-				
-				«IF item.glows»    
+				«ENDIF»
+				«IF item.glows»   
+				 
 				@Override
 				@OnlyIn(Dist.CLIENT)
 				public boolean isFoil(ItemStack itemStack){
@@ -230,9 +211,8 @@ class ItemGenerator {
 	
 	def private static void generateModels(IProject project, Mod mod){
 		mod.items.forEach[item |
-			println('Coping "' + item.iconPath + '" to "' + FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/textures/item"')
-	
 			FileGenerator.copy(item.iconPath, FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/textures/item')
+			
 			FileGenerator.generateFile(
 				project,
 				item.itemId + ".json",

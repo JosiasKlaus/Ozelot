@@ -10,37 +10,37 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Ozelot" disposableProviderFactory="true" ecorePackage="ozelot.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//PotionEffect">
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/MOVEMENT_SPEED"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/MOVEMENT_SLOWDOWN"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DIG_SPEED"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DIG_SLOWDOWN"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DAMAGE_BOOST"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HEAL"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HARM"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/JUMP"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/CONFUSION"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/REGENERATION"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DAMAGE_RESISTANCE"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/FIRE_RESISTANCE"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WATER_BREATHING"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/INVISIBILITY"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/BLINDNESS"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/NIGHT_VISION"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HUNGER"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WEAKNESS"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/POISON"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WITHER"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HEALTH_BOOST"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/ABSORPTION"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/SATURATION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/BAD_OMEN"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/BLINDNESS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/CONDUIT_POWER"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/CONFUSION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DAMAGE_BOOST"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DAMAGE_RESISTANCE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DIG_SLOWDOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DIG_SPEED"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DOLPHINS_GRACE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/FIRE_RESISTANCE"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/GLOWING"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HARM"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HEAL"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HEALTH_BOOST"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/HUNGER"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/INVISIBILITY"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/JUMP"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/LEVITATION"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/LUCK"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/UNLUCK"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/MOVEMENT_SLOWDOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/MOVEMENT_SPEED"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/NIGHT_VISION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/POISON"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/REGENERATION"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/SATURATION"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/SLOW_FALLING"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/CONDUIT_POWER"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/DOLPHINS_GRACE"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/BAD_OMEN"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/UNLUCK"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WATER_BREATHING"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WEAKNESS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//PotionEffect/WITHER"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//Rarity">
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//Rarity/COMMON"/>
@@ -49,22 +49,28 @@
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//Rarity/EPIC"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//CreativeModeTab">
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/BUILDING_BLOCKS"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/DECORATIONS"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/REDSTONE"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/TRANSPORTATION"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/MISC"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/FOOD"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/TOOLS"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/COMBAT"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/BREWING"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/BUILDING_BLOCKS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/COMBAT"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/DECORATIONS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/FOOD"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/MISC"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/REDSTONE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/TOOLS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//CreativeModeTab/TRANSPORTATION"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//MiningToolType">
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//MiningToolType/AXE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//MiningToolType/HOE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//MiningToolType/PICKAXE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//MiningToolType/SHOVEL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//ToolType">
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//ToolType/SWORD"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//ToolType/PICKAXE"/>
-      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//ToolType/SHOVEL"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//ToolType/AXE"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//ToolType/HOE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//ToolType/PICKAXE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//ToolType/SHOVEL"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//ToolType/SWORD"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//MiningLevel">
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//MiningLevel/WOOD"/>
@@ -72,6 +78,33 @@
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//MiningLevel/IRON"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//MiningLevel/DIAMOND"/>
       <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//MiningLevel/NETHERITE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//BlockMiningLevel">
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//BlockMiningLevel/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//BlockMiningLevel/STONE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//BlockMiningLevel/IRON"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//BlockMiningLevel/DIAMOND"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ozelot.ecore#//SoundType">
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/AMETHYST"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/CROP"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/GLASS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/GRASS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/GRAVEL"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/LADDER"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/LANTERN"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/LILY_PAD"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/METAL"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/NETHERRACK"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/NETHER_ORE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/SAND"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/SLIME_BLOCK"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/SNOW"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/SOUL_SAND"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/STONE"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/WET_GRASS"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/WOOD"/>
+      <genEnumLiterals ecoreEnumLiteral="ozelot.ecore#//SoundType/WOOL"/>
     </genEnums>
     <genClasses ecoreClass="ozelot.ecore#//Mod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/modId"/>
@@ -84,11 +117,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/version"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/itemId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/iconPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/glows"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/maxStackSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/isImmuneToFire"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/itemId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/rarity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/creativeModeTab"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Item/translations"/>
@@ -113,10 +146,23 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ozelot.ecore#//FoodItem/afterEating"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//Block">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onStepOn"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onDestroyed"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/onPlaced"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/blockId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/hasGravity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/creativeModeTab"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/soundType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/harddness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/explosionResistance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/luminance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/requiresCorrectToolForDrops"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/redstoneSignal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/canWalkThrough"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/slipperiness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/jumpFactor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/speedFactor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Block/translations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/texturePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/miningTool"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Block/miningLevel"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//Effect">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Effect/potionEffect"/>
@@ -131,8 +177,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//OnTickEffect/needsSelected"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//Translation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Translation/lang"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Translation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Translation/lang"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Translation/description"/>
     </genClasses>
   </genPackages>

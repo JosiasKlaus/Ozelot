@@ -35,11 +35,11 @@ import ozelot.Translation;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link ozelot.impl.ItemImpl#getItemId <em>Item Id</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getIconPath <em>Icon Path</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#isGlows <em>Glows</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getMaxStackSize <em>Max Stack Size</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#isIsImmuneToFire <em>Is Immune To Fire</em>}</li>
- *   <li>{@link ozelot.impl.ItemImpl#getItemId <em>Item Id</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getRarity <em>Rarity</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getCreativeModeTab <em>Creative Mode Tab</em>}</li>
  *   <li>{@link ozelot.impl.ItemImpl#getTranslations <em>Translations</em>}</li>
@@ -51,6 +51,26 @@ import ozelot.Translation;
  * @generated
  */
 public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
+	/**
+	 * The default value of the '{@link #getItemId() <em>Item Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ITEM_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getItemId() <em>Item Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItemId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String itemId = ITEM_ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getIconPath() <em>Icon Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -132,26 +152,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	protected boolean isImmuneToFire = IS_IMMUNE_TO_FIRE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getItemId() <em>Item Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getItemId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ITEM_ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getItemId() <em>Item Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getItemId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String itemId = ITEM_ID_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getRarity() <em>Rarity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -179,7 +179,7 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CreativeModeTab CREATIVE_MODE_TAB_EDEFAULT = CreativeModeTab.BUILDING_BLOCKS;
+	protected static final CreativeModeTab CREATIVE_MODE_TAB_EDEFAULT = CreativeModeTab.BREWING;
 
 	/**
 	 * The cached value of the '{@link #getCreativeModeTab() <em>Creative Mode Tab</em>}' attribute.
@@ -479,6 +479,8 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+		case OzelotPackage.ITEM__ITEM_ID:
+			return getItemId();
 		case OzelotPackage.ITEM__ICON_PATH:
 			return getIconPath();
 		case OzelotPackage.ITEM__GLOWS:
@@ -487,8 +489,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			return getMaxStackSize();
 		case OzelotPackage.ITEM__IS_IMMUNE_TO_FIRE:
 			return isIsImmuneToFire();
-		case OzelotPackage.ITEM__ITEM_ID:
-			return getItemId();
 		case OzelotPackage.ITEM__RARITY:
 			return getRarity();
 		case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
@@ -514,6 +514,9 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+		case OzelotPackage.ITEM__ITEM_ID:
+			setItemId((String) newValue);
+			return;
 		case OzelotPackage.ITEM__ICON_PATH:
 			setIconPath((String) newValue);
 			return;
@@ -525,9 +528,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			return;
 		case OzelotPackage.ITEM__IS_IMMUNE_TO_FIRE:
 			setIsImmuneToFire((Boolean) newValue);
-			return;
-		case OzelotPackage.ITEM__ITEM_ID:
-			setItemId((String) newValue);
 			return;
 		case OzelotPackage.ITEM__RARITY:
 			setRarity((Rarity) newValue);
@@ -563,6 +563,9 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+		case OzelotPackage.ITEM__ITEM_ID:
+			setItemId(ITEM_ID_EDEFAULT);
+			return;
 		case OzelotPackage.ITEM__ICON_PATH:
 			setIconPath(ICON_PATH_EDEFAULT);
 			return;
@@ -574,9 +577,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			return;
 		case OzelotPackage.ITEM__IS_IMMUNE_TO_FIRE:
 			setIsImmuneToFire(IS_IMMUNE_TO_FIRE_EDEFAULT);
-			return;
-		case OzelotPackage.ITEM__ITEM_ID:
-			setItemId(ITEM_ID_EDEFAULT);
 			return;
 		case OzelotPackage.ITEM__RARITY:
 			setRarity(RARITY_EDEFAULT);
@@ -608,6 +608,8 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+		case OzelotPackage.ITEM__ITEM_ID:
+			return ITEM_ID_EDEFAULT == null ? itemId != null : !ITEM_ID_EDEFAULT.equals(itemId);
 		case OzelotPackage.ITEM__ICON_PATH:
 			return ICON_PATH_EDEFAULT == null ? iconPath != null : !ICON_PATH_EDEFAULT.equals(iconPath);
 		case OzelotPackage.ITEM__GLOWS:
@@ -616,8 +618,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			return maxStackSize != MAX_STACK_SIZE_EDEFAULT;
 		case OzelotPackage.ITEM__IS_IMMUNE_TO_FIRE:
 			return isImmuneToFire != IS_IMMUNE_TO_FIRE_EDEFAULT;
-		case OzelotPackage.ITEM__ITEM_ID:
-			return ITEM_ID_EDEFAULT == null ? itemId != null : !ITEM_ID_EDEFAULT.equals(itemId);
 		case OzelotPackage.ITEM__RARITY:
 			return rarity != RARITY_EDEFAULT;
 		case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
@@ -645,7 +645,9 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (iconPath: ");
+		result.append(" (itemId: ");
+		result.append(itemId);
+		result.append(", iconPath: ");
 		result.append(iconPath);
 		result.append(", glows: ");
 		result.append(glows);
@@ -653,8 +655,6 @@ public class ItemImpl extends MinimalEObjectImpl.Container implements Item {
 		result.append(maxStackSize);
 		result.append(", isImmuneToFire: ");
 		result.append(isImmuneToFire);
-		result.append(", itemId: ");
-		result.append(itemId);
 		result.append(", rarity: ");
 		result.append(rarity);
 		result.append(", creativeModeTab: ");

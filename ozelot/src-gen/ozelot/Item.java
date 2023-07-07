@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link ozelot.Item#getItemId <em>Item Id</em>}</li>
  *   <li>{@link ozelot.Item#getIconPath <em>Icon Path</em>}</li>
  *   <li>{@link ozelot.Item#isGlows <em>Glows</em>}</li>
  *   <li>{@link ozelot.Item#getMaxStackSize <em>Max Stack Size</em>}</li>
  *   <li>{@link ozelot.Item#isIsImmuneToFire <em>Is Immune To Fire</em>}</li>
- *   <li>{@link ozelot.Item#getItemId <em>Item Id</em>}</li>
  *   <li>{@link ozelot.Item#getRarity <em>Rarity</em>}</li>
  *   <li>{@link ozelot.Item#getCreativeModeTab <em>Creative Mode Tab</em>}</li>
  *   <li>{@link ozelot.Item#getTranslations <em>Translations</em>}</li>

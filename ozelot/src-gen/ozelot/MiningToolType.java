@@ -10,14 +10,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Tool Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Mining Tool Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see ozelot.OzelotPackage#getToolType()
+ * @see ozelot.OzelotPackage#getMiningToolType()
  * @model
  * @generated
  */
-public enum ToolType implements Enumerator {
+public enum MiningToolType implements Enumerator {
 	/**
 	 * The '<em><b>AXE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -37,33 +37,26 @@ public enum ToolType implements Enumerator {
 	 * @ordered
 	 */
 	HOE(1, "HOE", "HOE"),
+
 	/**
 	 * The '<em><b>PICKAXE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #PICKAXE_VALUE
 	 * @generated
 	 * @ordered
 	 */
 	PICKAXE(2, "PICKAXE", "PICKAXE"),
+
 	/**
 	 * The '<em><b>SHOVEL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #SHOVEL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SHOVEL(3, "SHOVEL", "SHOVEL"),
-	/**
-	 * The '<em><b>SWORD</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
-	 * @see #SWORD_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SWORD(4, "SWORD", "SWORD");
+	SHOVEL(3, "SHOVEL", "SHOVEL");
 
 	/**
 	 * The '<em><b>AXE</b></em>' literal value.
@@ -110,43 +103,32 @@ public enum ToolType implements Enumerator {
 	public static final int SHOVEL_VALUE = 3;
 
 	/**
-	 * The '<em><b>SWORD</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SWORD
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int SWORD_VALUE = 4;
-
-	/**
-	 * An array of all the '<em><b>Tool Type</b></em>' enumerators.
+	 * An array of all the '<em><b>Mining Tool Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final ToolType[] VALUES_ARRAY = new ToolType[] { AXE, HOE, PICKAXE, SHOVEL, SWORD, };
+	private static final MiningToolType[] VALUES_ARRAY = new MiningToolType[] { AXE, HOE, PICKAXE, SHOVEL, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Tool Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Mining Tool Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<ToolType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<MiningToolType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Tool Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Mining Tool Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ToolType get(String literal) {
+	public static MiningToolType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ToolType result = VALUES_ARRAY[i];
+			MiningToolType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -155,16 +137,16 @@ public enum ToolType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Tool Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Mining Tool Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ToolType getByName(String name) {
+	public static MiningToolType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			ToolType result = VALUES_ARRAY[i];
+			MiningToolType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -173,14 +155,14 @@ public enum ToolType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Tool Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Mining Tool Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ToolType get(int value) {
+	public static MiningToolType get(int value) {
 		switch (value) {
 		case AXE_VALUE:
 			return AXE;
@@ -190,8 +172,6 @@ public enum ToolType implements Enumerator {
 			return PICKAXE;
 		case SHOVEL_VALUE:
 			return SHOVEL;
-		case SWORD_VALUE:
-			return SWORD;
 		}
 		return null;
 	}
@@ -223,7 +203,7 @@ public enum ToolType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ToolType(int value, String name, String literal) {
+	private MiningToolType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -267,4 +247,4 @@ public enum ToolType implements Enumerator {
 		return literal;
 	}
 
-} //ToolType
+} //MiningToolType

@@ -18,6 +18,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iconPath" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glows" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -25,8 +27,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="64"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isImmuneToFire" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemId" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rarity" lowerBound="1"
         eType="#//Rarity"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="creativeModeTab" lowerBound="1"
@@ -67,14 +67,40 @@
         eType="#//Effect" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onStepOn" upperBound="-1"
-        eType="#//Effect" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onDestroyed" upperBound="-1"
-        eType="#//Effect" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onPlaced" upperBound="-1"
-        eType="#//Effect" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockId" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasGravity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creativeModeTab" lowerBound="1"
+        eType="#//CreativeModeTab"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soundType" lowerBound="1"
+        eType="#//SoundType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="harddness" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="explosionResistance" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="luminance" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiresCorrectToolForDrops"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="redstoneSignal" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="canWalkThrough" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slipperiness" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0.6"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jumpFactor" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speedFactor" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="translations" upperBound="-1"
+        eType="#//Translation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="texturePath" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="miningTool" lowerBound="1"
+        eType="#//MiningToolType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="miningLevel" lowerBound="1"
+        eType="#//BlockMiningLevel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Effect">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="potionEffect" lowerBound="1"
@@ -94,44 +120,44 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Translation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" unique="false" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="en_us"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" unique="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PotionEffect">
-    <eLiterals name="MOVEMENT_SPEED"/>
-    <eLiterals name="MOVEMENT_SLOWDOWN" value="1"/>
-    <eLiterals name="DIG_SPEED" value="2"/>
-    <eLiterals name="DIG_SLOWDOWN" value="3"/>
-    <eLiterals name="DAMAGE_BOOST" value="4"/>
-    <eLiterals name="HEAL" value="5"/>
-    <eLiterals name="HARM" value="6"/>
-    <eLiterals name="JUMP" value="7"/>
-    <eLiterals name="CONFUSION" value="8"/>
-    <eLiterals name="REGENERATION" value="9"/>
-    <eLiterals name="DAMAGE_RESISTANCE" value="10"/>
-    <eLiterals name="FIRE_RESISTANCE" value="11"/>
-    <eLiterals name="WATER_BREATHING" value="12"/>
-    <eLiterals name="INVISIBILITY" value="13"/>
-    <eLiterals name="BLINDNESS" value="14"/>
-    <eLiterals name="NIGHT_VISION" value="15"/>
-    <eLiterals name="HUNGER" value="16"/>
-    <eLiterals name="WEAKNESS" value="17"/>
-    <eLiterals name="POISON" value="18"/>
-    <eLiterals name="WITHER" value="19"/>
-    <eLiterals name="HEALTH_BOOST" value="20"/>
-    <eLiterals name="ABSORPTION" value="21"/>
-    <eLiterals name="SATURATION" value="22"/>
-    <eLiterals name="GLOWING" value="23"/>
-    <eLiterals name="LEVITATION" value="24"/>
-    <eLiterals name="LUCK" value="25"/>
-    <eLiterals name="UNLUCK" value="26"/>
-    <eLiterals name="SLOW_FALLING" value="27"/>
-    <eLiterals name="CONDUIT_POWER" value="28"/>
-    <eLiterals name="DOLPHINS_GRACE" value="29"/>
-    <eLiterals name="BAD_OMEN" value="30"/>
+    <eLiterals name="ABSORPTION"/>
+    <eLiterals name="BAD_OMEN" value="1"/>
+    <eLiterals name="BLINDNESS" value="2"/>
+    <eLiterals name="CONDUIT_POWER" value="3"/>
+    <eLiterals name="CONFUSION" value="4"/>
+    <eLiterals name="DAMAGE_BOOST" value="5"/>
+    <eLiterals name="DAMAGE_RESISTANCE" value="6"/>
+    <eLiterals name="DIG_SLOWDOWN" value="7"/>
+    <eLiterals name="DIG_SPEED" value="8"/>
+    <eLiterals name="DOLPHINS_GRACE" value="9"/>
+    <eLiterals name="FIRE_RESISTANCE" value="10"/>
+    <eLiterals name="GLOWING" value="11"/>
+    <eLiterals name="HARM" value="12"/>
+    <eLiterals name="HEAL" value="13"/>
+    <eLiterals name="HEALTH_BOOST" value="14"/>
+    <eLiterals name="HUNGER" value="15"/>
+    <eLiterals name="INVISIBILITY" value="16"/>
+    <eLiterals name="JUMP" value="17"/>
+    <eLiterals name="LEVITATION" value="18"/>
+    <eLiterals name="LUCK" value="19"/>
+    <eLiterals name="MOVEMENT_SLOWDOWN" value="20"/>
+    <eLiterals name="MOVEMENT_SPEED" value="21"/>
+    <eLiterals name="NIGHT_VISION" value="22"/>
+    <eLiterals name="POISON" value="23"/>
+    <eLiterals name="REGENERATION" value="24"/>
+    <eLiterals name="SATURATION" value="25"/>
+    <eLiterals name="SLOW_FALLING" value="26"/>
+    <eLiterals name="UNLUCK" value="27"/>
+    <eLiterals name="WATER_BREATHING" value="28"/>
+    <eLiterals name="WEAKNESS" value="29"/>
+    <eLiterals name="WITHER" value="30"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Rarity">
     <eLiterals name="COMMON"/>
@@ -140,22 +166,28 @@
     <eLiterals name="EPIC" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CreativeModeTab">
-    <eLiterals name="BUILDING_BLOCKS"/>
-    <eLiterals name="DECORATIONS" value="1"/>
-    <eLiterals name="REDSTONE" value="2"/>
-    <eLiterals name="TRANSPORTATION" value="3"/>
-    <eLiterals name="MISC" value="4"/>
-    <eLiterals name="FOOD" value="5"/>
-    <eLiterals name="TOOLS" value="6"/>
-    <eLiterals name="COMBAT" value="7"/>
-    <eLiterals name="BREWING" value="8"/>
+    <eLiterals name="BREWING"/>
+    <eLiterals name="BUILDING_BLOCKS" value="1"/>
+    <eLiterals name="COMBAT" value="2"/>
+    <eLiterals name="DECORATIONS" value="3"/>
+    <eLiterals name="FOOD" value="4"/>
+    <eLiterals name="MISC" value="5"/>
+    <eLiterals name="REDSTONE" value="6"/>
+    <eLiterals name="TOOLS" value="7"/>
+    <eLiterals name="TRANSPORTATION" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MiningToolType">
+    <eLiterals name="AXE"/>
+    <eLiterals name="HOE" value="1"/>
+    <eLiterals name="PICKAXE" value="2"/>
+    <eLiterals name="SHOVEL" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ToolType">
-    <eLiterals name="SWORD"/>
-    <eLiterals name="PICKAXE" value="1"/>
-    <eLiterals name="SHOVEL" value="2"/>
-    <eLiterals name="AXE" value="3"/>
-    <eLiterals name="HOE" value="4"/>
+    <eLiterals name="AXE"/>
+    <eLiterals name="HOE" value="1"/>
+    <eLiterals name="PICKAXE" value="2"/>
+    <eLiterals name="SHOVEL" value="3"/>
+    <eLiterals name="SWORD" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MiningLevel">
     <eLiterals name="WOOD"/>
@@ -163,5 +195,32 @@
     <eLiterals name="IRON" value="2"/>
     <eLiterals name="DIAMOND" value="3"/>
     <eLiterals name="NETHERITE" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BlockMiningLevel">
+    <eLiterals name="NONE"/>
+    <eLiterals name="STONE" value="1"/>
+    <eLiterals name="IRON" value="2"/>
+    <eLiterals name="DIAMOND" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SoundType">
+    <eLiterals name="AMETHYST"/>
+    <eLiterals name="CROP" value="1"/>
+    <eLiterals name="GLASS" value="2"/>
+    <eLiterals name="GRASS" value="3"/>
+    <eLiterals name="GRAVEL" value="4"/>
+    <eLiterals name="LADDER" value="5"/>
+    <eLiterals name="LANTERN" value="6"/>
+    <eLiterals name="LILY_PAD" value="7"/>
+    <eLiterals name="METAL" value="8"/>
+    <eLiterals name="NETHERRACK" value="9"/>
+    <eLiterals name="NETHER_ORE" value="10"/>
+    <eLiterals name="SAND" value="11"/>
+    <eLiterals name="SLIME_BLOCK" value="12"/>
+    <eLiterals name="SNOW" value="13"/>
+    <eLiterals name="SOUL_SAND" value="14"/>
+    <eLiterals name="STONE" value="15"/>
+    <eLiterals name="WET_GRASS" value="16"/>
+    <eLiterals name="WOOD" value="17"/>
+    <eLiterals name="WOOL" value="18"/>
   </eClassifiers>
 </ecore:EPackage>

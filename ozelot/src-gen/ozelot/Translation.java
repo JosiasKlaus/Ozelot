@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ozelot.Translation#getLang <em>Lang</em>}</li>
  *   <li>{@link ozelot.Translation#getName <em>Name</em>}</li>
+ *   <li>{@link ozelot.Translation#getLang <em>Lang</em>}</li>
  *   <li>{@link ozelot.Translation#getDescription <em>Description</em>}</li>
  * </ul>
  *

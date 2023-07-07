@@ -20,34 +20,14 @@ import ozelot.Translation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ozelot.impl.TranslationImpl#getLang <em>Lang</em>}</li>
  *   <li>{@link ozelot.impl.TranslationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link ozelot.impl.TranslationImpl#getLang <em>Lang</em>}</li>
  *   <li>{@link ozelot.impl.TranslationImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TranslationImpl extends MinimalEObjectImpl.Container implements Translation {
-	/**
-	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLang()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LANG_EDEFAULT = "en_us";
-
-	/**
-	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLang()
-	 * @generated
-	 * @ordered
-	 */
-	protected String lang = LANG_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -67,6 +47,26 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLang() <em>Lang</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLang()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LANG_EDEFAULT = "en_us";
+
+	/**
+	 * The cached value of the '{@link #getLang() <em>Lang</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLang()
+	 * @generated
+	 * @ordered
+	 */
+	protected String lang = LANG_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -179,10 +179,10 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case OzelotPackage.TRANSLATION__LANG:
-			return getLang();
 		case OzelotPackage.TRANSLATION__NAME:
 			return getName();
+		case OzelotPackage.TRANSLATION__LANG:
+			return getLang();
 		case OzelotPackage.TRANSLATION__DESCRIPTION:
 			return getDescription();
 		}
@@ -197,11 +197,11 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case OzelotPackage.TRANSLATION__LANG:
-			setLang((String) newValue);
-			return;
 		case OzelotPackage.TRANSLATION__NAME:
 			setName((String) newValue);
+			return;
+		case OzelotPackage.TRANSLATION__LANG:
+			setLang((String) newValue);
 			return;
 		case OzelotPackage.TRANSLATION__DESCRIPTION:
 			setDescription((String) newValue);
@@ -218,11 +218,11 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case OzelotPackage.TRANSLATION__LANG:
-			setLang(LANG_EDEFAULT);
-			return;
 		case OzelotPackage.TRANSLATION__NAME:
 			setName(NAME_EDEFAULT);
+			return;
+		case OzelotPackage.TRANSLATION__LANG:
+			setLang(LANG_EDEFAULT);
 			return;
 		case OzelotPackage.TRANSLATION__DESCRIPTION:
 			setDescription(DESCRIPTION_EDEFAULT);
@@ -239,10 +239,10 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case OzelotPackage.TRANSLATION__LANG:
-			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
 		case OzelotPackage.TRANSLATION__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case OzelotPackage.TRANSLATION__LANG:
+			return LANG_EDEFAULT == null ? lang != null : !LANG_EDEFAULT.equals(lang);
 		case OzelotPackage.TRANSLATION__DESCRIPTION:
 			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
@@ -260,10 +260,10 @@ public class TranslationImpl extends MinimalEObjectImpl.Container implements Tra
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (lang: ");
-		result.append(lang);
-		result.append(", name: ");
+		result.append(" (name: ");
 		result.append(name);
+		result.append(", lang: ");
+		result.append(lang);
 		result.append(", description: ");
 		result.append(description);
 		result.append(')');

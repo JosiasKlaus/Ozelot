@@ -55,11 +55,11 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addItemIdPropertyDescriptor(object);
 			addIconPathPropertyDescriptor(object);
 			addGlowsPropertyDescriptor(object);
 			addMaxStackSizePropertyDescriptor(object);
 			addIsImmuneToFirePropertyDescriptor(object);
-			addItemIdPropertyDescriptor(object);
 			addRarityPropertyDescriptor(object);
 			addCreativeModeTabPropertyDescriptor(object);
 		}
@@ -236,7 +236,7 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Item) object).getIconPath();
+		String label = ((Item) object).getItemId();
 		return label == null || label.length() == 0 ? getString("_UI_Item_type")
 				: getString("_UI_Item_type") + " " + label;
 	}
@@ -253,11 +253,11 @@ public class ItemItemProvider extends ItemProviderAdapter implements IEditingDom
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Item.class)) {
+		case OzelotPackage.ITEM__ITEM_ID:
 		case OzelotPackage.ITEM__ICON_PATH:
 		case OzelotPackage.ITEM__GLOWS:
 		case OzelotPackage.ITEM__MAX_STACK_SIZE:
 		case OzelotPackage.ITEM__IS_IMMUNE_TO_FIRE:
-		case OzelotPackage.ITEM__ITEM_ID:
 		case OzelotPackage.ITEM__RARITY:
 		case OzelotPackage.ITEM__CREATIVE_MODE_TAB:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

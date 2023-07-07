@@ -19,86 +19,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum CreativeModeTab implements Enumerator {
 	/**
-	 * The '<em><b>BUILDING BLOCKS</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #BUILDING_BLOCKS_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	BUILDING_BLOCKS(0, "BUILDING_BLOCKS", "BUILDING_BLOCKS"),
-
-	/**
-	 * The '<em><b>DECORATIONS</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DECORATIONS_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	DECORATIONS(1, "DECORATIONS", "DECORATIONS"),
-
-	/**
-	 * The '<em><b>REDSTONE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #REDSTONE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	REDSTONE(2, "REDSTONE", "REDSTONE"),
-
-	/**
-	 * The '<em><b>TRANSPORTATION</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TRANSPORTATION_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	TRANSPORTATION(3, "TRANSPORTATION", "TRANSPORTATION"),
-
-	/**
-	 * The '<em><b>MISC</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MISC_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	MISC(4, "MISC", "MISC"),
-
-	/**
-	 * The '<em><b>FOOD</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #FOOD_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	FOOD(5, "FOOD", "FOOD"),
-
-	/**
-	 * The '<em><b>TOOLS</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TOOLS_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	TOOLS(6, "TOOLS", "TOOLS"),
-
-	/**
-	 * The '<em><b>COMBAT</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #COMBAT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	COMBAT(7, "COMBAT", "COMBAT"),
-
-	/**
 	 * The '<em><b>BREWING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,95 +26,79 @@ public enum CreativeModeTab implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BREWING(8, "BREWING", "BREWING");
-
+	BREWING(0, "BREWING", "BREWING"),
 	/**
-	 * The '<em><b>BUILDING BLOCKS</b></em>' literal value.
+	 * The '<em><b>BUILDING BLOCKS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #BUILDING_BLOCKS
-	 * @model
+	* <!-- end-user-doc -->
+	 * @see #BUILDING_BLOCKS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BUILDING_BLOCKS_VALUE = 0;
-
+	BUILDING_BLOCKS(1, "BUILDING_BLOCKS", "BUILDING_BLOCKS"),
 	/**
-	 * The '<em><b>DECORATIONS</b></em>' literal value.
+	 * The '<em><b>COMBAT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DECORATIONS
-	 * @model
+	* <!-- end-user-doc -->
+	 * @see #COMBAT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DECORATIONS_VALUE = 1;
-
+	COMBAT(2, "COMBAT", "COMBAT"),
 	/**
-	 * The '<em><b>REDSTONE</b></em>' literal value.
+	 * The '<em><b>DECORATIONS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #REDSTONE
-	 * @model
+	* <!-- end-user-doc -->
+	 * @see #DECORATIONS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REDSTONE_VALUE = 2;
-
+	DECORATIONS(3, "DECORATIONS", "DECORATIONS"),
 	/**
-	 * The '<em><b>TRANSPORTATION</b></em>' literal value.
+	 * The '<em><b>FOOD</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TRANSPORTATION
-	 * @model
+	* <!-- end-user-doc -->
+	 * @see #FOOD_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TRANSPORTATION_VALUE = 3;
-
+	FOOD(4, "FOOD", "FOOD"),
 	/**
-	 * The '<em><b>MISC</b></em>' literal value.
+	 * The '<em><b>MISC</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MISC
-	 * @model
+	* <!-- end-user-doc -->
+	 * @see #MISC_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MISC_VALUE = 4;
-
+	MISC(5, "MISC", "MISC"),
 	/**
-	 * The '<em><b>FOOD</b></em>' literal value.
+	 * The '<em><b>REDSTONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #FOOD
-	 * @model
+	* <!-- end-user-doc -->
+	 * @see #REDSTONE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FOOD_VALUE = 5;
-
+	REDSTONE(6, "REDSTONE", "REDSTONE"),
 	/**
-	 * The '<em><b>TOOLS</b></em>' literal value.
+	 * The '<em><b>TOOLS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TOOLS
-	 * @model
+	* <!-- end-user-doc -->
+	 * @see #TOOLS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TOOLS_VALUE = 6;
-
+	TOOLS(7, "TOOLS", "TOOLS"),
 	/**
-	 * The '<em><b>COMBAT</b></em>' literal value.
+	 * The '<em><b>TRANSPORTATION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #COMBAT
-	 * @model
+	* <!-- end-user-doc -->
+	 * @see #TRANSPORTATION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMBAT_VALUE = 7;
+	TRANSPORTATION(8, "TRANSPORTATION", "TRANSPORTATION");
 
 	/**
 	 * The '<em><b>BREWING</b></em>' literal value.
@@ -205,7 +109,95 @@ public enum CreativeModeTab implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BREWING_VALUE = 8;
+	public static final int BREWING_VALUE = 0;
+
+	/**
+	 * The '<em><b>BUILDING BLOCKS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BUILDING_BLOCKS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BUILDING_BLOCKS_VALUE = 1;
+
+	/**
+	 * The '<em><b>COMBAT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COMBAT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMBAT_VALUE = 2;
+
+	/**
+	 * The '<em><b>DECORATIONS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DECORATIONS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DECORATIONS_VALUE = 3;
+
+	/**
+	 * The '<em><b>FOOD</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FOOD
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FOOD_VALUE = 4;
+
+	/**
+	 * The '<em><b>MISC</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MISC
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MISC_VALUE = 5;
+
+	/**
+	 * The '<em><b>REDSTONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REDSTONE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REDSTONE_VALUE = 6;
+
+	/**
+	 * The '<em><b>TOOLS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TOOLS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TOOLS_VALUE = 7;
+
+	/**
+	 * The '<em><b>TRANSPORTATION</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TRANSPORTATION
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TRANSPORTATION_VALUE = 8;
 
 	/**
 	 * An array of all the '<em><b>Creative Mode Tab</b></em>' enumerators.
@@ -213,8 +205,8 @@ public enum CreativeModeTab implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final CreativeModeTab[] VALUES_ARRAY = new CreativeModeTab[] { BUILDING_BLOCKS, DECORATIONS,
-			REDSTONE, TRANSPORTATION, MISC, FOOD, TOOLS, COMBAT, BREWING, };
+	private static final CreativeModeTab[] VALUES_ARRAY = new CreativeModeTab[] { BREWING, BUILDING_BLOCKS, COMBAT,
+			DECORATIONS, FOOD, MISC, REDSTONE, TOOLS, TRANSPORTATION, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Creative Mode Tab</b></em>' enumerators.
@@ -270,24 +262,24 @@ public enum CreativeModeTab implements Enumerator {
 	 */
 	public static CreativeModeTab get(int value) {
 		switch (value) {
-		case BUILDING_BLOCKS_VALUE:
-			return BUILDING_BLOCKS;
-		case DECORATIONS_VALUE:
-			return DECORATIONS;
-		case REDSTONE_VALUE:
-			return REDSTONE;
-		case TRANSPORTATION_VALUE:
-			return TRANSPORTATION;
-		case MISC_VALUE:
-			return MISC;
-		case FOOD_VALUE:
-			return FOOD;
-		case TOOLS_VALUE:
-			return TOOLS;
-		case COMBAT_VALUE:
-			return COMBAT;
 		case BREWING_VALUE:
 			return BREWING;
+		case BUILDING_BLOCKS_VALUE:
+			return BUILDING_BLOCKS;
+		case COMBAT_VALUE:
+			return COMBAT;
+		case DECORATIONS_VALUE:
+			return DECORATIONS;
+		case FOOD_VALUE:
+			return FOOD;
+		case MISC_VALUE:
+			return MISC;
+		case REDSTONE_VALUE:
+			return REDSTONE;
+		case TOOLS_VALUE:
+			return TOOLS;
+		case TRANSPORTATION_VALUE:
+			return TRANSPORTATION;
 		}
 		return null;
 	}

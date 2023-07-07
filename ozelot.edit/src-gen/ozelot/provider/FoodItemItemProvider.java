@@ -161,7 +161,7 @@ public class FoodItemItemProvider extends ItemItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((FoodItem) object).getIconPath();
+		String label = ((FoodItem) object).getItemId();
 		return label == null || label.length() == 0 ? getString("_UI_FoodItem_type")
 				: getString("_UI_FoodItem_type") + " " + label;
 	}

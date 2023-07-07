@@ -168,13 +168,22 @@ public interface OzelotPackage extends EPackage {
 	int ITEM = 1;
 
 	/**
+	 * The feature id for the '<em><b>Item Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM__ITEM_ID = 0;
+
+	/**
 	 * The feature id for the '<em><b>Icon Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__ICON_PATH = 0;
+	int ITEM__ICON_PATH = 1;
 
 	/**
 	 * The feature id for the '<em><b>Glows</b></em>' attribute.
@@ -183,7 +192,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__GLOWS = 1;
+	int ITEM__GLOWS = 2;
 
 	/**
 	 * The feature id for the '<em><b>Max Stack Size</b></em>' attribute.
@@ -192,7 +201,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__MAX_STACK_SIZE = 2;
+	int ITEM__MAX_STACK_SIZE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Immune To Fire</b></em>' attribute.
@@ -201,16 +210,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__IS_IMMUNE_TO_FIRE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Item Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEM__ITEM_ID = 4;
+	int ITEM__IS_IMMUNE_TO_FIRE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Rarity</b></em>' attribute.
@@ -295,6 +295,15 @@ public interface OzelotPackage extends EPackage {
 	int TOOL_ITEM = 2;
 
 	/**
+	 * The feature id for the '<em><b>Item Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOOL_ITEM__ITEM_ID = ITEM__ITEM_ID;
+
+	/**
 	 * The feature id for the '<em><b>Icon Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -329,15 +338,6 @@ public interface OzelotPackage extends EPackage {
 	 * @ordered
 	 */
 	int TOOL_ITEM__IS_IMMUNE_TO_FIRE = ITEM__IS_IMMUNE_TO_FIRE;
-
-	/**
-	 * The feature id for the '<em><b>Item Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOOL_ITEM__ITEM_ID = ITEM__ITEM_ID;
 
 	/**
 	 * The feature id for the '<em><b>Rarity</b></em>' attribute.
@@ -485,6 +485,15 @@ public interface OzelotPackage extends EPackage {
 	int FOOD_ITEM = 3;
 
 	/**
+	 * The feature id for the '<em><b>Item Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOOD_ITEM__ITEM_ID = ITEM__ITEM_ID;
+
+	/**
 	 * The feature id for the '<em><b>Icon Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -519,15 +528,6 @@ public interface OzelotPackage extends EPackage {
 	 * @ordered
 	 */
 	int FOOD_ITEM__IS_IMMUNE_TO_FIRE = ITEM__IS_IMMUNE_TO_FIRE;
-
-	/**
-	 * The feature id for the '<em><b>Item Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOOD_ITEM__ITEM_ID = ITEM__ITEM_ID;
 
 	/**
 	 * The feature id for the '<em><b>Rarity</b></em>' attribute.
@@ -657,40 +657,157 @@ public interface OzelotPackage extends EPackage {
 	int BLOCK = 4;
 
 	/**
-	 * The feature id for the '<em><b>On Step On</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__ON_STEP_ON = 0;
-
-	/**
-	 * The feature id for the '<em><b>On Destroyed</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__ON_DESTROYED = 1;
-
-	/**
-	 * The feature id for the '<em><b>On Placed</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOCK__ON_PLACED = 2;
-
-	/**
 	 * The feature id for the '<em><b>Block Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK__BLOCK_ID = 3;
+	int BLOCK__BLOCK_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Has Gravity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__HAS_GRAVITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Creative Mode Tab</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__CREATIVE_MODE_TAB = 2;
+
+	/**
+	 * The feature id for the '<em><b>Sound Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__SOUND_TYPE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Harddness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__HARDDNESS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Explosion Resistance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__EXPLOSION_RESISTANCE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Luminance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__LUMINANCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Requires Correct Tool For Drops</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__REQUIRES_CORRECT_TOOL_FOR_DROPS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Redstone Signal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__REDSTONE_SIGNAL = 8;
+
+	/**
+	 * The feature id for the '<em><b>Can Walk Through</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__CAN_WALK_THROUGH = 9;
+
+	/**
+	 * The feature id for the '<em><b>Slipperiness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__SLIPPERINESS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Jump Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__JUMP_FACTOR = 11;
+
+	/**
+	 * The feature id for the '<em><b>Speed Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__SPEED_FACTOR = 12;
+
+	/**
+	 * The feature id for the '<em><b>Translations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__TRANSLATIONS = 13;
+
+	/**
+	 * The feature id for the '<em><b>Texture Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__TEXTURE_PATH = 14;
+
+	/**
+	 * The feature id for the '<em><b>Mining Tool</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__MINING_TOOL = 15;
+
+	/**
+	 * The feature id for the '<em><b>Mining Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__MINING_LEVEL = 16;
 
 	/**
 	 * The number of structural features of the '<em>Block</em>' class.
@@ -699,7 +816,7 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_FEATURE_COUNT = 4;
+	int BLOCK_FEATURE_COUNT = 17;
 
 	/**
 	 * The number of operations of the '<em>Block</em>' class.
@@ -931,22 +1048,22 @@ public interface OzelotPackage extends EPackage {
 	int TRANSLATION = 8;
 
 	/**
-	 * The feature id for the '<em><b>Lang</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATION__LANG = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSLATION__NAME = 1;
+	int TRANSLATION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Lang</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSLATION__LANG = 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1006,6 +1123,16 @@ public interface OzelotPackage extends EPackage {
 	int CREATIVE_MODE_TAB = 11;
 
 	/**
+	 * The meta object id for the '{@link ozelot.MiningToolType <em>Mining Tool Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.MiningToolType
+	 * @see ozelot.impl.OzelotPackageImpl#getMiningToolType()
+	 * @generated
+	 */
+	int MINING_TOOL_TYPE = 12;
+
+	/**
 	 * The meta object id for the '{@link ozelot.ToolType <em>Tool Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1013,7 +1140,7 @@ public interface OzelotPackage extends EPackage {
 	 * @see ozelot.impl.OzelotPackageImpl#getToolType()
 	 * @generated
 	 */
-	int TOOL_TYPE = 12;
+	int TOOL_TYPE = 13;
 
 	/**
 	 * The meta object id for the '{@link ozelot.MiningLevel <em>Mining Level</em>}' enum.
@@ -1023,7 +1150,27 @@ public interface OzelotPackage extends EPackage {
 	 * @see ozelot.impl.OzelotPackageImpl#getMiningLevel()
 	 * @generated
 	 */
-	int MINING_LEVEL = 13;
+	int MINING_LEVEL = 14;
+
+	/**
+	 * The meta object id for the '{@link ozelot.BlockMiningLevel <em>Block Mining Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.BlockMiningLevel
+	 * @see ozelot.impl.OzelotPackageImpl#getBlockMiningLevel()
+	 * @generated
+	 */
+	int BLOCK_MINING_LEVEL = 15;
+
+	/**
+	 * The meta object id for the '{@link ozelot.SoundType <em>Sound Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ozelot.SoundType
+	 * @see ozelot.impl.OzelotPackageImpl#getSoundType()
+	 * @generated
+	 */
+	int SOUND_TYPE = 16;
 
 	/**
 	 * Returns the meta object for class '{@link ozelot.Mod <em>Mod</em>}'.
@@ -1417,39 +1564,6 @@ public interface OzelotPackage extends EPackage {
 	EClass getBlock();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ozelot.Block#getOnStepOn <em>On Step On</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>On Step On</em>'.
-	 * @see ozelot.Block#getOnStepOn()
-	 * @see #getBlock()
-	 * @generated
-	 */
-	EReference getBlock_OnStepOn();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ozelot.Block#getOnDestroyed <em>On Destroyed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>On Destroyed</em>'.
-	 * @see ozelot.Block#getOnDestroyed()
-	 * @see #getBlock()
-	 * @generated
-	 */
-	EReference getBlock_OnDestroyed();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link ozelot.Block#getOnPlaced <em>On Placed</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>On Placed</em>'.
-	 * @see ozelot.Block#getOnPlaced()
-	 * @see #getBlock()
-	 * @generated
-	 */
-	EReference getBlock_OnPlaced();
-
-	/**
 	 * Returns the meta object for the attribute '{@link ozelot.Block#getBlockId <em>Block Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1459,6 +1573,182 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBlock_BlockId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#isHasGravity <em>Has Gravity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Gravity</em>'.
+	 * @see ozelot.Block#isHasGravity()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_HasGravity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getCreativeModeTab <em>Creative Mode Tab</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Creative Mode Tab</em>'.
+	 * @see ozelot.Block#getCreativeModeTab()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_CreativeModeTab();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getSoundType <em>Sound Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sound Type</em>'.
+	 * @see ozelot.Block#getSoundType()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_SoundType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getHarddness <em>Harddness</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Harddness</em>'.
+	 * @see ozelot.Block#getHarddness()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_Harddness();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getExplosionResistance <em>Explosion Resistance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Explosion Resistance</em>'.
+	 * @see ozelot.Block#getExplosionResistance()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_ExplosionResistance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getLuminance <em>Luminance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Luminance</em>'.
+	 * @see ozelot.Block#getLuminance()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_Luminance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#isRequiresCorrectToolForDrops <em>Requires Correct Tool For Drops</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Requires Correct Tool For Drops</em>'.
+	 * @see ozelot.Block#isRequiresCorrectToolForDrops()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_RequiresCorrectToolForDrops();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getRedstoneSignal <em>Redstone Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Redstone Signal</em>'.
+	 * @see ozelot.Block#getRedstoneSignal()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_RedstoneSignal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#isCanWalkThrough <em>Can Walk Through</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Can Walk Through</em>'.
+	 * @see ozelot.Block#isCanWalkThrough()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_CanWalkThrough();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getSlipperiness <em>Slipperiness</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Slipperiness</em>'.
+	 * @see ozelot.Block#getSlipperiness()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_Slipperiness();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getJumpFactor <em>Jump Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Jump Factor</em>'.
+	 * @see ozelot.Block#getJumpFactor()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_JumpFactor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getSpeedFactor <em>Speed Factor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Speed Factor</em>'.
+	 * @see ozelot.Block#getSpeedFactor()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_SpeedFactor();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ozelot.Block#getTranslations <em>Translations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Translations</em>'.
+	 * @see ozelot.Block#getTranslations()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EReference getBlock_Translations();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getTexturePath <em>Texture Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Texture Path</em>'.
+	 * @see ozelot.Block#getTexturePath()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_TexturePath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getMiningTool <em>Mining Tool</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mining Tool</em>'.
+	 * @see ozelot.Block#getMiningTool()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_MiningTool();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Block#getMiningLevel <em>Mining Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mining Level</em>'.
+	 * @see ozelot.Block#getMiningLevel()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_MiningLevel();
 
 	/**
 	 * Returns the meta object for class '{@link ozelot.Effect <em>Effect</em>}'.
@@ -1630,6 +1920,16 @@ public interface OzelotPackage extends EPackage {
 	EEnum getCreativeModeTab();
 
 	/**
+	 * Returns the meta object for enum '{@link ozelot.MiningToolType <em>Mining Tool Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Mining Tool Type</em>'.
+	 * @see ozelot.MiningToolType
+	 * @generated
+	 */
+	EEnum getMiningToolType();
+
+	/**
 	 * Returns the meta object for enum '{@link ozelot.ToolType <em>Tool Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1648,6 +1948,26 @@ public interface OzelotPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getMiningLevel();
+
+	/**
+	 * Returns the meta object for enum '{@link ozelot.BlockMiningLevel <em>Block Mining Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Block Mining Level</em>'.
+	 * @see ozelot.BlockMiningLevel
+	 * @generated
+	 */
+	EEnum getBlockMiningLevel();
+
+	/**
+	 * Returns the meta object for enum '{@link ozelot.SoundType <em>Sound Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Sound Type</em>'.
+	 * @see ozelot.SoundType
+	 * @generated
+	 */
+	EEnum getSoundType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1971,36 +2291,140 @@ public interface OzelotPackage extends EPackage {
 		EClass BLOCK = eINSTANCE.getBlock();
 
 		/**
-		 * The meta object literal for the '<em><b>On Step On</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BLOCK__ON_STEP_ON = eINSTANCE.getBlock_OnStepOn();
-
-		/**
-		 * The meta object literal for the '<em><b>On Destroyed</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BLOCK__ON_DESTROYED = eINSTANCE.getBlock_OnDestroyed();
-
-		/**
-		 * The meta object literal for the '<em><b>On Placed</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BLOCK__ON_PLACED = eINSTANCE.getBlock_OnPlaced();
-
-		/**
 		 * The meta object literal for the '<em><b>Block Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute BLOCK__BLOCK_ID = eINSTANCE.getBlock_BlockId();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Gravity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__HAS_GRAVITY = eINSTANCE.getBlock_HasGravity();
+
+		/**
+		 * The meta object literal for the '<em><b>Creative Mode Tab</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__CREATIVE_MODE_TAB = eINSTANCE.getBlock_CreativeModeTab();
+
+		/**
+		 * The meta object literal for the '<em><b>Sound Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__SOUND_TYPE = eINSTANCE.getBlock_SoundType();
+
+		/**
+		 * The meta object literal for the '<em><b>Harddness</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__HARDDNESS = eINSTANCE.getBlock_Harddness();
+
+		/**
+		 * The meta object literal for the '<em><b>Explosion Resistance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__EXPLOSION_RESISTANCE = eINSTANCE.getBlock_ExplosionResistance();
+
+		/**
+		 * The meta object literal for the '<em><b>Luminance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__LUMINANCE = eINSTANCE.getBlock_Luminance();
+
+		/**
+		 * The meta object literal for the '<em><b>Requires Correct Tool For Drops</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__REQUIRES_CORRECT_TOOL_FOR_DROPS = eINSTANCE.getBlock_RequiresCorrectToolForDrops();
+
+		/**
+		 * The meta object literal for the '<em><b>Redstone Signal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__REDSTONE_SIGNAL = eINSTANCE.getBlock_RedstoneSignal();
+
+		/**
+		 * The meta object literal for the '<em><b>Can Walk Through</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__CAN_WALK_THROUGH = eINSTANCE.getBlock_CanWalkThrough();
+
+		/**
+		 * The meta object literal for the '<em><b>Slipperiness</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__SLIPPERINESS = eINSTANCE.getBlock_Slipperiness();
+
+		/**
+		 * The meta object literal for the '<em><b>Jump Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__JUMP_FACTOR = eINSTANCE.getBlock_JumpFactor();
+
+		/**
+		 * The meta object literal for the '<em><b>Speed Factor</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__SPEED_FACTOR = eINSTANCE.getBlock_SpeedFactor();
+
+		/**
+		 * The meta object literal for the '<em><b>Translations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BLOCK__TRANSLATIONS = eINSTANCE.getBlock_Translations();
+
+		/**
+		 * The meta object literal for the '<em><b>Texture Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__TEXTURE_PATH = eINSTANCE.getBlock_TexturePath();
+
+		/**
+		 * The meta object literal for the '<em><b>Mining Tool</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__MINING_TOOL = eINSTANCE.getBlock_MiningTool();
+
+		/**
+		 * The meta object literal for the '<em><b>Mining Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__MINING_LEVEL = eINSTANCE.getBlock_MiningLevel();
 
 		/**
 		 * The meta object literal for the '{@link ozelot.impl.EffectImpl <em>Effect</em>}' class.
@@ -2145,6 +2569,16 @@ public interface OzelotPackage extends EPackage {
 		EEnum CREATIVE_MODE_TAB = eINSTANCE.getCreativeModeTab();
 
 		/**
+		 * The meta object literal for the '{@link ozelot.MiningToolType <em>Mining Tool Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.MiningToolType
+		 * @see ozelot.impl.OzelotPackageImpl#getMiningToolType()
+		 * @generated
+		 */
+		EEnum MINING_TOOL_TYPE = eINSTANCE.getMiningToolType();
+
+		/**
 		 * The meta object literal for the '{@link ozelot.ToolType <em>Tool Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2163,6 +2597,26 @@ public interface OzelotPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum MINING_LEVEL = eINSTANCE.getMiningLevel();
+
+		/**
+		 * The meta object literal for the '{@link ozelot.BlockMiningLevel <em>Block Mining Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.BlockMiningLevel
+		 * @see ozelot.impl.OzelotPackageImpl#getBlockMiningLevel()
+		 * @generated
+		 */
+		EEnum BLOCK_MINING_LEVEL = eINSTANCE.getBlockMiningLevel();
+
+		/**
+		 * The meta object literal for the '{@link ozelot.SoundType <em>Sound Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ozelot.SoundType
+		 * @see ozelot.impl.OzelotPackageImpl#getSoundType()
+		 * @generated
+		 */
+		EEnum SOUND_TYPE = eINSTANCE.getSoundType();
 
 	}
 

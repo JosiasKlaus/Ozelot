@@ -6,8 +6,6 @@ import java.nio.file.Paths
 
 class ForgeSetup {	
 	def static void run(IProject project, Mod mod){
-		println("\n\nForgeSetup:")		
-		
 		FileGenerator.generateFile(project, "gradle-wrapper.properties", FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper/', getGradleWrapper, true)
 		FileGenerator.generateFile(project, "build.gradle", FolderGenerator.getBaseFolder(mod), getBuildGradle(mod), true)
 		FileGenerator.generateFile(project, "gradle.properties", FolderGenerator.getBaseFolder(mod), gradleProperties, true)		

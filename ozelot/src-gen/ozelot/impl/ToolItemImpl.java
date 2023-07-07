@@ -43,7 +43,7 @@ public class ToolItemImpl extends ItemImpl implements ToolItem {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ToolType TYPE_EDEFAULT = ToolType.SWORD;
+	protected static final ToolType TYPE_EDEFAULT = ToolType.AXE;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
