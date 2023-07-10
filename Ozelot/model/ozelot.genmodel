@@ -115,6 +115,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ozelot.ecore#//Mod/blocks"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/iconPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/projectPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Mod/autoStart"/>
     </genClasses>
     <genClasses ecoreClass="ozelot.ecore#//Item">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ozelot.ecore#//Item/itemId"/>

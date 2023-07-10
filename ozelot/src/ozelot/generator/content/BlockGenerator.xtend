@@ -169,7 +169,7 @@ class BlockGenerator {
 	
 	def private static void generateBlockJson(IProject project, Mod mod){
 		mod.blocks.forEach[block |
-			FileGenerator.copy(block.texturePath, FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/textures/block')
+			FileGenerator.copy(project, mod, block.texturePath, FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/textures/block')
 			FileGenerator.generateFile(
 				project,
 				block.blockId + ".json",
@@ -191,7 +191,7 @@ class BlockGenerator {
 				{
 				  "parent": "block/cube_all",
 				  "textures": {
-				    "all": "«mod.modId»:block/«block.texturePath.split('/').last.replace('.png', '')»"
+				    "all": "«mod.modId»:block/«block.texturePath.split('\\\\').last.replace('.png', '')»"
 				  }
 				}
 				''',

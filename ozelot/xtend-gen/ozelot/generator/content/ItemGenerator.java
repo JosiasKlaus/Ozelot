@@ -541,7 +541,7 @@ public class ItemGenerator {
       String _modId = mod.getModId();
       String _plus_1 = (_plus + _modId);
       String _plus_2 = (_plus_1 + "/textures/item");
-      FileGenerator.copy(_iconPath, _plus_2);
+      FileGenerator.copy(project, mod, _iconPath, _plus_2);
       String _itemId = item.getItemId();
       String _plus_3 = (_itemId + ".json");
       String _baseFolder_1 = FolderGenerator.getBaseFolder(mod);
@@ -563,7 +563,7 @@ public class ItemGenerator {
       String _modId_2 = mod.getModId();
       _builder.append(_modId_2, "\t\t");
       _builder.append(":item/");
-      String _replace = IterableExtensions.<String>last(((Iterable<String>)Conversions.doWrapArray(item.getIconPath().split("/")))).replace(".png", "");
+      String _replace = IterableExtensions.<String>last(((Iterable<String>)Conversions.doWrapArray(item.getIconPath().split("\\\\")))).replace(".png", "");
       _builder.append(_replace, "\t\t");
       _builder.append("\"");
       _builder.newLineIfNotEmpty();

@@ -211,7 +211,7 @@ class ItemGenerator {
 	
 	def private static void generateModels(IProject project, Mod mod){
 		mod.items.forEach[item |
-			FileGenerator.copy(item.iconPath, FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/textures/item')
+			FileGenerator.copy(project, mod, item.iconPath, FolderGenerator.getBaseFolder(mod) + '/src/main/resources/assets/' + mod.modId + '/textures/item')
 			
 			FileGenerator.generateFile(
 				project,
@@ -221,7 +221,7 @@ class ItemGenerator {
 				{
 					"parent": "item/generated",
 					"textures": {
-						"layer0": "«mod.modId»:item/«item.iconPath.split('/').last.replace('.png', '')»"
+						"layer0": "«mod.modId»:item/«item.iconPath.split('\\\\').last.replace('.png', '')»"
 					}
 				}
 				''',

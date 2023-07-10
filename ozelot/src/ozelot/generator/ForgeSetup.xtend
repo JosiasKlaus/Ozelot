@@ -12,8 +12,7 @@ class ForgeSetup {
 		FileGenerator.generateFile(project, "gradlew", FolderGenerator.getBaseFolder(mod), gradlew, true)		
 		FileGenerator.generateFile(project, "gradlew.bat", FolderGenerator.getBaseFolder(mod), gradlewBat, true)
 		
-		//todo: Josias
-		FileGenerator.copy('./res/gradle-wrapper.jar', FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper/gradle-wrapper.jar')		
+		FileGenerator.copy(project, mod, mod.projectPath + '\\res\\gradle-wrapper.jar', FolderGenerator.getBaseFolder(mod) + '/gradle/wrapper')		
 	}
 	
 	def private static String getGradleWrapper(){

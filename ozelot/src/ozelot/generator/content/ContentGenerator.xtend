@@ -8,7 +8,7 @@ import java.util.ArrayList
 
 class ContentGenerator {
 	def static void run(IProject project, Mod mod){
-		FileGenerator.copy(mod.iconPath, FolderGenerator.getBaseFolder(mod) + '/src/main/resources')
+		FileGenerator.copy(project, mod, mod.iconPath, FolderGenerator.getBaseFolder(mod) + '/src/main/resources')
 			
 		project.generateMainClass(mod)
 		project.generateModsToml(mod)
@@ -73,7 +73,7 @@ class ContentGenerator {
 			displayName="«mod.name»"
 			credits="This mod was created with the Ozelot project."
 			authors="«mod.authors»"
-			logoFile="«mod.iconPath.split("/").last»"
+			logoFile="«mod.iconPath.split('\\\\').last»"
 			description=«"'''"»
 			«mod.description»
 			«"'''"»
@@ -85,20 +85,6 @@ class ContentGenerator {
 			   versionRange="[40.1.84,)"
 			   ordering="NONE"
 			   side="BOTH"
-			
-			# [[dependencies.«mod.modId»]]
-			#    modId="curios"
-			#    mandatory=true
-			#    versionRange="[1.18.2-5,)"
-			#    ordering="NONE"
-			#    side="BOTH"
-			
-			# [[dependencies.«mod.modId»]]
-			#     modId="caelus"
-			#     mandatory=true
-			#     versionRange="[1.18.1-3,)"
-			#     ordering="NONE"
-			#     side="BOTH"
 			
 			[[dependencies.«mod.modId»]]
 			   modId="minecraft"

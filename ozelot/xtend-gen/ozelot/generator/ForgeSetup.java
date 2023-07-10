@@ -14,9 +14,11 @@ public class ForgeSetup {
     FileGenerator.generateFile(project, "gradle.properties", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradleProperties(), true);
     FileGenerator.generateFile(project, "gradlew", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradlew(), true);
     FileGenerator.generateFile(project, "gradlew.bat", FolderGenerator.getBaseFolder(mod), ForgeSetup.getGradlewBat(), true);
+    String _projectPath = mod.getProjectPath();
+    String _plus_1 = (_projectPath + "\\res\\gradle-wrapper.jar");
     String _baseFolder_1 = FolderGenerator.getBaseFolder(mod);
-    String _plus_1 = (_baseFolder_1 + "/gradle/wrapper/gradle-wrapper.jar");
-    FileGenerator.copy("./res/gradle-wrapper.jar", _plus_1);
+    String _plus_2 = (_baseFolder_1 + "/gradle/wrapper");
+    FileGenerator.copy(project, mod, _plus_1, _plus_2);
   }
 
   private static String getGradleWrapper() {

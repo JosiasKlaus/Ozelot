@@ -140,13 +140,31 @@ public interface OzelotPackage extends EPackage {
 	int MOD__VERSION = 7;
 
 	/**
+	 * The feature id for the '<em><b>Project Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD__PROJECT_PATH = 8;
+
+	/**
+	 * The feature id for the '<em><b>Auto Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD__AUTO_START = 9;
+
+	/**
 	 * The number of structural features of the '<em>Mod</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOD_FEATURE_COUNT = 8;
+	int MOD_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Mod</em>' class.
@@ -1271,6 +1289,28 @@ public interface OzelotPackage extends EPackage {
 	EAttribute getMod_Version();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Mod#getProjectPath <em>Project Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Project Path</em>'.
+	 * @see ozelot.Mod#getProjectPath()
+	 * @see #getMod()
+	 * @generated
+	 */
+	EAttribute getMod_ProjectPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ozelot.Mod#isAutoStart <em>Auto Start</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Auto Start</em>'.
+	 * @see ozelot.Mod#isAutoStart()
+	 * @see #getMod()
+	 * @generated
+	 */
+	EAttribute getMod_AutoStart();
+
+	/**
 	 * Returns the meta object for class '{@link ozelot.Item <em>Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2065,6 +2105,22 @@ public interface OzelotPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MOD__VERSION = eINSTANCE.getMod_Version();
+
+		/**
+		 * The meta object literal for the '<em><b>Project Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOD__PROJECT_PATH = eINSTANCE.getMod_ProjectPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Auto Start</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOD__AUTO_START = eINSTANCE.getMod_AutoStart();
 
 		/**
 		 * The meta object literal for the '{@link ozelot.impl.ItemImpl <em>Item</em>}' class.

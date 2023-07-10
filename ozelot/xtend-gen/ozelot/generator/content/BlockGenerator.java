@@ -424,7 +424,7 @@ public class BlockGenerator {
       String _modId = mod.getModId();
       String _plus_1 = (_plus + _modId);
       String _plus_2 = (_plus_1 + "/textures/block");
-      FileGenerator.copy(_texturePath, _plus_2);
+      FileGenerator.copy(project, mod, _texturePath, _plus_2);
       String _blockId = block.getBlockId();
       String _plus_3 = (_blockId + ".json");
       String _baseFolder_1 = FolderGenerator.getBaseFolder(mod);
@@ -475,7 +475,7 @@ public class BlockGenerator {
       String _modId_4 = mod.getModId();
       _builder_1.append(_modId_4, "    ");
       _builder_1.append(":block/");
-      String _replace = IterableExtensions.<String>last(((Iterable<String>)Conversions.doWrapArray(block.getTexturePath().split("/")))).replace(".png", "");
+      String _replace = IterableExtensions.<String>last(((Iterable<String>)Conversions.doWrapArray(block.getTexturePath().split("\\\\")))).replace(".png", "");
       _builder_1.append(_replace, "    ");
       _builder_1.append("\"");
       _builder_1.newLineIfNotEmpty();

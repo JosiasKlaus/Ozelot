@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ozelot.Mod#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link ozelot.Mod#getIconPath <em>Icon Path</em>}</li>
  *   <li>{@link ozelot.Mod#getVersion <em>Version</em>}</li>
+ *   <li>{@link ozelot.Mod#getProjectPath <em>Project Path</em>}</li>
+ *   <li>{@link ozelot.Mod#isAutoStart <em>Auto Start</em>}</li>
  * </ul>
  *
  * @see ozelot.OzelotPackage#getMod()
@@ -185,5 +187,51 @@ public interface Mod extends EObject {
 	 * @generated
 	 */
 	void setVersion(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Project Path</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Project Path</em>' attribute.
+	 * @see #setProjectPath(String)
+	 * @see ozelot.OzelotPackage#getMod_ProjectPath()
+	 * @model default="" required="true"
+	 * @generated
+	 */
+	String getProjectPath();
+
+	/**
+	 * Sets the value of the '{@link ozelot.Mod#getProjectPath <em>Project Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Project Path</em>' attribute.
+	 * @see #getProjectPath()
+	 * @generated
+	 */
+	void setProjectPath(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Auto Start</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Auto Start</em>' attribute.
+	 * @see #setAutoStart(boolean)
+	 * @see ozelot.OzelotPackage#getMod_AutoStart()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isAutoStart();
+
+	/**
+	 * Sets the value of the '{@link ozelot.Mod#isAutoStart <em>Auto Start</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Auto Start</em>' attribute.
+	 * @see #isAutoStart()
+	 * @generated
+	 */
+	void setAutoStart(boolean value);
 
 } // Mod

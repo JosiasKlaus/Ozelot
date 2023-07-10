@@ -306,6 +306,24 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMod_ProjectPath() {
+		return (EAttribute) modEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMod_AutoStart() {
+		return (EAttribute) modEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getItem() {
 		return itemEClass;
 	}
@@ -924,6 +942,8 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 		createEReference(modEClass, MOD__BLOCKS);
 		createEAttribute(modEClass, MOD__ICON_PATH);
 		createEAttribute(modEClass, MOD__VERSION);
+		createEAttribute(modEClass, MOD__PROJECT_PATH);
+		createEAttribute(modEClass, MOD__AUTO_START);
 
 		itemEClass = createEClass(ITEM);
 		createEAttribute(itemEClass, ITEM__ITEM_ID);
@@ -1055,6 +1075,10 @@ public class OzelotPackageImpl extends EPackageImpl implements OzelotPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMod_Version(), ecorePackage.getEString(), "version", null, 1, 1, Mod.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMod_ProjectPath(), ecorePackage.getEString(), "projectPath", "", 1, 1, Mod.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMod_AutoStart(), ecorePackage.getEBoolean(), "autoStart", "true", 1, 1, Mod.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getItem_ItemId(), ecorePackage.getEString(), "itemId", null, 1, 1, Item.class, !IS_TRANSIENT,

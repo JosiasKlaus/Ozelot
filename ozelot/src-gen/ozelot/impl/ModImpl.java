@@ -39,6 +39,8 @@ import ozelot.OzelotPackage;
  *   <li>{@link ozelot.impl.ModImpl#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link ozelot.impl.ModImpl#getIconPath <em>Icon Path</em>}</li>
  *   <li>{@link ozelot.impl.ModImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link ozelot.impl.ModImpl#getProjectPath <em>Project Path</em>}</li>
+ *   <li>{@link ozelot.impl.ModImpl#isAutoStart <em>Auto Start</em>}</li>
  * </ul>
  *
  * @generated
@@ -183,6 +185,46 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * @ordered
 	 */
 	protected String version = VERSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getProjectPath() <em>Project Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProjectPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PROJECT_PATH_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getProjectPath() <em>Project Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProjectPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String projectPath = PROJECT_PATH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isAutoStart() <em>Auto Start</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAutoStart()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean AUTO_START_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isAutoStart() <em>Auto Start</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAutoStart()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean autoStart = AUTO_START_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -359,6 +401,50 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getProjectPath() {
+		return projectPath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProjectPath(String newProjectPath) {
+		String oldProjectPath = projectPath;
+		projectPath = newProjectPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.MOD__PROJECT_PATH, oldProjectPath,
+					projectPath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isAutoStart() {
+		return autoStart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAutoStart(boolean newAutoStart) {
+		boolean oldAutoStart = autoStart;
+		autoStart = newAutoStart;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OzelotPackage.MOD__AUTO_START, oldAutoStart,
+					autoStart));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -394,6 +480,10 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 			return getIconPath();
 		case OzelotPackage.MOD__VERSION:
 			return getVersion();
+		case OzelotPackage.MOD__PROJECT_PATH:
+			return getProjectPath();
+		case OzelotPackage.MOD__AUTO_START:
+			return isAutoStart();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -433,6 +523,12 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 		case OzelotPackage.MOD__VERSION:
 			setVersion((String) newValue);
 			return;
+		case OzelotPackage.MOD__PROJECT_PATH:
+			setProjectPath((String) newValue);
+			return;
+		case OzelotPackage.MOD__AUTO_START:
+			setAutoStart((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -469,6 +565,12 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 		case OzelotPackage.MOD__VERSION:
 			setVersion(VERSION_EDEFAULT);
 			return;
+		case OzelotPackage.MOD__PROJECT_PATH:
+			setProjectPath(PROJECT_PATH_EDEFAULT);
+			return;
+		case OzelotPackage.MOD__AUTO_START:
+			setAutoStart(AUTO_START_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -497,6 +599,10 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 			return ICON_PATH_EDEFAULT == null ? iconPath != null : !ICON_PATH_EDEFAULT.equals(iconPath);
 		case OzelotPackage.MOD__VERSION:
 			return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+		case OzelotPackage.MOD__PROJECT_PATH:
+			return PROJECT_PATH_EDEFAULT == null ? projectPath != null : !PROJECT_PATH_EDEFAULT.equals(projectPath);
+		case OzelotPackage.MOD__AUTO_START:
+			return autoStart != AUTO_START_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -524,6 +630,10 @@ public class ModImpl extends MinimalEObjectImpl.Container implements Mod {
 		result.append(iconPath);
 		result.append(", version: ");
 		result.append(version);
+		result.append(", projectPath: ");
+		result.append(projectPath);
+		result.append(", autoStart: ");
+		result.append(autoStart);
 		result.append(')');
 		return result.toString();
 	}

@@ -62,6 +62,8 @@ public class ModItemProvider extends ItemProviderAdapter implements IEditingDoma
 			addAuthorsPropertyDescriptor(object);
 			addIconPathPropertyDescriptor(object);
 			addVersionPropertyDescriptor(object);
+			addProjectPathPropertyDescriptor(object);
+			addAutoStartPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -157,6 +159,36 @@ public class ModItemProvider extends ItemProviderAdapter implements IEditingDoma
 	}
 
 	/**
+	 * This adds a property descriptor for the Project Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProjectPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Mod_projectPath_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Mod_projectPath_feature", "_UI_Mod_type"),
+						OzelotPackage.Literals.MOD__PROJECT_PATH, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Auto Start feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAutoStartPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Mod_autoStart_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Mod_autoStart_feature", "_UI_Mod_type"),
+						OzelotPackage.Literals.MOD__AUTO_START, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -239,6 +271,8 @@ public class ModItemProvider extends ItemProviderAdapter implements IEditingDoma
 		case OzelotPackage.MOD__AUTHORS:
 		case OzelotPackage.MOD__ICON_PATH:
 		case OzelotPackage.MOD__VERSION:
+		case OzelotPackage.MOD__PROJECT_PATH:
+		case OzelotPackage.MOD__AUTO_START:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case OzelotPackage.MOD__ITEMS:

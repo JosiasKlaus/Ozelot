@@ -7,13 +7,37 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import ozelot.Mod;
 
 @SuppressWarnings("all")
 public class FileGenerator {
-  public static void copy(final String originalPath, final String newPath) {
-    InputOutput.<String>println((((("Coping \"" + originalPath) + "\" to \"") + newPath) + "\""));
+  public static void copy(final IProject project, final Mod mod, final String originalPath, final String newPath) {
+    try {
+      String currentFolderString = "src-gen/";
+      IFolder folder = null;
+      String[] _split = newPath.split("/");
+      for (final String s : _split) {
+        {
+          currentFolderString = ((currentFolderString + s) + "/");
+          folder = project.getFolder(currentFolderString);
+          boolean _exists = folder.exists();
+          boolean _not = (!_exists);
+          if (_not) {
+            folder.create(true, true, null);
+          }
+        }
+      }
+      String _projectPath = mod.getProjectPath();
+      String _plus = ((("copy " + originalPath) + " ") + _projectPath);
+      String _plus_1 = (_plus + "\\src-gen\\");
+      String _replace = newPath.replace("/", "\\");
+      String _plus_2 = (_plus_1 + _replace);
+      String _plus_3 = (_plus_2 + "\\");
+      ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", _plus_3);
+      Process p = builder.start();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 
   public static void generateFile(final IProject project, final String fileName, final String path, final CharSequence content, final boolean overwrite) {
